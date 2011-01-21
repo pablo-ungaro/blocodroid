@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">Bloco Droid</string>
+<string name="botaoOpcoes">Configurações</string>
+<string name="botaoBairro">Por Bairros</string>
+<string name="botaoData">Por Datas</string>
+<string name="botaoBloco">Por Blocos</string>
+<string name="botaoAtualizar">Atualizar</string>
+</resources>

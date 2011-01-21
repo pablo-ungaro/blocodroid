@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout android:id="@+id/TableLayout01"
+	android:background="@drawable/fundo" android:padding="20px"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<Button android:text="@string/botaoBloco" android:id="@+id/botaoBloco"
+			android:textSize="14px" android:textStyle="bold"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+		<Button android:text="@string/botaoData" android:id="@+id/botaoData"
+			android:textSize="14px" android:textStyle="bold"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+		<Button android:text="@string/botaoBairro" android:id="@+id/botaoBairro"
+			android:textSize="14px" android:textStyle="bold"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
+	</TableRow>
+</TableLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:id="@+id/RelativeLayout01"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<AutoCompleteTextView android:id="@+id/AutoCompleteTextView01"
+		android:layout_width="wrap_content" android:layout_alignParentTop="true"
+		android:layout_height="wrap_content"></AutoCompleteTextView>
+	<ListView android:id="@+id/listBlocos" android:layout_below="@+id/AutoCompleteTextView01"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignLeft="@+id/AutoCompleteTextView01"
+		android:layout_alignRight="@+id/AutoCompleteTextView01"></ListView>
+</RelativeLayout>
