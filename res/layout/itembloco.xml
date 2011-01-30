@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <br.com.jawsys.blocodroid.activities.ListaBlocoItem
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
+	android:orientation="horizontal" android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 
-	<CheckedTextView android:id="@+id/checkBloco"
-		android:textSize="22sp"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:checkMark="?android:attr/listChoiceIndicatorMultiple" />
 	<TextView android:id="@+id/textoBloco" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:singleLine="false"
-		android:ellipsize="marquee" />
+		android:layout_weight="1" android:layout_height="wrap_content"
+		android:singleLine="false" android:textSize="22sp" />
+	<CheckBox android:id="@+id/checkBloco" android:layout_width="wrap_content"
+		style="?android:attr/starStyle" android:layout_height="wrap_content"
+		android:checkMark="?android:attr/listChoiceIndicatorMultiple" />
+
 </br.com.jawsys.blocodroid.activities.ListaBlocoItem>

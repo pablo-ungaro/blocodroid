@@ -5,13 +5,11 @@ import java.util.List;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import br.com.jawsys.blocodroid.db.Bloco;
 import br.com.jawsys.blocodroid.db.CarregarXML;
 import br.com.jawsys.blocodroid.db.DBAdapter;
 
-public class UpdateManager {
+public class UpdateManager implements Runnable {
 
 	private Context context;
 
@@ -19,28 +17,62 @@ public class UpdateManager {
 		this.context = main;
 	}
 
-	protected void inicializaDados() {
-		SharedPreferences sp = PreferenceManager
-				.getDefaultSharedPreferences(context);
-		if (sp.contains("versao")) {
+	public void inicializaDados() {
+		DBAdapter db = new DBAdapter(context);
+
+		if (db.listPorBlocos().isEmpty() == false) {
 			return;
 		}
 
-		DBAdapter db = new DBAdapter(context);
+		atualizarDados(null);
+	}
+
+	public void atualizarDados(CallbackUpdateManager callbackUpdateManager) {
+		if (callbackUpdateManager != null) {
+			callbackUpdateManager.steps(5);
+		}
+
 		CarregarXML xml = null;
 		try {
 			xml = new CarregarXML();
+
+			if (callbackUpdateManager != null) {
+				callbackUpdateManager.progress();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		List<Bloco> blocos = xml.listarBlocos();
+
+		if (callbackUpdateManager != null) {
+			callbackUpdateManager.progress();
+		}
+
+		if (callbackUpdateManager != null) {
+			callbackUpdateManager.steps(blocos.size() + 5);
+		}
+
 		List<ContentValues> cvs = new ArrayList<ContentValues>(blocos.size());
 		for (Bloco b : blocos) {
 			cvs.add(b.buildContentValues());
+			if (callbackUpdateManager != null) {
+				callbackUpdateManager.progress();
+			}
 		}
-		db.salvar(cvs);
+		DBAdapter db = new DBAdapter(context);
+		db.recriar();
+		if (callbackUpdateManager != null) {
+			callbackUpdateManager.progress();
+		}
 
-		sp.edit().putInt("versao", xml.getVersao());
+		db.salvar(cvs);
+		if (callbackUpdateManager != null) {
+			callbackUpdateManager.progress();
+		}
+
+	}
+
+	public void run() {
 	}
 
 }

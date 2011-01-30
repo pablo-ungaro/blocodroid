@@ -1,46 +1,40 @@
 package br.com.jawsys.blocodroid.activities;
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.CheckedTextView;
+import android.view.View.OnClickListener;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import br.com.jawsys.blocodroid.R;
 import br.com.jawsys.blocodroid.db.Bloco;
 
-public class ListaBlocoItem extends LinearLayout {
+public class ListaBlocoItem extends LinearLayout implements OnClickListener,
+		OnCheckedChangeListener {
 
 	private Bloco bloco;
-	private CheckedTextView checkBloco;
-	private SimpleDateFormat formatter = new SimpleDateFormat(
-			"dd/MM EEEE HH:mm", new Locale("pt", "BR"));
+	private CheckBox checkBloco;
 	private TextView textoBloco;
+	private ProgressDialog pd;
 
 	public ListaBlocoItem(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public void setBloco(Bloco bloco) {
+	public void setBloco(final Bloco bloco) {
 		this.bloco = bloco;
-		checkBloco.setText(bloco.getNome());
 		checkBloco.setChecked(bloco.isFavorito());
-		checkBloco.setOnClickListener(new OnClickListener() {
+		checkBloco.setOnCheckedChangeListener(this);
 
-			@Override
-			public void onClick(View v) {
-				ListaBlocoItem.this.bloco.trocaFavorito();
-				checkBloco.setChecked(ListaBlocoItem.this.bloco.isFavorito());
-			}
-
-		});
-
-		textoBloco.setText(bloco.getBairro() + ", "
-				+ formatter.format(bloco.getData()) + "\n"
-				+ bloco.getEndereco());
+		textoBloco.setText(bloco.getNome());
+		textoBloco.setOnClickListener(this);
 	}
 
 	public Bloco getBloco() {
@@ -48,10 +42,42 @@ public class ListaBlocoItem extends LinearLayout {
 	}
 
 	@Override
+	public void onCheckedChanged(CompoundButton buttonView,
+			final boolean isChecked) {
+		if (getBloco().isFavorito() == isChecked) {
+			return;
+		}
+
+		pd = ProgressDialog.show(this.getContext(), "",
+				"Marcando como favorito. Aguarde...", true);
+
+		Thread t = new Thread(new UpdateManager(this.getContext()) {
+			@Override
+			public void run() {
+				getBloco().trocaFavorito(isChecked);
+				handler.sendEmptyMessage(0);
+			}
+		});
+		t.start();
+	}
+
+	@Override
 	protected void onFinishInflate() {
 		super.onFinishInflate();
-		checkBloco = (CheckedTextView) findViewById(R.id.checkBloco);
+		checkBloco = (CheckBox) findViewById(R.id.checkBloco);
 		textoBloco = (TextView) findViewById(R.id.textoBloco);
 	}
 
+	public void onClick(View v) {
+		Intent mostraBloco = new Intent(getContext(), MostraBloco.class);
+		String nome = (String) ((TextView) v).getText();
+		mostraBloco.putExtra("nome", nome);
+		getContext().startActivity(mostraBloco);
+	}
+
+	private Handler handler = new Handler() {
+		public void handleMessage(Message msg) {
+			pd.dismiss();
+		}
+	};
 }

@@ -20,6 +20,10 @@ public class ListaBlocosAdapter extends BaseAdapter {
 		this.context = context;
 	}
 
+	public void setListaBlocos(List<Bloco> lista) {
+		this.blocos = lista;
+	}
+
 	@Override
 	public int getCount() {
 		return blocos.size();
@@ -36,7 +40,7 @@ public class ListaBlocosAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		ListaBlocoItem lbi = null;
 		if (null == convertView) {
 			lbi = (ListaBlocoItem) View.inflate(context, R.layout.itembloco,
@@ -46,16 +50,6 @@ public class ListaBlocosAdapter extends BaseAdapter {
 		}
 		lbi.setBloco(blocos.get(position));
 		return lbi;
-	}
-
-	public void forceReload() {
-		notifyDataSetChanged();
-	}
-
-	public void toggleFavoritoAtPosition(int position) {
-		Bloco bloco = getItem(position);
-		bloco.trocaFavorito();
-		notifyDataSetChanged();
 	}
 
 }

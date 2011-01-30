@@ -18,14 +18,37 @@ public class Bloco {
 	public Bloco(DBAdapter db, Cursor cursor) {
 		this.db = db;
 
-		_id = cursor.getInt(cursor.getColumnIndex(DBAdapter.KEY_ROWID));
-		nome = cursor.getString(cursor.getColumnIndex("nome"));
-		bairro = cursor.getString(cursor.getColumnIndex("bairro"));
-		endereco = cursor.getString(cursor.getColumnIndex("endereco"));
-		String string = cursor.getString(cursor.getColumnIndex("favorito"));
-		favorito = Boolean.valueOf("1".equals(string) ? true : false);
-		data = DBAdapter.parseData(cursor.getString(cursor
-				.getColumnIndex("data")));
+		int columnIndex = cursor.getColumnIndex(DBAdapter.KEY_ROWID);
+		if (columnIndex > -1) {
+			_id = cursor.getInt(columnIndex);
+		}
+
+		columnIndex = cursor.getColumnIndex("nome");
+		if (columnIndex > -1) {
+			nome = cursor.getString(columnIndex);
+		}
+
+		columnIndex = cursor.getColumnIndex("bairro");
+		if (columnIndex > -1) {
+			bairro = cursor.getString(cursor.getColumnIndex("bairro"));
+		}
+
+		columnIndex = cursor.getColumnIndex("endereco");
+		if (columnIndex > -1) {
+			endereco = cursor.getString(cursor.getColumnIndex("endereco"));
+		}
+
+		columnIndex = cursor.getColumnIndex("favorito");
+		if (columnIndex > -1) {
+			String string = cursor.getString(cursor.getColumnIndex("favorito"));
+			favorito = Boolean.valueOf("1".equals(string) ? true : false);
+		}
+
+		columnIndex = cursor.getColumnIndex("data");
+		if (columnIndex > -1) {
+			data = DBAdapter.parseData(cursor.getString(cursor
+					.getColumnIndex("data")));
+		}
 	}
 
 	public Bloco(DBAdapter db) {
@@ -80,18 +103,13 @@ public class Bloco {
 		this.favorito = favorito;
 	}
 
-	public void trocaFavorito() {
-		setFavorito(!isFavorito());
-		salvar();
+	public void trocaFavorito(boolean isChecked) {
+		setFavorito(isChecked);
+		db.updateFavorito(getNome(), isFavorito());
 	}
 
 	public Integer getId() {
 		return _id;
-	}
-
-	public void salvar() {
-		ContentValues cv = buildContentValues();
-		db.salvar(cv);
 	}
 
 	public ContentValues buildContentValues() {

@@ -3,19 +3,15 @@
 <resources>
 
 	<string-array name="updateInterval">
-		<item name="1000">Every 1 second</item>
-		<item name="5000">Every 5 seconds</item>
-		<item name="30000">Every 30 seconds</item>
-		<item name="60000">Every 1 minute</item>
-		<item name="300000">Every 5 minutes</item>
+		<item name="600000">A cada 10 minutos</item>
+		<item name="1800000">A cada 30 minutos</item>
+		<item name="3600000">A cada 1 hora</item>
 	</string-array>
 
 	<string-array name="updateIntervalValues">
-		<item name="1000">1000</item>
-		<item name="5000">5000</item>
-		<item name="30000">30000</item>
-		<item name="60000">60000</item>
-		<item name="300000">300000</item>
+		<item name="600000">600000</item>
+		<item name="1800000">1800000</item>
+		<item name="3600000">3600000</item>
 	</string-array>
 
 </resources>

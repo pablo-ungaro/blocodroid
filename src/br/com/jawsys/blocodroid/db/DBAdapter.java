@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -23,18 +26,23 @@ public class DBAdapter {
 
 	private static final String DBTABLE = "blocos";
 
-	private static final int DBVERSION = 14;
+	private static final int DBVERSION = 20;
 
 	private static final String DATABASE_CREATE = "create table blocos (_id integer primary key autoincrement, "
 			+ "nome text not null, bairro text not null, favorito boolean not null, "
-			+ "data date not null, endereco text not null);";
+			+ "data text not null, endereco text not null);";
 
 	public static final String TAG = "blocodroid";
 
 	private final Context context;
 
+	private static final Locale ptBR = new Locale("pt", "BR");
+
 	private static SimpleDateFormat formatter = new SimpleDateFormat(
-			"dd/MM/yyyy HH'hs'");
+			"dd/MM/yyyy HH'hs'", ptBR);
+
+	private static SimpleDateFormat formatadorSemHora = new SimpleDateFormat(
+			"dd 'de' MMM, EEEE", ptBR);
 
 	private DatabaseHelper dbHelper;
 
@@ -73,18 +81,39 @@ public class DBAdapter {
 		dbHelper.close();
 	}
 
-	public List<Bloco> listAllBlocos() {
+	public SortedMap<Date, List<Bloco>> groupByDate() {
 		open();
 
-		Cursor cursor = db.query(DBTABLE, null, null, null, null, null, "nome");
-		if (cursor.getCount() < 1) {
-			return Collections.emptyList();
+		Cursor cursor = db.query(true, DBTABLE, null, null, null, null, null,
+				"nome", null);
+		List<Bloco> allBlocos = montaListaBlocos(cursor);
+
+		SortedMap<Date, List<Bloco>> agrupado = new TreeMap<Date, List<Bloco>>();
+
+		for (Bloco bloco : allBlocos) {
+			Date key = (Date) bloco.getData().clone();
+			key.setHours(0);
+			key.setMinutes(0);
+			key.setSeconds(0);
+
+			List<Bloco> blocos = agrupado.get(key);
+			if (blocos == null) {
+				blocos = new ArrayList<Bloco>();
+				agrupado.put(key, blocos);
+			}
+			blocos.add(bloco);
 		}
 
-		List<Bloco> blocos = new ArrayList<Bloco>();
-		while (cursor.moveToNext()) {
-			blocos.add(new Bloco(this, cursor));
-		}
+		return agrupado;
+	}
+
+	public List<Bloco> listPorBlocos() {
+		open();
+
+		Cursor cursor = db.query(true, DBTABLE,
+				new String[] { "nome, favorito" }, null, null, null, null,
+				"nome", null);
+		List<Bloco> blocos = montaListaBlocos(cursor);
 
 		close();
 
@@ -134,4 +163,61 @@ public class DBAdapter {
 		}
 	}
 
+	public void recriar() {
+		open();
+		dbHelper.onUpgrade(db, db.getVersion(), db.getVersion() + 1);
+		close();
+	}
+
+	public void updateFavorito(String string, Boolean favorito) {
+		open();
+
+		ContentValues cv = new ContentValues();
+		cv.put("favorito", favorito);
+		db.update(DBTABLE, cv, "nome = ?", new String[] { string.toString() });
+
+		close();
+	}
+
+	public List<Bloco> findByNome(String nome) {
+		open();
+
+		Cursor cursor = db.query(DBTABLE, null, "nome = ?",
+				new String[] { nome }, null, null, null, null);
+
+		List<Bloco> blocos = montaListaBlocos(cursor);
+
+		close();
+
+		return blocos;
+	}
+
+	private List<Bloco> montaListaBlocos(Cursor cursor) {
+		if (cursor.getCount() < 1) {
+			return Collections.emptyList();
+		}
+
+		List<Bloco> blocos = new ArrayList<Bloco>();
+		while (cursor.moveToNext()) {
+			blocos.add(new Bloco(this, cursor));
+		}
+		return blocos;
+	}
+
+	public Bloco findById(Integer id) {
+		open();
+
+		Cursor cursor = db.query(DBTABLE, null, KEY_ROWID + " = ?",
+				new String[] { id.toString() }, null, null, null, null);
+
+		List<Bloco> blocos = montaListaBlocos(cursor);
+
+		close();
+
+		return blocos.get(0);
+	}
+
+	public static CharSequence formataDataSemHora(Date data) {
+		return formatadorSemHora.format(data);
+	}
 }
