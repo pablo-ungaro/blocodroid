@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:id="@+id/widget27"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView android:id="@+id/nomeBloco" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="TextView"
+		android:textSize="22sp" android:textStyle="bold"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true">
+	</TextView>
+	<TextView android:id="@+id/datasEnderecos"
+		android:layout_alignLeft="@+id/nomeBloco" android:layout_below="@+id/nomeBloco"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:paddingBottom="8px" android:textSize="18sp" android:text="@string/datasEnderecos">
+	</TextView>
+	<ListView android:id="@+id/listaDatasHorarios"
+		android:layout_alignLeft="@+id/datasEnderecos" android:layout_below="@+id/datasEnderecos"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+	</ListView>
+	<Button android:text="Mostrar no Mapa" android:layout_below="@+id/listaDatasHorarios"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:id="@+id/mostrarMapa" android:layout_alignLeft="@+id/listaDatasHorarios"
+		android:layout_alignRight="@+id/listaDatasHorarios" />
+</RelativeLayout>

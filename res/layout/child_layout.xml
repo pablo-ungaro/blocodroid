@@ -1,0 +1,23 @@
+<RelativeLayout android:id="@+id/LinearLayout01"
+	android:layout_width="fill_parent" android:layout_height="45dip"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="45dip" android:paddingLeft="5dip"
+		android:paddingRight="5dip" android:textStyle="bold" android:textSize="17dip"
+		android:gravity="center_vertical" android:id="@+id/nome" android:text="Children"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+		android:textColor="#ffCCCC22" />
+
+	<Button android:text="Mapa" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/mostrarMapa"
+		android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:paddingLeft="5dip"
+		android:paddingRight="5dip" android:textStyle="bold" android:textSize="12dip"
+		android:gravity="center_vertical" android:id="@+id/endereco"
+		android:layout_below="@+id/mostrarMapa"
+		android:layout_alignParentLeft="true" android:text="Children" />
+
+</RelativeLayout>
