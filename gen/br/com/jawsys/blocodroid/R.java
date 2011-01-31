@@ -18,10 +18,48 @@ public final class R {
         public static final int transparent=0x7f060000;
     }
     public static final class drawable {
-        public static final int fundo=0x7f020000;
-        public static final int ic_atualizar=0x7f020001;
-        public static final int ic_opcoes=0x7f020002;
-        public static final int icon=0x7f020003;
+        public static final int barcode=0x7f020000;
+        public static final int cards=0x7f020001;
+        public static final int chart=0x7f020002;
+        public static final int clock=0x7f020003;
+        public static final int cloud=0x7f020004;
+        public static final int colourpicker=0x7f020005;
+        public static final int creep001=0x7f020006;
+        public static final int creep002=0x7f020007;
+        public static final int creep003=0x7f020008;
+        public static final int creep004=0x7f020009;
+        public static final int creep005=0x7f02000a;
+        public static final int creep006=0x7f02000b;
+        public static final int creep007=0x7f02000c;
+        public static final int creep008=0x7f02000d;
+        public static final int dialog=0x7f02000e;
+        public static final int dice=0x7f02000f;
+        public static final int disc=0x7f020010;
+        public static final int equalizer=0x7f020011;
+        public static final int filter=0x7f020012;
+        public static final int flag=0x7f020013;
+        public static final int flash=0x7f020014;
+        public static final int fundo=0x7f020015;
+        public static final int globe=0x7f020016;
+        public static final int happy=0x7f020017;
+        public static final int ic_atualizar=0x7f020018;
+        public static final int ic_opcoes=0x7f020019;
+        public static final int icon=0x7f02001a;
+        public static final int largetiles=0x7f02001b;
+        public static final int light=0x7f02001c;
+        public static final int love=0x7f02001d;
+        public static final int magnet=0x7f02001e;
+        public static final int monitor=0x7f02001f;
+        public static final int music=0x7f020020;
+        public static final int piechart=0x7f020021;
+        public static final int ruler=0x7f020022;
+        public static final int sad=0x7f020023;
+        public static final int seal=0x7f020024;
+        public static final int shopping=0x7f020025;
+        public static final int smalltiles=0x7f020026;
+        public static final int sun=0x7f020027;
+        public static final int tag=0x7f020028;
+        public static final int umbrella=0x7f020029;
     }
     public static final class id {
         public static final int LinearLayout01=0x7f090000;
