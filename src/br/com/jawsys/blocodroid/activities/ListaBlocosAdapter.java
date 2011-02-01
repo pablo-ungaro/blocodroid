@@ -20,10 +20,6 @@ public class ListaBlocosAdapter extends BaseAdapter {
 		this.context = context;
 	}
 
-	public void setListaBlocos(List<Bloco> lista) {
-		this.blocos = lista;
-	}
-
 	@Override
 	public int getCount() {
 		return blocos.size();

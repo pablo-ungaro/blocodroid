@@ -5,9 +5,9 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<TextView android:id="@+id/data" android:layout_width="fill_parent"
-		android:layout_height="45dip" android:text="Groups" android:gravity="center_vertical|right"
-		android:paddingLeft="5dip" android:paddingRight="5dip"
+		android:layout_height="45dip" android:text="Groups" android:gravity="center_vertical|left"
+		android:paddingLeft="35dip" android:paddingRight="5dip"
 		android:textColor="#ffffffff" android:textStyle="bold"
-		android:textSize="17dip" />
+		android:textSize="20dip" />
 
 </LinearLayout>

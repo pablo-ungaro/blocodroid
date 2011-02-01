@@ -14,15 +14,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import br.com.jawsys.blocodroid.R;
 import br.com.jawsys.blocodroid.db.Bloco;
 
-public class Main extends Activity implements OnClickListener {
+public class Main extends Activity implements OnClickListener, OnTouchListener {
 
 	private NotificationManager nManager;
 
@@ -32,21 +35,36 @@ public class Main extends Activity implements OnClickListener {
 
 	private static final int ACTIVITY_OPCOES = 0;
 
-	private static final int SECOND = 2;
+	private static final int MENU_ATUALIZA = 1;
 
 	protected static final int PROGRESS_DIALOG = 4;
 
-	private static final int THIRD = 6;
+	private static final int MENU_VER_MAPA = 2;
+
+	private static final int MENU_CONFIG = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		new UpdateManager(this).inicializaDados();
+		try {
+			new UpdateManager(this).inicializaDados();
+		} catch (Exception e) {
+			erroAoCarregarXML();
+		}
 		configBotoes();
 
 		nManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+	}
+
+	private void erroAoCarregarXML() {
+		AlertDialog erro = new AlertDialog.Builder(this)
+				.setMessage(
+						"Nao foi possível obter a lista de blocos. Tente mais tarde.")
+				.setTitle("Erro :-(").setCancelable(true)
+				.setIcon(android.R.drawable.ic_dialog_alert).create();
+		erro.show();
 	}
 
 	protected void notificarBloco(Bloco bloco) {
@@ -64,25 +82,24 @@ public class Main extends Activity implements OnClickListener {
 	}
 
 	private void configBotoes() {
-		Button botao = (Button) findViewById(R.id.botaoBloco);
+		configBotao((Button) findViewById(R.id.botaoBloco));
+		configBotao((Button) findViewById(R.id.botaoFavoritos));
+		configBotao((Button) findViewById(R.id.botaoData));
+		configBotao((Button) findViewById(R.id.botaoBairro));
+	}
+	
+	private void configBotao(Button botao) {
 		botao.setOnClickListener(this);
-		botao = (Button) findViewById(R.id.botaoData);
-		botao.setOnClickListener(this);
-		botao = (Button) findViewById(R.id.botaoBairro);
-		botao.setOnClickListener(this);
+		botao.setOnTouchListener(this);
 	}
 
 	// Create Menu Option
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean result = super.onCreateOptionsMenu(menu);
-		MenuItem iOpcoes = menu.add(0, Menu.FIRST, 0, R.string.botaoOpcoes);
-		MenuItem iAtualizar = menu.add(0, SECOND, 1, R.string.botaoAtualizar);
-		MenuItem iVerMapa = menu.add(0, THIRD, 2, R.string.verMapa);
-
-		iOpcoes.setTitle(R.string.botaoOpcoes);
-		iAtualizar.setTitle(R.string.botaoAtualizar);
-		iVerMapa.setTitle(R.string.verMapa);
+		menu.add(0, MENU_CONFIG, 0, R.string.botaoOpcoes).setEnabled(false);
+		menu.add(0, MENU_ATUALIZA, 1, R.string.botaoAtualizar);
+		menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa);
 
 		return result;
 	}
@@ -90,17 +107,17 @@ public class Main extends Activity implements OnClickListener {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case Menu.FIRST: {
+		case MENU_CONFIG: {
 			Intent intent = new Intent(this, Opcoes.class);
 			startActivityForResult(intent, ACTIVITY_OPCOES);
 
 			return super.onOptionsItemSelected(item);
 		}
-		case SECOND: {
+		case MENU_ATUALIZA: {
 			atualizarDados();
 			return super.onOptionsItemSelected(item);
 		}
-		case THIRD: {
+		case MENU_VER_MAPA: {
 			Intent viewWholeMap = new Intent(Intent.ACTION_VIEW,
 					Uri.parse("http://goo.gl/maps/dJmE"));
 			startActivity(viewWholeMap);
@@ -125,7 +142,13 @@ public class Main extends Activity implements OnClickListener {
 										Main.this) {
 									@Override
 									public void run() {
-										atualizarDados(null);
+										try {
+											atualizarDados();
+										} catch (RuntimeException re) {
+											erroAoCarregarXML();
+										} catch (Exception e) {
+											erroAoCarregarXML();
+										}
 										handler.sendEmptyMessage(0);
 									}
 								});
@@ -156,18 +179,21 @@ public class Main extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		mostraAtividade(v);
+	}
+
+	private void mostraAtividade(View v) {
 		switch (v.getId()) {
-		case (R.id.botaoBloco): {
+		case (R.id.botaoBloco):
+		case(R.id.botaoFavoritos): {
 			Intent intent = new Intent(v.getContext(), PorBlocos.class);
+			intent.putExtra("favoritos", R.id.botaoFavoritos == v.getId());
 			Main.this.startActivity(intent);
 			break;
 		}
 		case (R.id.botaoBairro): {
-			/*
-			 * Bloco b = new Bloco(new DBAdapter(this));
-			 * b.setData(Calendar.getInstance().getTime());
-			 * b.setNome("Carmelitas"); notificarBloco(b);
-			 */
+			Intent intent = new Intent(v.getContext(), PorBairros.class);
+			Main.this.startActivity(intent);
 			break;
 		}
 		case (R.id.botaoData): {
@@ -176,6 +202,21 @@ public class Main extends Activity implements OnClickListener {
 			break;
 		}
 		}
+	}
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+			vib.vibrate(35);
+			((Button) v).setBackgroundDrawable(getResources().getDrawable(
+					R.drawable.clickedrountedbox));
+		} else if (event.getAction() == MotionEvent.ACTION_UP) {
+			((Button) v).setBackgroundDrawable(getResources().getDrawable(
+					R.drawable.rountedbox));
+			mostraAtividade(v);
+		}
+		return true;
 	}
 
 }

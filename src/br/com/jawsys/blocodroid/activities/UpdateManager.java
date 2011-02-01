@@ -17,59 +17,28 @@ public class UpdateManager implements Runnable {
 		this.context = main;
 	}
 
-	public void inicializaDados() {
+	public void inicializaDados() throws Exception {
 		DBAdapter db = new DBAdapter(context);
 
 		if (db.listPorBlocos().isEmpty() == false) {
 			return;
 		}
 
-		atualizarDados(null);
+		atualizarDados();
 	}
 
-	public void atualizarDados(CallbackUpdateManager callbackUpdateManager) {
-		if (callbackUpdateManager != null) {
-			callbackUpdateManager.steps(5);
-		}
-
-		CarregarXML xml = null;
-		try {
-			xml = new CarregarXML();
-
-			if (callbackUpdateManager != null) {
-				callbackUpdateManager.progress();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void atualizarDados() throws Exception {
+		CarregarXML xml = new CarregarXML();
 		List<Bloco> blocos = xml.listarBlocos();
-
-		if (callbackUpdateManager != null) {
-			callbackUpdateManager.progress();
-		}
-
-		if (callbackUpdateManager != null) {
-			callbackUpdateManager.steps(blocos.size() + 5);
-		}
 
 		List<ContentValues> cvs = new ArrayList<ContentValues>(blocos.size());
 		for (Bloco b : blocos) {
 			cvs.add(b.buildContentValues());
-			if (callbackUpdateManager != null) {
-				callbackUpdateManager.progress();
-			}
 		}
 		DBAdapter db = new DBAdapter(context);
 		db.recriar();
-		if (callbackUpdateManager != null) {
-			callbackUpdateManager.progress();
-		}
 
 		db.salvar(cvs);
-		if (callbackUpdateManager != null) {
-			callbackUpdateManager.progress();
-		}
-
 	}
 
 	public void run() {

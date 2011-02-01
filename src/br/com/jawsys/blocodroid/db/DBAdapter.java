@@ -220,4 +220,40 @@ public class DBAdapter {
 	public static CharSequence formataDataSemHora(Date data) {
 		return formatadorSemHora.format(data);
 	}
+
+	public SortedMap<String, List<Bloco>> groupByBairro() {
+		open();
+
+		Cursor cursor = db.query(true, DBTABLE, null, null, null, null, null,
+				"nome", null);
+		List<Bloco> allBlocos = montaListaBlocos(cursor);
+
+		SortedMap<String, List<Bloco>> agrupado = new TreeMap<String, List<Bloco>>();
+
+		for (Bloco bloco : allBlocos) {
+			String key = bloco.getBairro();
+
+			List<Bloco> blocos = agrupado.get(key);
+			if (blocos == null) {
+				blocos = new ArrayList<Bloco>();
+				agrupado.put(key, blocos);
+			}
+			blocos.add(bloco);
+		}
+
+		return agrupado;
+	}
+
+	public List<Bloco> listBlocosFavoritos() {
+		open();
+
+		Cursor cursor = db.query(true, DBTABLE,
+				new String[] { "nome, favorito" }, "favorito=?",
+				new String[] { "1" }, null, null, "nome", null);
+		List<Bloco> blocos = montaListaBlocos(cursor);
+
+		close();
+
+		return blocos;
+	}
 }

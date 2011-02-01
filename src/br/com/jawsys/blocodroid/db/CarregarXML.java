@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.zip.ZipInputStream;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -22,7 +23,7 @@ public class CarregarXML extends DefaultHandler {
 	private SAXParserFactory spf;
 	private SAXParser sp;
 	private XMLReader xr;
-	private List<Bloco> blocos = new ArrayList<Bloco>();
+	private List<Bloco> listaBlocos = new ArrayList<Bloco>();
 
 	private String bairroAtual;
 	private String dataAtual;
@@ -42,21 +43,26 @@ public class CarregarXML extends DefaultHandler {
 		xr = sp.getXMLReader();
 
 		URL blocos2011Url = new URL(
-				"http://dl.dropbox.com/u/8159675/blocodroid/blocos-2011.xml");
+				"http://dl.dropbox.com/u/8159675/blocodroid/blocos.zip");
 		xr.setContentHandler(this);
 		InputStream openStream = blocos2011Url.openStream();
-		InputSource inputSource = new InputSource(openStream);
+		ZipInputStream zis = new ZipInputStream(openStream);
+		zis.getNextEntry();
+		InputSource inputSource = new InputSource(zis);
 		inputSource.setEncoding("UTF-8");
 		xr.parse(inputSource);
+		zis.close();
+		openStream.close();
 	}
 
 	public List<Bloco> listarBlocos() {
-		return blocos;
+		return listaBlocos;
 	}
 
 	private Boolean currentElement = false;
 	private String currentValue = null;
 	private String versao;
+	private boolean hasCharacters;
 
 	/**
 	 * Called when tag starts ( ex:- <name>AndroidPeople</name> -- <name> )
@@ -65,7 +71,7 @@ public class CarregarXML extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
 		currentElement = true;
-
+		hasCharacters = false;
 		if (localName.equals("root")) {
 			versao = attributes.getValue("versao");
 		}
@@ -84,16 +90,16 @@ public class CarregarXML extends DefaultHandler {
 
 		currentElement = false;
 
-		if (localName.equals("bairro")) {
-			bairroAtual = currentValue;
-		} else if (localName.equals("endereco")) {
-			enderecoAtual = currentValue;
-		} else if (localName.equals("nome")) {
-			nomeAtual = currentValue;
-		} else if (localName.equals("data")) {
-			dataAtual = currentValue;
-		} else if (localName.equals("hora")) {
-			horaAtual = currentValue;
+		if (localName.equals("b")) {
+			bairroAtual = hasCharacters ? currentValue : null;
+		} else if (localName.equals("e")) {
+			enderecoAtual = hasCharacters ? currentValue : null;
+		} else if (localName.equals("n")) {
+			nomeAtual = hasCharacters ? currentValue : null;
+		} else if (localName.equals("d")) {
+			dataAtual = hasCharacters ? currentValue : null;
+		} else if (localName.equals("h")) {
+			horaAtual = hasCharacters ? currentValue : null;
 			guardaBlocoAtual();
 		}
 
@@ -107,11 +113,16 @@ public class CarregarXML extends DefaultHandler {
 			cal.setTime(formatter.parse(dataAtual));
 		} catch (ParseException e) {
 		}
-		if (horaAtual.length() > 0) {
-			cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(horaAtual));
+		if (horaAtual != null && horaAtual.trim().length() > 0) {
+			try {
+				int parseInt = Integer.parseInt(horaAtual);
+				cal.set(Calendar.HOUR_OF_DAY, parseInt);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
 		}
 		blocoAtual.setData(cal.getTime());
-		blocos.add(blocoAtual);
+		listaBlocos.add(blocoAtual);
 		blocoAtual = new Bloco();
 	}
 
@@ -123,6 +134,7 @@ public class CarregarXML extends DefaultHandler {
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
 
+		hasCharacters = true;
 		if (currentElement) {
 			currentValue = new String(ch, start, length).trim();
 			currentElement = false;
