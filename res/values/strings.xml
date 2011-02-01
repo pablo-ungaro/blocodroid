@@ -2,7 +2,7 @@
 <resources>
 	<string name="verMapa">Ver Mapa</string>
 	<string name="hello">Hello World, Main!</string>
-	<string name="app_name">Bloco Droid</string>
+	<string name="app_name">BlocoDroid</string>
 	<string name="botaoOpcoes">Configurações</string>
 	<string name="botaoFavoritos">Favoritos</string>
 	<string name="botaoBairro">Bairros</string>
@@ -10,4 +10,5 @@
 	<string name="botaoBloco">Blocos</string>
 	<string name="botaoAtualizar">Atualizar</string>
 	<string name="datasEnderecos">Datas, horários e endereços</string>
+	<string name="descricaoApp">Programação dos Blocos do Rio 2010</string>
 </resources>

@@ -9,7 +9,7 @@
 		android:textStyle="normal|bold" android:gravity="center_vertical|center_horizontal"
 		android:layout_width="fill_parent"></TextView>
 
-	<br.com.jawsys.blocodroid.activities.ListaBlocos
+	<br.com.jawsys.mobile.blocodroid.activities.ListaBlocos
 		android:id="@+id/listaBlocos" android:layout_width="fill_parent"
 		android:layout_height="fill_parent"/>
 
