@@ -34,7 +34,7 @@ public class PorBlocos extends Activity {
 		boolean favoritos = getIntent().getExtras().getBoolean("favoritos");
 
 		DBAdapter db = new DBAdapter(this);
-		List<Bloco> blocos = favoritos ? db.listBlocosFavoritos() : db.listPorBlocos();
+		List<Bloco> blocos = favoritos ? db.listarBlocosFavoritos() : db.listaTodosBlocos();
 
 		ListaBlocos lv1 = (ListaBlocos) findViewById(R.id.listaBlocos);
 		lv1.setAdapter(new ListaBlocosAdapter(this, blocos));

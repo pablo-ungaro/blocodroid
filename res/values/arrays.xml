@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  This file is part of BlocoDroid.
 
@@ -14,20 +15,21 @@
   You should have received a copy of the GNU General Public License
   along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<?xml version="1.0" encoding="utf-8"?>
 
 <resources>
 
 	<string-array name="updateInterval">
-		<item name="600000">A cada 10 minutos</item>
-		<item name="1800000">A cada 30 minutos</item>
-		<item name="3600000">A cada 1 hora</item>
+		<item name="1">1 hora</item>
+		<item name="2">2 horas</item>
+		<item name="3">3 horas</item>
+		<item name="24">1 dia</item>
 	</string-array>
 
 	<string-array name="updateIntervalValues">
-		<item name="600000">600000</item>
-		<item name="1800000">1800000</item>
-		<item name="3600000">3600000</item>
+		<item name="1">3600000</item>
+		<item name="2">7200000</item>
+		<item name="3">10800000</item>
+		<item name="24">86400000</item>
 	</string-array>
 
 </resources>

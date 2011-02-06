@@ -42,7 +42,7 @@ public class PorBairrosExpandableListAdapter extends BaseExpandableListAdapter {
 		mContext = porDatas;
 
 		DBAdapter db = new DBAdapter(mContext);
-		listaPorBairro = db.groupByBairro();
+		listaPorBairro = db.listarAgrupadoPorBairro();
 		indices.addAll(listaPorBairro.keySet());
 	}
 
@@ -68,11 +68,20 @@ public class PorBairrosExpandableListAdapter extends BaseExpandableListAdapter {
 		}
 
 		TextView nome = (TextView) convertView.findViewById(R.id.nome);
+		nome.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent mostraBloco = new Intent(v.getContext(),
+						MostraBloco.class);
+				String nome = (String) ((TextView) v).getText();
+				mostraBloco.putExtra("nome", nome);
+				v.getContext().startActivity(mostraBloco);
+			}
+		});
 		nome.setText(bloco.getNome());
 
 		TextView endereco = (TextView) convertView.findViewById(R.id.endereco);
-		String endereco2 = bloco.getEndereco() + ", "
-				+ bloco.getData().getHours() + "hs";
+		String endereco2 = bloco.getEndereco();
 		endereco.setText(endereco2);
 
 		Button button = (Button) convertView.findViewById(R.id.mostrarMapa);

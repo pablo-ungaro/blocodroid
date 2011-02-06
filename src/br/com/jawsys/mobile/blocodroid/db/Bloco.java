@@ -62,7 +62,7 @@ public class Bloco {
 
 		columnIndex = cursor.getColumnIndex("data");
 		if (columnIndex > -1) {
-			data = DBAdapter.parseData(cursor.getString(cursor
+			data = DBAdapter.parseDataForStorage(cursor.getString(cursor
 					.getColumnIndex("data")));
 		}
 	}
@@ -130,7 +130,7 @@ public class Bloco {
 
 	public ContentValues buildContentValues() {
 		ContentValues cv = new ContentValues();
-		cv.put("data", DBAdapter.formataData(getData()));
+		cv.put("data", DBAdapter.formataDataStorage(getData()));
 		cv.put("nome", getNome());
 		cv.put("bairro", getBairro());
 		cv.put("endereco", getEndereco());

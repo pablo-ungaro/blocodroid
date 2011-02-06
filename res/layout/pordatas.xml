@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  This file is part of BlocoDroid.
 
@@ -14,7 +15,6 @@
   You should have received a copy of the GNU General Public License
   along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout android:id="@+id/LinearLayout01"
 	android:orientation="vertical"

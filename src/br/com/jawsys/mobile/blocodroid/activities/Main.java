@@ -19,9 +19,6 @@ package br.com.jawsys.mobile.blocodroid.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,6 +28,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -39,11 +37,10 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import br.com.jawsys.mobile.blocodroid.R;
-import br.com.jawsys.mobile.blocodroid.db.Bloco;
+import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
+import br.com.jawsys.mobile.blocodroid.services.AvisaBlocosProximosService;
 
 public class Main extends Activity implements OnClickListener, OnTouchListener {
-
-	private NotificationManager nManager;
 
 	private ProgressDialog pd;
 
@@ -63,15 +60,15 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
-		try {
-			new UpdateManager(this).inicializaDados();
-		} catch (Exception e) {
-			erroAoCarregarXML();
-		}
 		configBotoes();
 
-		nManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		boolean notificar = PreferenceManager.getDefaultSharedPreferences(this)
+				.getBoolean("notificar", false);
+		if (notificar) {
+			startService(new Intent(this, AvisaBlocosProximosService.class));
+		}
+
+		runUpdateManager(true);
 	}
 
 	private void erroAoCarregarXML() {
@@ -83,27 +80,13 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 		erro.show();
 	}
 
-	protected void notificarBloco(Bloco bloco) {
-		Intent intent = new Intent(this, Main.class);
-
-		Notification notification = new Notification(R.drawable.icon, "Notify",
-				3000);
-
-		notification.setLatestEventInfo(Main.this,
-				getString(R.string.app_name), bloco.getNome(), PendingIntent
-						.getActivity(this.getBaseContext(), 0, intent,
-								PendingIntent.FLAG_CANCEL_CURRENT));
-
-		nManager.notify(0, notification);
-	}
-
 	private void configBotoes() {
 		configBotao((Button) findViewById(R.id.botaoBloco));
 		configBotao((Button) findViewById(R.id.botaoFavoritos));
 		configBotao((Button) findViewById(R.id.botaoData));
 		configBotao((Button) findViewById(R.id.botaoBairro));
 	}
-	
+
 	private void configBotao(Button botao) {
 		botao.setOnClickListener(this);
 		botao.setOnTouchListener(this);
@@ -113,9 +96,12 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean result = super.onCreateOptionsMenu(menu);
-		menu.add(0, MENU_CONFIG, 0, R.string.botaoOpcoes).setEnabled(false);
-		menu.add(0, MENU_ATUALIZA, 1, R.string.botaoAtualizar);
-		menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa);
+		menu.add(0, MENU_CONFIG, 0, R.string.botaoOpcoes).setIcon(
+				R.drawable.equalizer);
+		menu.add(0, MENU_ATUALIZA, 1, R.string.botaoAtualizar).setIcon(
+				R.drawable.sun);
+		menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa)
+				.setIcon(R.drawable.flag);
 
 		return result;
 	}
@@ -145,30 +131,12 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 
 	private void atualizarDados() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(
-				"Blocos marcados como Favoritos serão perdidos. Deseja continuar?")
+		builder.setMessage("Deseja continuar?")
 				.setCancelable(false)
 				.setPositiveButton("Sim",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
-								pd = ProgressDialog.show(Main.this, "",
-										"Atualizando. Aguarde...", true);
-
-								Thread t = new Thread(new UpdateManager(
-										Main.this) {
-									@Override
-									public void run() {
-										try {
-											atualizarDados();
-										} catch (RuntimeException re) {
-											erroAoCarregarXML();
-										} catch (Exception e) {
-											erroAoCarregarXML();
-										}
-										handler.sendEmptyMessage(0);
-									}
-								});
-								t.start();
+								runUpdateManager(false);
 							}
 						})
 				.setNegativeButton("Não",
@@ -201,7 +169,7 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 	private void mostraAtividade(View v) {
 		switch (v.getId()) {
 		case (R.id.botaoBloco):
-		case(R.id.botaoFavoritos): {
+		case (R.id.botaoFavoritos): {
 			Intent intent = new Intent(v.getContext(), PorBlocos.class);
 			intent.putExtra("favoritos", R.id.botaoFavoritos == v.getId());
 			Main.this.startActivity(intent);
@@ -233,6 +201,30 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 			mostraAtividade(v);
 		}
 		return true;
+	}
+
+	private void runUpdateManager(boolean initial) {
+		if (new DBAdapter(this).bancoExiste() && initial) {
+			return;
+		}
+
+		pd = ProgressDialog.show(Main.this, "BlocoDroid",
+				"Atualizando. Aguarde...", true);
+
+		Thread t = new Thread(new UpdateManager(Main.this) {
+			@Override
+			public void run() {
+				try {
+					atualizarDados();
+				} catch (RuntimeException re) {
+					erroAoCarregarXML();
+				} catch (Exception e) {
+					erroAoCarregarXML();
+				}
+				handler.sendEmptyMessage(0);
+			}
+		});
+		t.start();
 	}
 
 }

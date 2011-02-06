@@ -16,7 +16,7 @@
  */
 package br.com.jawsys.mobile.blocodroid.services;
 
-import java.util.Calendar;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,86 +26,79 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.widget.Toast;
 import br.com.jawsys.mobile.blocodroid.R;
-import br.com.jawsys.mobile.blocodroid.activities.Main;
+import br.com.jawsys.mobile.blocodroid.activities.MostraBloco;
+import br.com.jawsys.mobile.blocodroid.db.Bloco;
+import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class AvisaBlocosProximosService extends Service {
 
-	private Long counter = 0L;
 	private NotificationManager nm;
 	private Timer timer = new Timer();
-	private final Calendar time = Calendar.getInstance();
+	private static final int TEMPO_EXECUCAO = 10 * 60 * 1000;
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-
 		nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-		Toast.makeText(this, "Service created at " + time.getTime(),
-				Toast.LENGTH_LONG).show();
-		showNotification();
-		incrementCounter();
-
+		consultaProximosBlocos();
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
 		// Cancel the persistent notification.
-		shutdownCounter();
+		shutdownTimer();
 		nm.cancel(R.string.app_name);
-		Toast.makeText(
-				this,
-				"Service destroyed at " + time.getTime() + "; counter is at: "
-						+ counter, Toast.LENGTH_LONG).show();
-		counter = null;
 	}
 
 	/**
 	 * Show a notification while this service is running.
 	 */
-	private void showNotification() {
-		// In this sample, we'll use the same text for the ticker and the
-		// expanded notification
-		CharSequence text = getText(R.string.app_name);
+	private void showNotification(Bloco bloco) {
+		final String nomeBloco = bloco.getNome();
+		final String texto = bloco.getEndereco() + ", " + bloco.getBairro();
 
 		// Set the icon, scrolling text and timestamp
-		Notification notification = new Notification(R.drawable.icon, text,
-				System.currentTimeMillis());
+		Notification notification = new Notification(R.drawable.creep003,
+				nomeBloco, bloco.getData().getTime());
+		notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
 		// The PendingIntent to launch our activity if the user selects this
 		// notification
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-				new Intent(this, Main.class), 0);
+		final Intent intent = new Intent(this, MostraBloco.class);
+		intent.putExtra("nome", nomeBloco);
+		intent.setAction("actionstring" + System.currentTimeMillis());
+		final PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+				intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		// Set the info for the views that show in the notification panel.
-		notification.setLatestEventInfo(this, getText(R.string.app_name), text,
-				contentIntent);
+		notification.setLatestEventInfo(this, nomeBloco, texto, contentIntent);
 
-		// Send the notification.
-		// We use a layout id because it is a unique number. We use it later to
-		// cancel.
-		nm.notify(R.string.app_name, notification);
+		nm.notify(nomeBloco, R.id.LinearLayout01, notification);
 	}
 
-	private void incrementCounter() {
+	private void consultaProximosBlocos() {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			public void run() {
-				counter++;
+				List<Bloco> blocos = new DBAdapter(getApplicationContext())
+						.listarProximosBlocos();
+				for (Bloco b : blocos) {
+					showNotification(b);
+				}
 			}
-		}, 0, 1000L);
+		}, 0, TEMPO_EXECUCAO);
 	}
 
-	private void shutdownCounter() {
+	private void shutdownTimer() {
 		if (timer != null) {
 			timer.cancel();
 		}
 	}
+
 }

@@ -43,7 +43,7 @@ public class PorDatasExpandableListAdapter extends BaseExpandableListAdapter {
 		mContext = porDatas;
 
 		DBAdapter db = new DBAdapter(mContext);
-		listaPorData = db.groupByDate();
+		listaPorData = db.listaAgrupadaPorData();
 		indices.addAll(listaPorData.keySet());
 	}
 
@@ -68,11 +68,23 @@ public class PorDatasExpandableListAdapter extends BaseExpandableListAdapter {
 			convertView = View.inflate(mContext, R.layout.child_layout, null);
 		}
 
-		TextView nome = (TextView) convertView.findViewById(R.id.nome);
-		nome.setText(bloco.getNome());
+		final TextView tvNome = (TextView) convertView.findViewById(R.id.nome);
+		tvNome.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent mostraBloco = new Intent(v.getContext(), MostraBloco.class);
+				String nome = (String) ((TextView) v).getText();
+				mostraBloco.putExtra("nome", nome);
+				v.getContext().startActivity(mostraBloco);
+			}
+		});
+		tvNome.setText(bloco.getNome());
 
+		FavoritoCheckBox checkFavorito = (FavoritoCheckBox) convertView.findViewById(R.id.checkFavorito);
+		checkFavorito.setBloco(bloco);
+		
 		TextView endereco = (TextView) convertView.findViewById(R.id.endereco);
-		String endereco2 = bloco.getEndereco() + ", "
+		String endereco2 = bloco.getEndereco() + ", " + bloco.getBairro() + "\n"
 				+ bloco.getData().getHours() + "hs";
 		endereco.setText(endereco2);
 

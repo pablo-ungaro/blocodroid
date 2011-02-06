@@ -18,21 +18,26 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<PreferenceCategory android:title="First Category"
+	<!--<PreferenceCategory android:title="First Category"
 		android:key="first_category">
 
-		<CheckBoxPreference android:key="perform_updates"
-			android:summary="Ligar ou desligar notificação de blocos"
-			android:title="Ligar Notificações" android:defaultValue="true" />
+		-->
+		<CheckBoxPreference android:key="hide_old"
+			android:summary="Filtra das listas, blocos e datas que já aconteceram"
+			android:title="Só blocos a desfilar" android:defaultValue="false" />
 
-		<ListPreference android:key="updates_interval"
-			android:title="Intervalo" android:summary="Freqüência das notificações"
-			android:defaultValue="1000" android:entries="@array/updateInterval"
-			android:entryValues="@array/updateIntervalValues" android:dependency="perform_updates" />
+		<CheckBoxPreference android:key="notificar"
+			android:summary="Avisar sobre desfile de blocos favoritos"
+			android:title="Avisar Desfiles" android:defaultValue="false" />
 
+		<ListPreference android:key="intervalo"
+			android:title="Antecedência do Aviso" android:summary="Horas de antecedência do aviso do desfile dos blocos"
+			android:entries="@array/updateInterval"
+			android:entryValues="@array/updateIntervalValues" android:dependency="notificar" />
+
+	<!--
 	</PreferenceCategory>
-
-	<!-- <PreferenceCategory android:title="Second Category" android:key="second_category"> 
+	 <PreferenceCategory android:title="Second Category" android:key="second_category"> 
 		<EditTextPreference android:key="welcome_message" android:title="Welcome 
 		Message" android:summary="Define the Welcome message to be shown" android:dialogTitle="Welcome 
 		Message" android:dialogMessage="Provide a message" android:defaultValue="Default 

@@ -18,11 +18,16 @@
 	android:layout_width="fill_parent" android:layout_height="45dip"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<br.com.jawsys.mobile.blocodroid.activities.FavoritoCheckBox
+		android:id="@+id/checkFavorito" android:layout_width="wrap_content"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+		android:gravity="top|left" android:layout_height="wrap_content" />
+
 	<TextView android:layout_width="wrap_content"
 		android:layout_height="45dip" android:paddingLeft="5dip"
 		android:paddingRight="5dip" android:textStyle="bold" android:textSize="17dip"
 		android:gravity="center_vertical" android:id="@+id/nome" android:text="Children"
-		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+		android:layout_toRightOf="@+id/checkFavorito"
 		android:textColor="#ffCCCC22" />
 
 	<Button android:text="Mapa" android:layout_width="wrap_content"

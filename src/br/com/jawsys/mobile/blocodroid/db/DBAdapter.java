@@ -19,10 +19,12 @@ package br.com.jawsys.mobile.blocodroid.db;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -32,6 +34,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class DBAdapter {
@@ -42,17 +46,20 @@ public class DBAdapter {
 
 	private static final String DBTABLE = "blocos";
 
-	private static final int DBVERSION = 20;
+	private static final int DBVERSION = 22;
 
 	private static final String DATABASE_CREATE = "create table blocos (_id integer primary key autoincrement, "
 			+ "nome text not null, bairro text not null, favorito boolean not null, "
-			+ "data text not null, endereco text not null);";
+			+ "data integer not null, endereco text not null);";
 
 	public static final String TAG = "blocodroid";
 
 	private final Context context;
 
 	private static final Locale ptBR = new Locale("pt", "BR");
+
+	private static final SimpleDateFormat storageFormatter = new SimpleDateFormat(
+			"yyyyMMddHH");
 
 	private static SimpleDateFormat formatter = new SimpleDateFormat(
 			"dd/MM/yyyy HH'hs'", ptBR);
@@ -70,6 +77,7 @@ public class DBAdapter {
 	}
 
 	private static class DatabaseHelper extends SQLiteOpenHelper {
+
 		DatabaseHelper(Context context) {
 			super(context, DBNAME, null, DBVERSION);
 		}
@@ -83,9 +91,12 @@ public class DBAdapter {
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
+
 			db.execSQL("DROP TABLE IF EXISTS " + DBTABLE);
+
 			onCreate(db);
 		}
+
 	}
 
 	private DBAdapter open() throws SQLException {
@@ -97,11 +108,16 @@ public class DBAdapter {
 		dbHelper.close();
 	}
 
-	public SortedMap<Date, List<Bloco>> groupByDate() {
+	public SortedMap<Date, List<Bloco>> listaAgrupadaPorData() {
 		open();
 
-		Cursor cursor = db.query(true, DBTABLE, null, null, null, null, null,
-				"nome", null);
+		String from = "0";
+		if (hideOld()) {
+			from = storageFormatter.format(Calendar.getInstance().getTime());
+		}
+
+		Cursor cursor = db.query(true, DBTABLE, null, "data > ?",
+				new String[] { from }, null, null, "nome", null);
 		List<Bloco> allBlocos = montaListaBlocos(cursor);
 
 		SortedMap<Date, List<Bloco>> agrupado = new TreeMap<Date, List<Bloco>>();
@@ -123,12 +139,17 @@ public class DBAdapter {
 		return agrupado;
 	}
 
-	public List<Bloco> listPorBlocos() {
+	public List<Bloco> listaTodosBlocos() {
 		open();
 
+		String from = "0";
+		if (hideOld()) {
+			from = storageFormatter.format(Calendar.getInstance().getTime());
+		}
+
 		Cursor cursor = db.query(true, DBTABLE,
-				new String[] { "nome, favorito" }, null, null, null, null,
-				"nome", null);
+				new String[] { "nome, favorito" }, "data > ?",
+				new String[] { from }, null, null, "nome", null);
 		List<Bloco> blocos = montaListaBlocos(cursor);
 
 		close();
@@ -215,7 +236,8 @@ public class DBAdapter {
 
 		List<Bloco> blocos = new ArrayList<Bloco>();
 		while (cursor.moveToNext()) {
-			blocos.add(new Bloco(this, cursor));
+			Bloco bloco = new Bloco(this, cursor);
+			blocos.add(bloco);
 		}
 		return blocos;
 	}
@@ -237,11 +259,17 @@ public class DBAdapter {
 		return formatadorSemHora.format(data);
 	}
 
-	public SortedMap<String, List<Bloco>> groupByBairro() {
+	public SortedMap<String, List<Bloco>> listarAgrupadoPorBairro() {
 		open();
 
-		Cursor cursor = db.query(true, DBTABLE, null, null, null, null, null,
-				"nome", null);
+		String from = "0";
+		if (hideOld()) {
+			from = storageFormatter.format(Calendar.getInstance().getTime());
+		}
+
+		Cursor cursor = db.query(true, DBTABLE, new String[] { "nome",
+				"bairro", "endereco" }, "data > ?", new String[] { from },
+				null, null, "nome", null);
 		List<Bloco> allBlocos = montaListaBlocos(cursor);
 
 		SortedMap<String, List<Bloco>> agrupado = new TreeMap<String, List<Bloco>>();
@@ -260,16 +288,106 @@ public class DBAdapter {
 		return agrupado;
 	}
 
-	public List<Bloco> listBlocosFavoritos() {
+	public List<Bloco> listarBlocosFavoritos() {
 		open();
 
+		String from = "0";
+		if (hideOld()) {
+			from = storageFormatter.format(Calendar.getInstance().getTime());
+		}
+
 		Cursor cursor = db.query(true, DBTABLE,
-				new String[] { "nome, favorito" }, "favorito=?",
-				new String[] { "1" }, null, null, "nome", null);
+				new String[] { "nome, favorito" }, "favorito = ? and data > ?",
+				new String[] { "1", from }, null, null, "nome", null);
 		List<Bloco> blocos = montaListaBlocos(cursor);
 
 		close();
 
 		return blocos;
+	}
+
+	private boolean hideOld() {
+		boolean hideOld = PreferenceManager
+				.getDefaultSharedPreferences(context).getBoolean("hide_old",
+						false);
+		return hideOld;
+	}
+
+	private long intervalo() {
+		Map<String, ?> all = PreferenceManager.getDefaultSharedPreferences(
+				context).getAll();
+		long intervalo = Long.parseLong(all.get("intervalo").toString());
+		return intervalo;
+	}
+
+	public List<String> listarNomesFavoritos() {
+		open();
+		Cursor cursor = db.query(true, DBTABLE, new String[] { "nome" },
+				"favorito = ?", new String[] { "1" }, null, null, "nome", null);
+
+		List<String> favoritos = Collections.emptyList();
+		if (cursor.getCount() > 0) {
+			favoritos = new ArrayList<String>(cursor.getCount());
+
+			while (cursor.moveToNext()) {
+				favoritos.add(cursor.getString(0));
+			}
+		}
+
+		close();
+
+		return favoritos;
+	}
+
+	public void restaurarFavoritos(List<String> favoritos) {
+		open();
+		for (String nome : favoritos) {
+			db.execSQL(
+					"update " + DBTABLE + " set favorito = 1 where nome = ?",
+					new String[] { nome });
+		}
+		close();
+	}
+
+	public boolean bancoExiste() {
+		open();
+		SQLiteStatement stmt = db.compileStatement("select count(*) from "
+				+ DBTABLE);
+		long count = stmt.simpleQueryForLong();
+		close();
+
+		return count > 0;
+	}
+
+	public static Date parseDataForStorage(String string) {
+		try {
+			return storageFormatter.parse(string);
+		} catch (ParseException e) {
+			return null;
+		}
+	}
+
+	public static String formataDataStorage(Date data) {
+		return storageFormatter.format(data);
+	}
+
+	public List<Bloco> listarProximosBlocos() {
+		Calendar instance = Calendar.getInstance();
+		Date hoje = instance.getTime();
+		Date futuro = instance.getTime();
+		futuro.setTime(futuro.getTime() + intervalo());
+
+		String sHoje = formataDataStorage(hoje);
+		String sFuturo = formataDataStorage(futuro);
+
+		open();
+		Cursor c = db.query(DBTABLE,
+				new String[] { "nome, bairro, endereco, data" },
+				"favorito = 1 and data > ? and data < ?", new String[] { sHoje,
+						sFuturo }, null, null, null, null);
+		List<Bloco> lista = montaListaBlocos(c);
+		close();
+
+		return lista;
 	}
 }

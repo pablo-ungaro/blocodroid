@@ -40,8 +40,9 @@ public class Opcoes extends PreferenceActivity {
 							public void onSharedPreferenceChanged(
 									SharedPreferences sharedPreferences,
 									String key) {
-								salvarOpcoes(sharedPreferences.getBoolean(key,
-										Boolean.FALSE));
+
+								salvarOpcoes(sharedPreferences.getBoolean(
+										"notificar", Boolean.FALSE));
 							}
 						});
 	}
