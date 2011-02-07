@@ -17,10 +17,10 @@
 package br.com.jawsys.mobile.blocodroid.activities;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.SortedMap;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
@@ -31,26 +31,25 @@ import android.widget.Button;
 import android.widget.TextView;
 import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
-import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
-public class PorDatasExpandableListAdapter extends BaseExpandableListAdapter {
+public class BlocosAgrupadosExpandableListAdapter extends
+		BaseExpandableListAdapter {
 
-	private SortedMap<Date, List<Bloco>> listaPorData;
-	private List<Date> indices = new ArrayList<Date>();
-	private PorDatas mContext;
+	private SortedMap<Object, List<Bloco>> listaAgrupada;
+	private List<Object> indices = new ArrayList<Object>();
+	private Context mContext;
 
-	public PorDatasExpandableListAdapter(PorDatas porDatas) {
-		mContext = porDatas;
-
-		DBAdapter db = new DBAdapter(mContext);
-		listaPorData = db.listaAgrupadaPorData();
-		indices.addAll(listaPorData.keySet());
+	public BlocosAgrupadosExpandableListAdapter(Context context,
+			SortedMap<Object, List<Bloco>> listaAgrupada) {
+		this.mContext = context;
+		this.listaAgrupada = listaAgrupada;
+		this.indices.addAll(listaAgrupada.keySet());
 	}
 
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
-		Date key = indices.get(groupPosition);
-		return listaPorData.get(key).get(childPosition);
+		Object key = indices.get(groupPosition);
+		return listaAgrupada.get(key).get(childPosition);
 	}
 
 	@Override
@@ -61,31 +60,32 @@ public class PorDatasExpandableListAdapter extends BaseExpandableListAdapter {
 	@Override
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
-		final Bloco bloco = listaPorData.get(indices.get(groupPosition)).get(
+		final Bloco bloco = listaAgrupada.get(indices.get(groupPosition)).get(
 				childPosition);
 
 		if (convertView == null) {
-			convertView = View.inflate(mContext, R.layout.child_layout, null);
+			convertView = View.inflate(mContext, R.layout.filho, null);
 		}
 
-		final TextView tvNome = (TextView) convertView.findViewById(R.id.nome);
-		tvNome.setOnClickListener(new OnClickListener() {
+		FavoritoCheckBox checkFavorito = (FavoritoCheckBox) convertView
+				.findViewById(R.id.checkFavorito);
+		checkFavorito.setBloco(bloco);
+
+		TextView nome = (TextView) convertView.findViewById(R.id.nome);
+		nome.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent mostraBloco = new Intent(v.getContext(), MostraBloco.class);
+				Intent mostraBloco = new Intent(v.getContext(),
+						MostraBloco.class);
 				String nome = (String) ((TextView) v).getText();
 				mostraBloco.putExtra("nome", nome);
 				v.getContext().startActivity(mostraBloco);
 			}
 		});
-		tvNome.setText(bloco.getNome());
+		nome.setText(bloco.getNome());
 
-		FavoritoCheckBox checkFavorito = (FavoritoCheckBox) convertView.findViewById(R.id.checkFavorito);
-		checkFavorito.setBloco(bloco);
-		
 		TextView endereco = (TextView) convertView.findViewById(R.id.endereco);
-		String endereco2 = bloco.getEndereco() + ", " + bloco.getBairro() + "\n"
-				+ bloco.getData().getHours() + "hs";
+		String endereco2 = bloco.getEndereco();
 		endereco.setText(endereco2);
 
 		Button button = (Button) convertView.findViewById(R.id.mostrarMapa);
@@ -110,13 +110,13 @@ public class PorDatasExpandableListAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-		Date key = indices.get(groupPosition);
-		return listaPorData.get(key).size();
+		Object key = indices.get(groupPosition);
+		return listaAgrupada.get(key).size();
 	}
 
 	@Override
 	public Object getGroup(int groupPosition) {
-		Date key = indices.get(groupPosition);
+		Object key = indices.get(groupPosition);
 		return key;
 	}
 
@@ -134,14 +134,19 @@ public class PorDatasExpandableListAdapter extends BaseExpandableListAdapter {
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) {
 
-		Date data = indices.get(groupPosition);
+		Object key = indices.get(groupPosition);
 
 		if (convertView == null) {
-			convertView = View.inflate(mContext, R.layout.group_layout, null);
+			convertView = View.inflate(mContext, R.layout.grupo, null);
 		}
-		TextView tv = (TextView) convertView.findViewById(R.id.data);
-		tv.setText(DBAdapter.formataDataSemHora(data));
+
+		TextView tv = (TextView) convertView.findViewById(R.id.titulo);
+		tv.setText(formataChaveGrupo(key));
 		return convertView;
+	}
+
+	protected CharSequence formataChaveGrupo(Object key) {
+		return key.toString();
 	}
 
 	@Override

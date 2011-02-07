@@ -80,7 +80,7 @@ public class AvisaBlocosProximosService extends Service {
 		// Set the info for the views that show in the notification panel.
 		notification.setLatestEventInfo(this, nomeBloco, texto, contentIntent);
 
-		nm.notify(nomeBloco, R.id.LinearLayout01, notification);
+		nm.notify(nomeBloco, R.string.app_name, notification);
 	}
 
 	private void consultaProximosBlocos() {

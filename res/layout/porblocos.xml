@@ -15,18 +15,12 @@
   You should have received a copy of the GNU General Public License
   along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
-<LinearLayout android:id="@+id/LinearLayout01"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-
-	<TextView android:id="@+id/TextView01" android:layout_height="wrap_content"
-		android:text="Marque os blocos favoritos para ser avisado"
-		android:textStyle="normal|bold" android:gravity="center_vertical|center_horizontal"
-		android:layout_width="fill_parent"></TextView>
+<LinearLayout android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<br.com.jawsys.mobile.blocodroid.activities.ListaBlocos
 		android:id="@+id/listaBlocos" android:layout_width="fill_parent"
-		android:layout_height="fill_parent"/>
+		android:layout_height="fill_parent" />
 
 </LinearLayout>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  This file is part of BlocoDroid.
 
@@ -14,6 +15,11 @@
   You should have received a copy of the GNU General Public License
   along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<TextView android:text="@+id/TextView01" android:id="@+id/TextView01"
-	android:layout_width="wrap_content" android:layout_height="wrap_content"
-	xmlns:android="http://schemas.android.com/apk/res/android"></TextView>
+<LinearLayout android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ExpandableListView android:id="@+id/listViewAgrupada"
+		android:layout_width="fill_parent" android:layout_height="fill_parent" />
+
+</LinearLayout>

@@ -21,6 +21,7 @@
 	<string name="app_name">BlocoDroid</string>
 	<string name="botaoOpcoes">Configurações</string>
 	<string name="botaoFavoritos">Favoritos</string>
+	<string name="botaoProximidade">Radar</string>
 	<string name="botaoBairro">Bairros</string>
 	<string name="botaoData">Datas</string>
 	<string name="botaoBloco">Blocos</string>

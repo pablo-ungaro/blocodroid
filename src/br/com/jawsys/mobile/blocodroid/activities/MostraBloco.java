@@ -55,6 +55,7 @@ public class MostraBloco extends Activity implements OnClickListener {
 
 		Button mostraMapa = (Button) findViewById(R.id.mostrarMapa);
 		mostraMapa.setOnClickListener(this);
+		mostraMapa.setEnabled(!extras.getBoolean("hidemap", false));
 
 		endereco = blocos.get(0).getEndereco();
 		bairro = blocos.get(0).getBairro();

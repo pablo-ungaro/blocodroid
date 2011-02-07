@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ This file is part of BlocoDroid.
+
+  BlocoDroid is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  BlocoDroid is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<LinearLayout android:id="@+id/layoutProximidade"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView android:layout_height="wrap_content"
+		android:textSize="20dip"
+		android:layout_margin="10dip"
+		android:text="Radar com os Blocos de Hoje" 
+		android:textStyle="normal|bold" 
+		android:gravity="center_vertical|center_horizontal"
+		android:layout_width="fill_parent" />
+
+	<com.google.android.maps.MapView
+		android:id="@+id/mapa"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"
+		android:enabled="true" 
+		android:clickable="true"
+		android:apiKey="0F6v7deoTsHPORYZkf1DbWerkpu6yVimYiHSj8A" />
+		
+		<!-- DEBUG key: 0F6v7deoTsHPORYZkf1DbWerkpu6yVimYiHSj8A
+		     RELEASE KEY: 0F6v7deoTsHOzRAzcsM5m3lGkUB5gtg6qiaTjFw -->
+
+</LinearLayout>

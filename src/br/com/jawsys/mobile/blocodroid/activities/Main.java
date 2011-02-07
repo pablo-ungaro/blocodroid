@@ -42,6 +42,8 @@ import br.com.jawsys.mobile.blocodroid.services.AvisaBlocosProximosService;
 
 public class Main extends Activity implements OnClickListener, OnTouchListener {
 
+	private static final String MAPA_BLOCOS_DIARIORIO = "http://goo.gl/maps/dJmE";
+
 	private ProgressDialog pd;
 
 	private AlertDialog confirmaAtualizacao;
@@ -85,6 +87,7 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 		configBotao((Button) findViewById(R.id.botaoFavoritos));
 		configBotao((Button) findViewById(R.id.botaoData));
 		configBotao((Button) findViewById(R.id.botaoBairro));
+		configBotao((Button) findViewById(R.id.botaoProximidade));
 	}
 
 	private void configBotao(Button botao) {
@@ -92,7 +95,6 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 		botao.setOnTouchListener(this);
 	}
 
-	// Create Menu Option
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean result = super.onCreateOptionsMenu(menu);
@@ -121,7 +123,7 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 		}
 		case MENU_VER_MAPA: {
 			Intent viewWholeMap = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://goo.gl/maps/dJmE"));
+					Uri.parse(MAPA_BLOCOS_DIARIORIO));
 			startActivity(viewWholeMap);
 		}
 		}
@@ -163,26 +165,29 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 
 	@Override
 	public void onClick(View v) {
-		mostraAtividade(v);
-	}
-
-	private void mostraAtividade(View v) {
 		switch (v.getId()) {
+		case (R.id.botaoProximidade): {
+			Intent intent = new Intent(v.getContext(), PorProximidade.class);
+			startActivity(intent);
+			break;
+		}
 		case (R.id.botaoBloco):
 		case (R.id.botaoFavoritos): {
 			Intent intent = new Intent(v.getContext(), PorBlocos.class);
 			intent.putExtra("favoritos", R.id.botaoFavoritos == v.getId());
-			Main.this.startActivity(intent);
+			startActivity(intent);
 			break;
 		}
 		case (R.id.botaoBairro): {
-			Intent intent = new Intent(v.getContext(), PorBairros.class);
-			Main.this.startActivity(intent);
+			Intent intent = new Intent(v.getContext(), PorAgrupamento.class);
+			intent.putExtra("tipo", "bairro");
+			startActivity(intent);
 			break;
 		}
 		case (R.id.botaoData): {
-			Intent intent = new Intent(v.getContext(), PorDatas.class);
-			Main.this.startActivity(intent);
+			Intent intent = new Intent(v.getContext(), PorAgrupamento.class);
+			intent.putExtra("tipo", "data");
+			startActivity(intent);
 			break;
 		}
 		}
@@ -198,7 +203,7 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 		} else if (event.getAction() == MotionEvent.ACTION_UP) {
 			((Button) v).setBackgroundDrawable(getResources().getDrawable(
 					R.drawable.rountedbox));
-			mostraAtividade(v);
+			onClick(v);
 		}
 		return true;
 	}

@@ -108,7 +108,7 @@ public class DBAdapter {
 		dbHelper.close();
 	}
 
-	public SortedMap<Date, List<Bloco>> listaAgrupadaPorData() {
+	public SortedMap<Object, List<Bloco>> listaAgrupadaPorData() {
 		open();
 
 		String from = "0";
@@ -120,7 +120,7 @@ public class DBAdapter {
 				new String[] { from }, null, null, "nome", null);
 		List<Bloco> allBlocos = montaListaBlocos(cursor);
 
-		SortedMap<Date, List<Bloco>> agrupado = new TreeMap<Date, List<Bloco>>();
+		SortedMap<Object, List<Bloco>> agrupado = new TreeMap<Object, List<Bloco>>();
 
 		for (Bloco bloco : allBlocos) {
 			Date key = (Date) bloco.getData().clone();
@@ -259,7 +259,7 @@ public class DBAdapter {
 		return formatadorSemHora.format(data);
 	}
 
-	public SortedMap<String, List<Bloco>> listarAgrupadoPorBairro() {
+	public SortedMap<Object, List<Bloco>> listaAgrupadaPorBairro() {
 		open();
 
 		String from = "0";
@@ -272,7 +272,7 @@ public class DBAdapter {
 				null, null, "nome", null);
 		List<Bloco> allBlocos = montaListaBlocos(cursor);
 
-		SortedMap<String, List<Bloco>> agrupado = new TreeMap<String, List<Bloco>>();
+		SortedMap<Object, List<Bloco>> agrupado = new TreeMap<Object, List<Bloco>>();
 
 		for (Bloco bloco : allBlocos) {
 			String key = bloco.getBairro();
@@ -384,6 +384,30 @@ public class DBAdapter {
 		Cursor c = db.query(DBTABLE,
 				new String[] { "nome, bairro, endereco, data" },
 				"favorito = 1 and data > ? and data < ?", new String[] { sHoje,
+						sFuturo }, null, null, null, null);
+		List<Bloco> lista = montaListaBlocos(c);
+		close();
+
+		return lista;
+	}
+
+	public List<Bloco> listarBlocosHoje() {
+		Calendar instance = Calendar.getInstance();
+		Date hoje = instance.getTime();
+		hoje.setHours(0);
+		hoje.setMinutes(0);
+		hoje.setSeconds(0);
+
+		Date futuro = instance.getTime();
+		futuro.setTime(hoje.getTime() + (23 * 60 * 60 * 1000) + (59 * 60 * 1000));
+
+		String sHoje = formataDataStorage(hoje);
+		String sFuturo = formataDataStorage(futuro);
+
+		open();
+		Cursor c = db.query(DBTABLE,
+				new String[] { "nome, bairro, endereco, data" },
+				"data > ? and data < ?", new String[] { sHoje,
 						sFuturo }, null, null, null, null);
 		List<Bloco> lista = montaListaBlocos(c);
 		close();
