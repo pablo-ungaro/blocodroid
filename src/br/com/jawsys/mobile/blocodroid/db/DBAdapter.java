@@ -24,12 +24,12 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -314,9 +314,10 @@ public class DBAdapter {
 	}
 
 	private long intervalo() {
-		Map<String, ?> all = PreferenceManager.getDefaultSharedPreferences(
-				context).getAll();
-		long intervalo = Long.parseLong(all.get("intervalo").toString());
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		String string = prefs.getString("intervalo", "86400000");
+		long intervalo = Long.parseLong(string);
 		return intervalo;
 	}
 
@@ -399,7 +400,8 @@ public class DBAdapter {
 		hoje.setSeconds(0);
 
 		Date futuro = instance.getTime();
-		futuro.setTime(hoje.getTime() + (23 * 60 * 60 * 1000) + (59 * 60 * 1000));
+		futuro.setTime(hoje.getTime() + (23 * 60 * 60 * 1000)
+				+ (59 * 60 * 1000));
 
 		String sHoje = formataDataStorage(hoje);
 		String sFuturo = formataDataStorage(futuro);
@@ -407,8 +409,8 @@ public class DBAdapter {
 		open();
 		Cursor c = db.query(DBTABLE,
 				new String[] { "nome, bairro, endereco, data" },
-				"data > ? and data < ?", new String[] { sHoje,
-						sFuturo }, null, null, null, null);
+				"data > ? and data < ?", new String[] { sHoje, sFuturo }, null,
+				null, null, null);
 		List<Bloco> lista = montaListaBlocos(c);
 		close();
 

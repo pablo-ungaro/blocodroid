@@ -41,12 +41,13 @@ public final class R {
         public static final int data=0x7f09000f;
         public static final int datasEnderecos=0x7f09000d;
         public static final int endereco=0x7f090003;
-        public static final int layoutProximidade=0x7f090012;
+        public static final int filtro=0x7f090012;
         public static final int listViewAgrupada=0x7f090010;
-        public static final int listaBlocos=0x7f090011;
+        public static final int listaBlocos=0x7f090013;
         public static final int listaDatasHorarios=0x7f09000e;
-        public static final int mapa=0x7f090013;
+        public static final int mapa=0x7f090014;
         public static final int mostrarMapa=0x7f090002;
+        public static final int nenhumFavorito=0x7f090011;
         public static final int nome=0x7f090001;
         public static final int nomeBloco=0x7f09000c;
         public static final int textoBloco=0x7f090005;

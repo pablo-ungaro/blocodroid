@@ -16,34 +16,40 @@
  */
 package br.com.jawsys.mobile.blocodroid.activities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 
-public class ListaBlocosAdapter extends BaseAdapter {
+public class ListaBlocosAdapter extends BaseAdapter implements Filterable {
 
 	private List<Bloco> blocos;
+	private List<Bloco> blocosFiltrados;
 	private Context context;
+	private BlocosFilter filter;
 
 	public ListaBlocosAdapter(Context context, List<Bloco> blocos) {
 		super();
 		this.blocos = blocos;
+		this.blocosFiltrados = blocos;
 		this.context = context;
 	}
 
 	@Override
 	public int getCount() {
-		return blocos.size();
+		return blocosFiltrados.size();
 	}
 
 	@Override
 	public Bloco getItem(int position) {
-		return (null == blocos) ? null : blocos.get(position);
+		return (null == blocosFiltrados) ? null : blocosFiltrados.get(position);
 	}
 
 	@Override
@@ -60,8 +66,59 @@ public class ListaBlocosAdapter extends BaseAdapter {
 		} else {
 			lbi = (ListaBlocoItem) convertView;
 		}
-		lbi.setBloco(blocos.get(position));
+		lbi.setBloco(blocosFiltrados.get(position));
 		return lbi;
+	}
+
+	@Override
+	public Filter getFilter() {
+		if (filter == null) {
+			filter = new BlocosFilter();
+		}
+
+		return filter;
+	}
+
+	private class BlocosFilter extends Filter {
+		private Object lock = new Object();
+
+		@Override
+		protected FilterResults performFiltering(CharSequence constraint) {
+			FilterResults results = new FilterResults();
+			if (constraint == null || constraint.length() == 0) {
+				synchronized (lock) {
+					blocosFiltrados = blocos;
+					results.values = blocosFiltrados;
+					results.count = blocosFiltrados.size();
+				}
+			} else {
+				List<Bloco> newItems = new ArrayList<Bloco>();
+				for (int i = 0; i <= blocosFiltrados.size() - 1; i++) {
+					Bloco item = blocosFiltrados.get(i);
+					if (item.getNome().toLowerCase()
+							.contains(constraint.toString().toLowerCase())) {
+						newItems.add(item);
+					}
+				}
+
+				results.values = newItems;
+				results.count = newItems.size();
+			}
+			return results;
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		protected void publishResults(CharSequence constraint,
+				FilterResults results) {
+			blocosFiltrados = (List<Bloco>) results.values;
+
+			if (results.count > 0) {
+				notifyDataSetChanged();
+			} else {
+				notifyDataSetInvalidated();
+			}
+		}
 	}
 
 }

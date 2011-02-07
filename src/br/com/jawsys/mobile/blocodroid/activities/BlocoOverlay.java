@@ -27,7 +27,6 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.widget.Toast;
-import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 
 import com.google.android.maps.GeoPoint;
@@ -40,22 +39,25 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 	private List<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
 	private Context context;
 
-	public BlocoOverlay(Context context, Drawable badge) {
-		super(boundCenter(badge));
+	public BlocoOverlay(Context context, Drawable marker) {
+		super(boundCenterBottom(marker));
 		this.context = context;
 	}
 
 	public void addPosicaoAtual(GeoPoint geoPoint) {
 		OverlayItem overlayItem = new OverlayItem(geoPoint, "Posição atual",
 				"Posição atual");
+		// overlayItem.setMarker(context.getResources().getDrawable(R.drawable.blue));
 		mOverlays.add(overlayItem);
 		populate();
 	}
 
-	public GeoPoint add(Bloco bloco) {
-		Geocoder geoCoder = new Geocoder(context, pt_BR);
+	public void populateAll() {
+		populate();
+	}
 
-		GeoPoint p = null;
+	public void add(Bloco bloco) {
+		Geocoder geoCoder = new Geocoder(context, pt_BR);
 
 		try {
 			String endereco = bloco.getEndereco() + ", " + bloco.getBairro()
@@ -63,18 +65,15 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 
 			List<Address> addresses = geoCoder.getFromLocationName(endereco, 5);
 			if (addresses.size() > 0) {
-				p = new GeoPoint((int) (addresses.get(0).getLatitude() * 1E6),
+				GeoPoint p = new GeoPoint(
+						(int) (addresses.get(0).getLatitude() * 1E6),
 						(int) (addresses.get(0).getLongitude() * 1E6));
-				BlocoItem bi = new BlocoItem(bloco, p, context.getResources()
-						.getDrawable(R.drawable.red));
+				BlocoItem bi = new BlocoItem(bloco, p);
 				mOverlays.add(bi);
 				populate();
-				return p;
 			}
 		} catch (IOException e) {
 		}
-
-		return p;
 	}
 
 	@Override
@@ -97,24 +96,17 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 			mostraBloco.putExtra("hidemap", true);
 			context.startActivity(mostraBloco);
 		} else {
-			Toast.makeText(context, "Você está aqui!", Toast.LENGTH_LONG);
+			Toast.makeText(context, "Você está aqui!", Toast.LENGTH_LONG).show();
 		}
 
 		return super.onTap(index);
 	}
 
 	public static class BlocoItem extends OverlayItem {
-		private Drawable icone;
-
-		public BlocoItem(Bloco bloco, GeoPoint ponto, Drawable icone) {
+		public BlocoItem(Bloco bloco, GeoPoint ponto) {
 			super(ponto, bloco.getNome(), bloco.getData().getHours() + "hs");
-			this.icone = icone;
 		}
 
-		@Override
-		public Drawable getMarker(int stateBitset) {
-			return icone;
-		}
 	}
 
 }

@@ -41,7 +41,7 @@ public class PorProximidade extends MapActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.porproximidade);
 
-		MapView map = (MapView) PorProximidade.this.findViewById(R.id.mapa);
+		MapView map = (MapView) findViewById(R.id.mapa);
 		map.setBuiltInZoomControls(true);
 		mc = map.getController();
 
@@ -62,7 +62,10 @@ public class PorProximidade extends MapActivity {
 			overlay.add(bloco);
 		}
 		map.getOverlays().add(overlay);
+
+		mc.animateTo(geoPointCenter);
 		mc.zoomToSpan(overlay.getLatSpanE6(), overlay.getLonSpanE6());
+		map.invalidate();
 	}
 
 	@Override

@@ -36,6 +36,7 @@ public class AvisaBlocosProximosService extends Service {
 	private NotificationManager nm;
 	private Timer timer = new Timer();
 	private static final int TEMPO_EXECUCAO = 10 * 60 * 1000;
+	private static final int UNIKE_KEY = R.id.botaoBairro;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -46,44 +47,7 @@ public class AvisaBlocosProximosService extends Service {
 	public void onCreate() {
 		super.onCreate();
 		nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-		consultaProximosBlocos();
-	}
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		// Cancel the persistent notification.
-		shutdownTimer();
-		nm.cancel(R.string.app_name);
-	}
-
-	/**
-	 * Show a notification while this service is running.
-	 */
-	private void showNotification(Bloco bloco) {
-		final String nomeBloco = bloco.getNome();
-		final String texto = bloco.getEndereco() + ", " + bloco.getBairro();
-
-		// Set the icon, scrolling text and timestamp
-		Notification notification = new Notification(R.drawable.creep003,
-				nomeBloco, bloco.getData().getTime());
-		notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
-		// The PendingIntent to launch our activity if the user selects this
-		// notification
-		final Intent intent = new Intent(this, MostraBloco.class);
-		intent.putExtra("nome", nomeBloco);
-		intent.setAction("actionstring" + System.currentTimeMillis());
-		final PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-				intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		// Set the info for the views that show in the notification panel.
-		notification.setLatestEventInfo(this, nomeBloco, texto, contentIntent);
-
-		nm.notify(nomeBloco, R.string.app_name, notification);
-	}
-
-	private void consultaProximosBlocos() {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			public void run() {
 				List<Bloco> blocos = new DBAdapter(getApplicationContext())
@@ -93,6 +57,33 @@ public class AvisaBlocosProximosService extends Service {
 				}
 			}
 		}, 0, TEMPO_EXECUCAO);
+
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		shutdownTimer();
+		nm.cancel(UNIKE_KEY);
+	}
+
+	private void showNotification(Bloco bloco) {
+		final String nomeBloco = bloco.getNome();
+		final String texto = bloco.getEndereco() + ", " + bloco.getBairro();
+
+		Notification notification = new Notification(R.drawable.creep003,
+				nomeBloco, bloco.getData().getTime());
+		notification.flags |= Notification.FLAG_AUTO_CANCEL;
+
+		final Intent intent = new Intent(this, MostraBloco.class);
+		intent.putExtra("nome", nomeBloco);
+		intent.setAction("actionstring" + System.currentTimeMillis());
+		final PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+				intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		notification.setLatestEventInfo(this, nomeBloco, texto, contentIntent);
+
+		nm.notify(nomeBloco, UNIKE_KEY, notification);
 	}
 
 	private void shutdownTimer() {

@@ -15,13 +15,8 @@
   You should have received a copy of the GNU General Public License
   along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<!--<PreferenceCategory android:title="First Category"
-		android:key="first_category">
-
-		-->
 		<CheckBoxPreference android:key="hide_old"
 			android:summary="Filtra das listas, blocos e datas que já aconteceram"
 			android:title="Só blocos a desfilar" android:defaultValue="false" />
@@ -32,14 +27,8 @@
 
 		<ListPreference android:key="intervalo"
 			android:title="Antecedência do Aviso" android:summary="Horas de antecedência do aviso do desfile dos blocos"
-			android:entries="@array/updateInterval"
+			android:entries="@array/updateInterval" android:defaultValue="86400000"
 			android:entryValues="@array/updateIntervalValues" android:dependency="notificar" />
 
-	<!--
-	</PreferenceCategory>
-	 <PreferenceCategory android:title="Second Category" android:key="second_category"> 
-		<EditTextPreference android:key="welcome_message" android:title="Welcome 
-		Message" android:summary="Define the Welcome message to be shown" android:dialogTitle="Welcome 
-		Message" android:dialogMessage="Provide a message" android:defaultValue="Default 
-		welcome message" /> </PreferenceCategory> -->
+
 </PreferenceScreen>

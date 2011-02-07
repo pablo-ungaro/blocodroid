@@ -19,12 +19,17 @@ package br.com.jawsys.mobile.blocodroid.activities;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class PorBlocos extends Activity {
+
+	private ListaBlocos listaBlocosView;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -34,10 +39,23 @@ public class PorBlocos extends Activity {
 		boolean favoritos = getIntent().getExtras().getBoolean("favoritos");
 
 		DBAdapter db = new DBAdapter(this);
-		List<Bloco> blocos = favoritos ? db.listarBlocosFavoritos() : db.listaTodosBlocos();
+		List<Bloco> blocos = favoritos ? db.listarBlocosFavoritos() : db
+				.listaTodosBlocos();
 
-		ListaBlocos lv1 = (ListaBlocos) findViewById(R.id.listaBlocos);
-		lv1.setAdapter(new ListaBlocosAdapter(this, blocos));
+		if (!blocos.isEmpty() || !favoritos) {
+			findViewById(R.id.nenhumFavorito).setVisibility(View.GONE);
+		}
+
+		listaBlocosView = (ListaBlocos) findViewById(R.id.listaBlocos);
+		listaBlocosView.setAdapter(new ListaBlocosAdapter(this, blocos));
+		listaBlocosView.setTextFilterEnabled(true);
+	}
+
+	@Override
+	public boolean onSearchRequested() {
+		InputMethodManager inputMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		inputMgr.toggleSoftInput(0, 0);
+		return true;
 	}
 
 }
