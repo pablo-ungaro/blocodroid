@@ -55,7 +55,9 @@ public class MostraBloco extends Activity implements OnClickListener {
 
 		Button mostraMapa = (Button) findViewById(R.id.mostrarMapa);
 		mostraMapa.setOnClickListener(this);
-		mostraMapa.setEnabled(!extras.getBoolean("hidemap", false));
+
+		boolean hidemap = extras.getBoolean("hidemap", false);
+		mostraMapa.setVisibility(hidemap ? View.GONE : View.VISIBLE);
 
 		endereco = blocos.get(0).getEndereco();
 		bairro = blocos.get(0).getBairro();
@@ -98,7 +100,7 @@ public class MostraBloco extends Activity implements OnClickListener {
 					holder = (ViewHolder) convertView.getTag();
 				}
 
-				holder.endereco.setText(bloco.getEndereco());
+				holder.endereco.setText(bloco.getEndereco() + ", " + bairro);
 				holder.data.setText(DBAdapter.formataData(bloco.getData()));
 
 				return convertView;
@@ -107,10 +109,8 @@ public class MostraBloco extends Activity implements OnClickListener {
 	}
 
 	static class ViewHolder {
-
 		protected TextView data;
 		protected TextView endereco;
-
 	}
 
 	@Override

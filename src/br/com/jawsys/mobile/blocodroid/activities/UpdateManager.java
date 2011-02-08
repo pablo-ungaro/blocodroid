@@ -20,35 +20,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.ContentValues;
-import android.content.Context;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 import br.com.jawsys.mobile.blocodroid.db.CarregarXML;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class UpdateManager implements Runnable {
 
-	private Context context;
 	private DBAdapter db;
 
-	public UpdateManager(Context main) {
-		this.context = main;
-		db = new DBAdapter(context);
+	public UpdateManager(DBAdapter db) {
+		this.db = db;
 	}
 
 	public void atualizarDados() throws Exception {
-		List<String> favoritos = db.listarNomesFavoritos();
-
 		CarregarXML xml = new CarregarXML();
 		List<Bloco> blocos = xml.listarBlocos();
-		List<ContentValues> cvs = new ArrayList<ContentValues>(blocos.size());
+		List<ContentValues> listaCVs = new ArrayList<ContentValues>(blocos.size());
 		for (Bloco b : blocos) {
-			if (favoritos.contains(b.getNome())) {
-				b.setFavorito(true);
-			}
-			cvs.add(b.buildContentValues());
+			listaCVs.add(b.buildContentValues());
 		}
 		db.recriar();
-		db.salvar(cvs);
+		db.inserir(listaCVs);
 	}
 
 	public void run() {

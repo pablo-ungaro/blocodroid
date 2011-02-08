@@ -19,7 +19,7 @@
 	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
 	<TextView android:id="@+id/nomeBloco" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="TextView"
-		android:textSize="22sp" android:textStyle="bold"
+		android:textSize="22sp" android:textStyle="bold" android:textColor="#ffCCCC22"
 		android:layout_alignParentTop="true" android:layout_alignParentLeft="true" />
 	<TextView android:id="@+id/datasEnderecos"
 		android:layout_alignLeft="@+id/nomeBloco" android:layout_below="@+id/nomeBloco"

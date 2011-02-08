@@ -22,8 +22,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -46,7 +48,7 @@ public class DBAdapter {
 
 	private static final String DBTABLE = "blocos";
 
-	private static final int DBVERSION = 22;
+	private static final int DBVERSION = 33;
 
 	private static final String DATABASE_CREATE = "create table blocos (_id integer primary key autoincrement, "
 			+ "nome text not null, bairro text not null, favorito boolean not null, "
@@ -71,13 +73,16 @@ public class DBAdapter {
 
 	private SQLiteDatabase db;
 
+	private Set<String> listaRecuperadaFavoritos = new HashSet<String>();
+
 	public DBAdapter(Context ctx) {
 		this.context = ctx;
 		dbHelper = new DatabaseHelper(context);
 	}
 
-	private static class DatabaseHelper extends SQLiteOpenHelper {
+	private boolean freshDatabase;
 
+	private class DatabaseHelper extends SQLiteOpenHelper {
 		DatabaseHelper(Context context) {
 			super(context, DBNAME, null, DBVERSION);
 		}
@@ -85,6 +90,7 @@ public class DBAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL(DATABASE_CREATE);
+			freshDatabase = true;
 		}
 
 		@Override
@@ -92,11 +98,19 @@ public class DBAdapter {
 			Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
 					+ newVersion + ", which will destroy all old data");
 
+			backupListaFavoritos(db);
 			db.execSQL("DROP TABLE IF EXISTS " + DBTABLE);
 
 			onCreate(db);
 		}
+	}
 
+	private void backupListaFavoritos(SQLiteDatabase db) {
+		Cursor c = db.query(true, DBTABLE, new String[] { "nome" },
+				"favorito=1", null, null, null, null, null);
+		while (c.moveToNext()) {
+			listaRecuperadaFavoritos.add(c.getString(0));
+		}
 	}
 
 	private DBAdapter open() throws SQLException {
@@ -169,40 +183,14 @@ public class DBAdapter {
 		}
 	}
 
-	public void salvar(List<ContentValues> cv) {
-		for (ContentValues c : cv) {
-			salvar(c);
-		}
-	}
-
-	public long salvar(ContentValues cv) {
-		open();
-
-		try {
-			return _salvar(cv);
-		} finally {
-			close();
-		}
-	}
-
-	private long _salvar(ContentValues cv) {
-		Cursor c = db.query(DBTABLE, new String[] { KEY_ROWID }, KEY_ROWID
-				+ "=" + cv.getAsInteger(KEY_ROWID), null, null, null, null,
-				null);
-
-		if (c.getCount() == 0) {
-			cv.remove(KEY_ROWID);
-			return db.insert(DBTABLE, null, cv);
-		} else {
-			db.update(DBTABLE, cv, KEY_ROWID + "=?",
-					new String[] { cv.getAsString(KEY_ROWID) });
-			return cv.getAsLong(KEY_ROWID);
-		}
-	}
-
 	public void recriar() {
+		if (freshDatabase) {
+			return;
+		}
+
 		open();
-		dbHelper.onUpgrade(db, db.getVersion(), db.getVersion() + 1);
+		backupListaFavoritos(db);
+		db.delete(DBTABLE, null, null);
 		close();
 	}
 
@@ -415,5 +403,22 @@ public class DBAdapter {
 		close();
 
 		return lista;
+	}
+
+	public void inserir(List<ContentValues> listaCVs) {
+		open();
+
+		for (ContentValues cv : listaCVs) {
+			if (!listaRecuperadaFavoritos.isEmpty()
+					&& listaRecuperadaFavoritos.contains(cv.get("nome"))) {
+				cv.put("favorito", true);
+			}
+
+			db.insert(DBTABLE, null, cv);
+		}
+
+		close();
+
+		freshDatabase = false;
 	}
 }

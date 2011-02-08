@@ -31,6 +31,7 @@ import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+import com.google.android.maps.Overlay;
 
 public class PorProximidade extends MapActivity {
 
@@ -41,9 +42,7 @@ public class PorProximidade extends MapActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.porproximidade);
 
-		MapView map = (MapView) findViewById(R.id.mapa);
-		map.setBuiltInZoomControls(true);
-		mc = map.getController();
+		List<Bloco> blocosHoje = new DBAdapter(this).listarBlocosHoje();
 
 		// Acquire a reference to the system Location Manager
 		LocationManager locationManager = (LocationManager) this
@@ -54,17 +53,29 @@ public class PorProximidade extends MapActivity {
 				(int) (lastKnownLocation.getLatitude() * 1E6),
 				(int) (lastKnownLocation.getLongitude() * 1E6));
 
+		MapView map = (MapView) findViewById(R.id.mapa);
+		map.setBuiltInZoomControls(true);
 		Drawable marcador = getResources().getDrawable(R.drawable.blue);
 		BlocoOverlay overlay = new BlocoOverlay(this, marcador);
+		List<Overlay> overlays = map.getOverlays();
+		overlays.clear();
+		overlays.add(overlay);
+
 		overlay.addPosicaoAtual(geoPointCenter);
-		List<Bloco> blocosHoje = new DBAdapter(this).listarBlocosHoje();
 		for (Bloco bloco : blocosHoje) {
 			overlay.add(bloco);
 		}
-		map.getOverlays().add(overlay);
 
-		mc.animateTo(geoPointCenter);
-		mc.zoomToSpan(overlay.getLatSpanE6(), overlay.getLonSpanE6());
+		mc = map.getController();
+
+		int latSpan = overlay.getLatSpanE6();
+		int lonSpan = overlay.getLonSpanE6();
+		mc.zoomToSpan(latSpan, lonSpan);
+		GeoPoint overlayCenter = overlay.getCenter();
+		int overlayLatE6 = overlayCenter.getLatitudeE6();
+		int overlayLonE6 = overlayCenter.getLongitudeE6();
+		mc.animateTo(new GeoPoint(overlayLatE6 - (latSpan / 2), overlayLonE6
+				- (lonSpan / 2)));
 		map.invalidate();
 	}
 

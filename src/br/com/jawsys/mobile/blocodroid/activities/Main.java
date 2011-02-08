@@ -16,6 +16,9 @@
  */
 package br.com.jawsys.mobile.blocodroid.activities;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -23,6 +26,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,20 +37,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
+import android.widget.TextView;
 import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 import br.com.jawsys.mobile.blocodroid.services.AvisaBlocosProximosService;
 
-public class Main extends Activity implements OnClickListener, OnTouchListener {
+public class Main extends Activity implements OnTouchListener {
 
 	private static final String MAPA_BLOCOS_DIARIORIO = "http://goo.gl/maps/dJmE";
 
 	private ProgressDialog pd;
 
 	private AlertDialog confirmaAtualizacao;
+
+	private Map<Integer, Integer> descricaoBotoes = new HashMap<Integer, Integer>();
+
+	private Vibrator vib;
+
+	private Drawable clickedbox;
+
+	private Drawable roundbox;
 
 	private static final int ACTIVITY_OPCOES = 0;
 
@@ -61,6 +73,11 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+		clickedbox = getResources().getDrawable(R.drawable.clickedrountedbox);
+		roundbox = getResources().getDrawable(R.drawable.rountedbox);
+
 		setContentView(R.layout.main);
 		configBotoes();
 
@@ -83,15 +100,20 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 	}
 
 	private void configBotoes() {
-		configBotao((Button) findViewById(R.id.botaoBloco));
-		configBotao((Button) findViewById(R.id.botaoFavoritos));
-		configBotao((Button) findViewById(R.id.botaoData));
-		configBotao((Button) findViewById(R.id.botaoBairro));
-		configBotao((Button) findViewById(R.id.botaoProximidade));
+		configBotao((Button) findViewById(R.id.botaoBloco),
+				R.string.descricaoBloco);
+		configBotao((Button) findViewById(R.id.botaoFavoritos),
+				R.string.descricaoFavoritos);
+		configBotao((Button) findViewById(R.id.botaoData),
+				R.string.descricaoData);
+		configBotao((Button) findViewById(R.id.botaoBairro),
+				R.string.descricaoBairro);
+		configBotao((Button) findViewById(R.id.botaoProximidade),
+				R.string.descricaoRadar);
 	}
 
-	private void configBotao(Button botao) {
-		botao.setOnClickListener(this);
+	private void configBotao(Button botao, int idDescricao) {
+		descricaoBotoes.put(botao.getId(), idDescricao);
 		botao.setOnTouchListener(this);
 	}
 
@@ -159,12 +181,13 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
-			pd.dismiss();
+			if (pd != null && pd.isShowing()) {
+				pd.dismiss();
+			}
 		}
 	};
 
-	@Override
-	public void onClick(View v) {
+	public void abreAtividade(View v) {
 		switch (v.getId()) {
 		case (R.id.botaoProximidade): {
 			Intent intent = new Intent(v.getContext(), PorProximidade.class);
@@ -196,27 +219,49 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 			vib.vibrate(35);
-			((Button) v).setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.clickedrountedbox));
+			((Button) v).setBackgroundDrawable(clickedbox);
+
+			Integer idDescricao = descricaoBotoes.get(v.getId());
+			if (idDescricao != null) {
+				TextView textView = (TextView) findViewById(R.id.descricaoFuncao);
+				textView.setVisibility(View.VISIBLE);
+				textView.setText(idDescricao);
+			}
 		} else if (event.getAction() == MotionEvent.ACTION_UP) {
-			((Button) v).setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.rountedbox));
-			onClick(v);
+			((Button) v).setBackgroundDrawable(roundbox);
+
+			TextView textView = (TextView) findViewById(R.id.descricaoFuncao);
+			textView.setVisibility(View.GONE);
+
+			if (stillOver(v, event)) {
+				abreAtividade(v);
+			}
 		}
 		return true;
 	}
 
+	private boolean stillOver(View v, MotionEvent event) {
+		float eventX = event.getRawX();
+		float eventY = event.getRawY();
+
+		int[] is = new int[2];
+		v.getLocationOnScreen(is);
+
+		boolean horiz = eventX >= is[0] && eventX <= is[0] + v.getWidth();
+		boolean vertic = eventY >= is[1] && eventY <= is[1] + v.getHeight();
+		return horiz && vertic;
+	}
+
 	private void runUpdateManager(boolean initial) {
-		if (new DBAdapter(this).bancoExiste() && initial) {
+		DBAdapter dbAdapter = new DBAdapter(this);
+		if (dbAdapter.bancoExiste() && initial) {
 			return;
 		}
 
-		pd = ProgressDialog.show(Main.this, "BlocoDroid",
-				"Atualizando. Aguarde...", true);
+		mostraAlerta("Atualizando. Aguarde...");
 
-		Thread t = new Thread(new UpdateManager(Main.this) {
+		Thread t = new Thread(new UpdateManager(dbAdapter) {
 			@Override
 			public void run() {
 				try {
@@ -226,10 +271,19 @@ public class Main extends Activity implements OnClickListener, OnTouchListener {
 				} catch (Exception e) {
 					erroAoCarregarXML();
 				}
-				handler.sendEmptyMessage(0);
+				fechaAlerta();
 			}
+
 		});
 		t.start();
+	}
+
+	private void fechaAlerta() {
+		handler.sendEmptyMessage(0);
+	}
+
+	private void mostraAlerta(String msg) {
+		pd = ProgressDialog.show(Main.this, "BlocoDroid", msg);
 	}
 
 }

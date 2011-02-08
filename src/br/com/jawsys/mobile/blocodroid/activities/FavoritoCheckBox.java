@@ -58,7 +58,7 @@ public class FavoritoCheckBox extends CheckBox implements
 		pd = ProgressDialog.show(this.getContext(), "",
 				"Marcando como favorito. Aguarde...", true);
 
-		Thread t = new Thread(new UpdateManager(this.getContext()) {
+		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				bloco.trocaFavorito(isChecked);

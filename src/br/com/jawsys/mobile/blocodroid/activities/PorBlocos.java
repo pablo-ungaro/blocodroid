@@ -21,6 +21,8 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import br.com.jawsys.mobile.blocodroid.R;
@@ -29,6 +31,7 @@ import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class PorBlocos extends Activity {
 
+	private static final int MENU_CONFIG = 0;
 	private ListaBlocos listaBlocosView;
 
 	@Override
@@ -58,4 +61,17 @@ public class PorBlocos extends Activity {
 		return true;
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		boolean result = super.onCreateOptionsMenu(menu);
+		menu.add(0, MENU_CONFIG, 0, R.string.botaoBuscar).setIcon(
+				R.drawable.filter);
+
+		return result;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		return onSearchRequested();
+	}
 }

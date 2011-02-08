@@ -27,6 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.widget.Toast;
+import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 
 import com.google.android.maps.GeoPoint;
@@ -47,7 +48,8 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 	public void addPosicaoAtual(GeoPoint geoPoint) {
 		OverlayItem overlayItem = new OverlayItem(geoPoint, "Posição atual",
 				"Posição atual");
-		// overlayItem.setMarker(context.getResources().getDrawable(R.drawable.blue));
+		Drawable drawable = context.getResources().getDrawable(R.drawable.red);
+		overlayItem.setMarker(boundCenterBottom(drawable));
 		mOverlays.add(overlayItem);
 		populate();
 	}
@@ -96,7 +98,8 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 			mostraBloco.putExtra("hidemap", true);
 			context.startActivity(mostraBloco);
 		} else {
-			Toast.makeText(context, "Você está aqui!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, "Você está aqui!", Toast.LENGTH_LONG)
+					.show();
 		}
 
 		return super.onTap(index);

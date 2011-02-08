@@ -19,6 +19,7 @@
 	<string name="verMapa">Ver Mapa</string>
 	<string name="hello">Hello World, Main!</string>
 	<string name="app_name">BlocoDroid</string>
+	<string name="botaoBuscar">Filtrar</string>
 	<string name="botaoOpcoes">Configurações</string>
 	<string name="botaoFavoritos">Favoritos</string>
 	<string name="botaoProximidade">Radar</string>
@@ -28,4 +29,10 @@
 	<string name="botaoAtualizar">Atualizar</string>
 	<string name="datasEnderecos">Datas, horários e endereços</string>
 	<string name="descricaoApp">Programação dos Blocos do Rio 2010</string>
+	<string name="descricaoBloco">Lista dos blocos de A a Z. Fácil de encontrar os blocos que você já conhece. Marque os seus favoritos para rápido acesso.</string>
+	<string name="descricaoFavoritos">Lista somente com os seus blocos favoritos. Melhor ainda para quem quer saber onde e quando será o desfile do seu bloco preferido.</string>
+	<string name="descricaoData">A lista por data é boa para se organizar. Não importa onde ou qual bloco, o que importa é o dia que você quer pular nas ruas.</string>
+	<string name="descricaoBairro">Se você preferir saber quais blocos vão desfilar no seu bairro, ou no bairro da sua turma, a lista por bairros é a melhor opção.</string>
+	<string name="descricaoRadar">Encontre no mapa quais e onde estão os blocos de
+		hoje. No mapa você também encontrará a sua localização atual e vai saber assim se dá pra ir a pé.</string>
 </resources>
