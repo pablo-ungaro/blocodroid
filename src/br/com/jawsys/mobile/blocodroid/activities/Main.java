@@ -37,6 +37,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,6 +46,8 @@ import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 import br.com.jawsys.mobile.blocodroid.services.AvisaBlocosProximosService;
 
 public class Main extends Activity implements OnTouchListener {
+
+	private static final String TWITTER_URL = "http://m.twitter.com/blocodroid";
 
 	private static final String MAPA_BLOCOS_DIARIORIO = "http://goo.gl/maps/dJmE";
 
@@ -74,12 +77,24 @@ public class Main extends Activity implements OnTouchListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
 		clickedbox = getResources().getDrawable(R.drawable.clickedrountedbox);
 		roundbox = getResources().getDrawable(R.drawable.rountedbox);
 
+		// Thread.getDefaultUncaughtExceptionHandler();
+		// Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
+
 		setContentView(R.layout.main);
 		configBotoes();
+
+		View followTwitter = findViewById(R.id.mostraTwitter);
+		followTwitter.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Uri uri = Uri.parse(TWITTER_URL);
+				Intent viewWholeMap = new Intent(Intent.ACTION_VIEW, uri);
+				startActivity(viewWholeMap);
+			}
+		});
 
 		boolean notificar = PreferenceManager.getDefaultSharedPreferences(this)
 				.getBoolean("notificar", false);
@@ -110,10 +125,12 @@ public class Main extends Activity implements OnTouchListener {
 				R.string.descricaoBairro);
 		configBotao((Button) findViewById(R.id.botaoProximidade),
 				R.string.descricaoRadar);
+		configBotao((Button) findViewById(R.id.botaoMostraOpcoes), 0);
 	}
 
 	private void configBotao(Button botao, int idDescricao) {
-		descricaoBotoes.put(botao.getId(), idDescricao);
+		descricaoBotoes.put(botao.getId(), idDescricao != 0 ? idDescricao
+				: null);
 		botao.setOnTouchListener(this);
 	}
 
@@ -187,9 +204,15 @@ public class Main extends Activity implements OnTouchListener {
 		}
 	};
 
+	protected void onResume() {
+		super.onResume();
+		fechaAlerta();
+	}
+
 	public void abreAtividade(View v) {
 		switch (v.getId()) {
 		case (R.id.botaoProximidade): {
+			mostraAlerta("Aguarde ...");
 			Intent intent = new Intent(v.getContext(), PorProximidade.class);
 			startActivity(intent);
 			break;
@@ -211,6 +234,10 @@ public class Main extends Activity implements OnTouchListener {
 			Intent intent = new Intent(v.getContext(), PorAgrupamento.class);
 			intent.putExtra("tipo", "data");
 			startActivity(intent);
+			break;
+		}
+		case (R.id.botaoMostraOpcoes): {
+			openOptionsMenu();
 			break;
 		}
 		}

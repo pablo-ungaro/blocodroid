@@ -35,22 +35,24 @@ public final class R {
         public static final int botaoBloco=0x7f090008;
         public static final int botaoData=0x7f090009;
         public static final int botaoFavoritos=0x7f09000b;
+        public static final int botaoMostraOpcoes=0x7f09000d;
         public static final int botaoProximidade=0x7f09000c;
         public static final int checkBloco=0x7f090006;
         public static final int checkFavorito=0x7f090000;
-        public static final int data=0x7f090010;
-        public static final int datasEnderecos=0x7f09000e;
+        public static final int data=0x7f090012;
+        public static final int datasEnderecos=0x7f090010;
         public static final int descricaoFuncao=0x7f090007;
         public static final int endereco=0x7f090003;
-        public static final int filtro=0x7f090013;
-        public static final int listViewAgrupada=0x7f090011;
-        public static final int listaBlocos=0x7f090014;
-        public static final int listaDatasHorarios=0x7f09000f;
-        public static final int mapa=0x7f090015;
+        public static final int filtro=0x7f090015;
+        public static final int listViewAgrupada=0x7f090013;
+        public static final int listaBlocos=0x7f090016;
+        public static final int listaDatasHorarios=0x7f090011;
+        public static final int mapa=0x7f090017;
+        public static final int mostraTwitter=0x7f09000e;
         public static final int mostrarMapa=0x7f090002;
-        public static final int nenhumFavorito=0x7f090012;
+        public static final int nenhumFavorito=0x7f090014;
         public static final int nome=0x7f090001;
-        public static final int nomeBloco=0x7f09000d;
+        public static final int nomeBloco=0x7f09000f;
         public static final int textoBloco=0x7f090005;
         public static final int titulo=0x7f090004;
     }
@@ -73,6 +75,7 @@ public final class R {
         public static final int botaoBuscar=0x7f070003;
         public static final int botaoData=0x7f070008;
         public static final int botaoFavoritos=0x7f070005;
+        public static final int botaoMostraOpcoes=0x7f070012;
         public static final int botaoOpcoes=0x7f070004;
         public static final int botaoProximidade=0x7f070006;
         public static final int datasEnderecos=0x7f07000b;
@@ -83,6 +86,7 @@ public final class R {
         public static final int descricaoFavoritos=0x7f07000e;
         public static final int descricaoRadar=0x7f070011;
         public static final int hello=0x7f070001;
+        public static final int textoTwitter=0x7f070013;
         public static final int verMapa=0x7f070000;
     }
     public static final class style {

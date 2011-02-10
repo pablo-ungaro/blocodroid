@@ -21,7 +21,7 @@
 
 	<application android:icon="@drawable/creep003"
 		android:label="@string/app_name" android:persistent="true"
-		android:description="@string/descricaoApp" android:debuggable="false">
+		android:description="@string/descricaoApp" android:debuggable="true">
 
 		<uses-library android:name="com.google.android.maps" />
 
