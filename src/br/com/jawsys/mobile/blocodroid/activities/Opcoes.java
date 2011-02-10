@@ -42,7 +42,7 @@ public class Opcoes extends PreferenceActivity {
 									String key) {
 
 								salvarOpcoes(sharedPreferences.getBoolean(
-										"notificar", Boolean.FALSE));
+										"notificar", Main.PADRAO_NOTIFICACAO));
 							}
 						});
 	}

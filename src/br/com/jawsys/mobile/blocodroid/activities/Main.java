@@ -72,6 +72,8 @@ public class Main extends Activity implements OnTouchListener {
 
 	private static final int MENU_CONFIG = 0;
 
+	public static final boolean PADRAO_NOTIFICACAO = true;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,7 +88,7 @@ public class Main extends Activity implements OnTouchListener {
 		configBotoes();
 
 		boolean notificar = PreferenceManager.getDefaultSharedPreferences(this)
-				.getBoolean("notificar", false);
+				.getBoolean("notificar", PADRAO_NOTIFICACAO);
 		if (notificar) {
 			startService(new Intent(this, AvisaBlocosProximosService.class));
 		}

@@ -22,13 +22,15 @@ public final class R {
         public static final int clickedrountedbox=0x7f020001;
         public static final int creep001=0x7f020002;
         public static final int creep003=0x7f020003;
-        public static final int equalizer=0x7f020004;
-        public static final int filter=0x7f020005;
-        public static final int flag=0x7f020006;
-        public static final int fundo_amarelo=0x7f020007;
-        public static final int red=0x7f020008;
-        public static final int rountedbox=0x7f020009;
-        public static final int sun=0x7f02000a;
+        public static final int creep003_copy=0x7f020004;
+        public static final int equalizer=0x7f020005;
+        public static final int filter=0x7f020006;
+        public static final int flag=0x7f020007;
+        public static final int fundo_amarelo=0x7f020008;
+        public static final int icone_sugarloaf=0x7f020009;
+        public static final int red=0x7f02000a;
+        public static final int rountedbox=0x7f02000b;
+        public static final int sun=0x7f02000c;
     }
     public static final class id {
         public static final int botaoBairro=0x7f09000a;

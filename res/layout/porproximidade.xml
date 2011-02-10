@@ -28,7 +28,7 @@
 	<com.google.android.maps.MapView
 		android:id="@+id/mapa" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:enabled="true"
-		android:clickable="true" android:apiKey="0F6v7deoTsHOf1vWfx3act7EUIxdMf3GKLid7Lw" />
+		android:clickable="true" android:apiKey="0F6v7deoTsHOzRAzcsM5m3lGkUB5gtg6qiaTjFw" />
 
 	<!-- DEBUG key: 0F6v7deoTsHPORYZkf1DbWerkpu6yVimYiHSj8A 
 		DEBUG @wdev key: 0F6v7deoTsHOf1vWfx3act7EUIxdMf3GKLid7Lw 
