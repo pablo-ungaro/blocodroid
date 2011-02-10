@@ -37,7 +37,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -86,16 +85,6 @@ public class Main extends Activity implements OnTouchListener {
 		setContentView(R.layout.main);
 		configBotoes();
 
-		View followTwitter = findViewById(R.id.mostraTwitter);
-		followTwitter.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Uri uri = Uri.parse(TWITTER_URL);
-				Intent viewWholeMap = new Intent(Intent.ACTION_VIEW, uri);
-				startActivity(viewWholeMap);
-			}
-		});
-
 		boolean notificar = PreferenceManager.getDefaultSharedPreferences(this)
 				.getBoolean("notificar", false);
 		if (notificar) {
@@ -126,6 +115,7 @@ public class Main extends Activity implements OnTouchListener {
 		configBotao((Button) findViewById(R.id.botaoProximidade),
 				R.string.descricaoRadar);
 		configBotao((Button) findViewById(R.id.botaoMostraOpcoes), 0);
+		configBotao((Button) findViewById(R.id.mostraTwitter), 0);
 	}
 
 	private void configBotao(Button botao, int idDescricao) {
@@ -239,6 +229,11 @@ public class Main extends Activity implements OnTouchListener {
 		case (R.id.botaoMostraOpcoes): {
 			openOptionsMenu();
 			break;
+		}
+		case (R.id.mostraTwitter): {
+			Uri uri = Uri.parse(TWITTER_URL);
+			Intent viewWholeMap = new Intent(Intent.ACTION_VIEW, uri);
+			startActivity(viewWholeMap);
 		}
 		}
 	}
