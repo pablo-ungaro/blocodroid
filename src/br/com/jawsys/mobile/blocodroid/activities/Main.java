@@ -87,7 +87,7 @@ public class Main extends Activity implements OnTouchListener {
 			startService(new Intent(this, AvisaBlocosProximosService.class));
 		}
 
-		runUpdateManager(true);
+		runUpdateManager(false);
 	}
 
 	private void erroAoCarregarXML() {
