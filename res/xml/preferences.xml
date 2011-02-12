@@ -23,7 +23,7 @@
 
 	<CheckBoxPreference android:key="notificar"
 		android:summary="Avisar sobre desfile de blocos favoritos"
-		android:title="Avisar Desfiles" android:defaultValue="false" />
+		android:title="Avisar Desfiles" android:defaultValue="true" />
 
 	<ListPreference android:key="intervalo" android:title="Antecedência do Aviso"
 		android:summary="Horas de antecedência do aviso do desfile dos blocos"

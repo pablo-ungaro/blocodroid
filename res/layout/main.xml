@@ -72,6 +72,7 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content" />
 
 	<Button android:layout_height="wrap_content"
+		android:height="53dip"
 		android:id="@+id/mostraTwitter"
 		android:background="@drawable/rountedbox"
 		android:layout_width="wrap_content"

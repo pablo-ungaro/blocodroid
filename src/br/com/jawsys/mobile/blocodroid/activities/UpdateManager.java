@@ -24,7 +24,7 @@ import br.com.jawsys.mobile.blocodroid.db.Bloco;
 import br.com.jawsys.mobile.blocodroid.db.CarregarXML;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
-public class UpdateManager implements Runnable {
+public class UpdateManager {
 
 	private DBAdapter db;
 
@@ -41,9 +41,6 @@ public class UpdateManager implements Runnable {
 		}
 		db.recriar();
 		db.inserir(listaCVs);
-	}
-
-	public void run() {
 	}
 
 }
