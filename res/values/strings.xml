@@ -35,4 +35,7 @@
 	<string name="descricaoBairro">Se você preferir saber quais blocos vão desfilar no seu bairro, ou no bairro da sua turma, a lista por bairros é a melhor opção.</string>
 	<string name="descricaoRadar">Encontre no mapa quais e onde estão os blocos de
 		hoje. No mapa você também encontrará a sua localização atual e vai saber assim se dá pra ir a pé.</string>
+		
+	<string name="botaoMostraOpcoes">Opções</string>
+	<string name="textoTwitter">Twitter\n@blocodroid</string>
 </resources>

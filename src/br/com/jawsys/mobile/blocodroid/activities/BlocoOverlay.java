@@ -27,7 +27,6 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.widget.Toast;
-import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 
 import com.google.android.maps.GeoPoint;
@@ -40,22 +39,17 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 	private List<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
 	private Context context;
 
+	private int maxLatitude = Integer.MIN_VALUE;
+	private int minLatitude = Integer.MAX_VALUE;
+	private int maxLongitude = Integer.MIN_VALUE;
+	private int minLongitude = Integer.MAX_VALUE;
+
+	private int centerLongitude;
+	private int centerLatitude;
+
 	public BlocoOverlay(Context context, Drawable marker) {
 		super(boundCenterBottom(marker));
 		this.context = context;
-	}
-
-	public void addPosicaoAtual(GeoPoint geoPoint) {
-		OverlayItem overlayItem = new OverlayItem(geoPoint, "Posição atual",
-				"Posição atual");
-		Drawable drawable = context.getResources().getDrawable(R.drawable.red);
-		overlayItem.setMarker(boundCenterBottom(drawable));
-		mOverlays.add(overlayItem);
-		populate();
-	}
-
-	public void populateAll() {
-		populate();
 	}
 
 	public void add(Bloco bloco) {
@@ -67,15 +61,34 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 
 			List<Address> addresses = geoCoder.getFromLocationName(endereco, 5);
 			if (addresses.size() > 0) {
-				GeoPoint p = new GeoPoint(
-						(int) (addresses.get(0).getLatitude() * 1E6),
-						(int) (addresses.get(0).getLongitude() * 1E6));
+				int latitude = (int) (addresses.get(0).getLatitude() * 1E6);
+				int longitude = (int) (addresses.get(0).getLongitude() * 1E6);
+
+				computeCenterPosition(latitude, longitude);
+
+				GeoPoint p = new GeoPoint(latitude, longitude);
 				BlocoItem bi = new BlocoItem(bloco, p);
 				mOverlays.add(bi);
 				populate();
 			}
 		} catch (IOException e) {
 		}
+	}
+
+	private void computeCenterPosition(int latitude, int longitude) {
+		maxLatitude = Math.max(latitude, maxLatitude);
+		minLatitude = Math.min(latitude, minLatitude);
+
+		maxLongitude = Math.max(longitude, maxLongitude);
+		minLongitude = Math.min(longitude, minLongitude);
+
+		centerLongitude = ((maxLongitude - minLongitude) / 2) + minLongitude;
+		centerLatitude = ((maxLatitude - minLatitude) / 2) + minLatitude;
+	}
+
+	@Override
+	public GeoPoint getCenter() {
+		return new GeoPoint(centerLatitude, centerLongitude);
 	}
 
 	@Override

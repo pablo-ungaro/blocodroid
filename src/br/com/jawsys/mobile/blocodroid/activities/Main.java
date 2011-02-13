@@ -24,8 +24,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -46,6 +47,8 @@ import br.com.jawsys.mobile.blocodroid.services.AvisaBlocosProximosService;
 
 public class Main extends Activity implements OnTouchListener {
 
+	private static final String TWITTER_URL = "http://m.twitter.com/blocodroid";
+
 	private static final String MAPA_BLOCOS_DIARIORIO = "http://goo.gl/maps/dJmE";
 
 	private ProgressDialog pd;
@@ -62,32 +65,49 @@ public class Main extends Activity implements OnTouchListener {
 
 	private static final int ACTIVITY_OPCOES = 0;
 
-	private static final int MENU_ATUALIZA = 1;
-
 	protected static final int PROGRESS_DIALOG = 4;
 
 	private static final int MENU_VER_MAPA = 2;
 
 	private static final int MENU_CONFIG = 0;
 
+	public static final boolean PADRAO_NOTIFICACAO = true;
+
+	private static final int DIALOG_ATUALIZACAO = 0;
+
+	private static final int DIALOG_ALERTA = 1;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
-		clickedbox = getResources().getDrawable(R.drawable.clickedrountedbox);
-		roundbox = getResources().getDrawable(R.drawable.rountedbox);
-
 		setContentView(R.layout.main);
 		configBotoes();
+		ativarDebug();
 
-		boolean notificar = PreferenceManager.getDefaultSharedPreferences(this)
-				.getBoolean("notificar", false);
+		vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		clickedbox = getResources().getDrawable(R.drawable.clickedrountedbox);
+		roundbox = getResources().getDrawable(R.drawable.roundedbox);
+
+		SharedPreferences prefs = getPreferences();
+		boolean notificar = prefs.getBoolean("notificar", PADRAO_NOTIFICACAO);
+
 		if (notificar) {
 			startService(new Intent(this, AvisaBlocosProximosService.class));
 		}
 
-		runUpdateManager(false);
+		runUpdateManager();
+	}
+
+	private SharedPreferences getPreferences() {
+		return PreferenceManager.getDefaultSharedPreferences(this);
+	}
+
+	private void ativarDebug() {
+		int flags = getApplicationInfo().flags;
+		if ((flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
+			Thread.getDefaultUncaughtExceptionHandler();
+			Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
+		}
 	}
 
 	private void erroAoCarregarXML() {
@@ -100,21 +120,19 @@ public class Main extends Activity implements OnTouchListener {
 	}
 
 	private void configBotoes() {
-		configBotao((Button) findViewById(R.id.botaoBloco),
-				R.string.descricaoBloco);
-		configBotao((Button) findViewById(R.id.botaoFavoritos),
-				R.string.descricaoFavoritos);
-		configBotao((Button) findViewById(R.id.botaoData),
-				R.string.descricaoData);
-		configBotao((Button) findViewById(R.id.botaoBairro),
-				R.string.descricaoBairro);
-		configBotao((Button) findViewById(R.id.botaoProximidade),
-				R.string.descricaoRadar);
+		configBotao(R.id.botaoBloco, R.string.descricaoBloco);
+		configBotao(R.id.botaoFavoritos, R.string.descricaoFavoritos);
+		configBotao(R.id.botaoData, R.string.descricaoData);
+		configBotao(R.id.botaoBairro, R.string.descricaoBairro);
+		configBotao(R.id.botaoProximidade, R.string.descricaoRadar);
+		configBotao(R.id.botaoMostraOpcoes, null);
+		configBotao(R.id.mostraTwitter, null);
 	}
 
-	private void configBotao(Button botao, int idDescricao) {
-		descricaoBotoes.put(botao.getId(), idDescricao);
-		botao.setOnTouchListener(this);
+	private void configBotao(int id, Integer idDescricao) {
+		View v = findViewById(id);
+		descricaoBotoes.put(v.getId(), idDescricao);
+		v.setOnTouchListener(this);
 	}
 
 	@Override
@@ -122,8 +140,8 @@ public class Main extends Activity implements OnTouchListener {
 		boolean result = super.onCreateOptionsMenu(menu);
 		menu.add(0, MENU_CONFIG, 0, R.string.botaoOpcoes).setIcon(
 				R.drawable.equalizer);
-		menu.add(0, MENU_ATUALIZA, 1, R.string.botaoAtualizar).setIcon(
-				R.drawable.sun);
+		// menu.add(0, MENU_ATUALIZA, 1, R.string.botaoAtualizar).setIcon(
+		// R.drawable.sun);
 		menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa)
 				.setIcon(R.drawable.flag);
 
@@ -139,10 +157,6 @@ public class Main extends Activity implements OnTouchListener {
 
 			return super.onOptionsItemSelected(item);
 		}
-		case MENU_ATUALIZA: {
-			atualizarDados();
-			return super.onOptionsItemSelected(item);
-		}
 		case MENU_VER_MAPA: {
 			Intent viewWholeMap = new Intent(Intent.ACTION_VIEW,
 					Uri.parse(MAPA_BLOCOS_DIARIORIO));
@@ -153,30 +167,16 @@ public class Main extends Activity implements OnTouchListener {
 		return true;
 	}
 
-	private void atualizarDados() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("Deseja continuar?")
-				.setCancelable(false)
-				.setPositiveButton("Sim",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								runUpdateManager(false);
-							}
-						})
-				.setNegativeButton("Não",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								dialog.cancel();
-							}
-						});
-
-		confirmaAtualizacao = builder.create();
-		showDialog(0);
-	}
-
 	@Override
 	protected Dialog onCreateDialog(int id) {
-		return confirmaAtualizacao;
+		switch (id) {
+		case (DIALOG_ATUALIZACAO):
+			return confirmaAtualizacao;
+		case (DIALOG_ALERTA):
+			return pd;
+		}
+
+		return null;
 	}
 
 	private Handler handler = new Handler() {
@@ -190,8 +190,10 @@ public class Main extends Activity implements OnTouchListener {
 	public void abreAtividade(View v) {
 		switch (v.getId()) {
 		case (R.id.botaoProximidade): {
+			mostraAlerta("Aguarde ...");
 			Intent intent = new Intent(v.getContext(), PorProximidade.class);
 			startActivity(intent);
+			fechaAlerta();
 			break;
 		}
 		case (R.id.botaoBloco):
@@ -212,6 +214,15 @@ public class Main extends Activity implements OnTouchListener {
 			intent.putExtra("tipo", "data");
 			startActivity(intent);
 			break;
+		}
+		case (R.id.botaoMostraOpcoes): {
+			openOptionsMenu();
+			break;
+		}
+		case (R.id.mostraTwitter): {
+			Uri uri = Uri.parse(TWITTER_URL);
+			Intent viewWholeMap = new Intent(Intent.ACTION_VIEW, uri);
+			startActivity(viewWholeMap);
 		}
 		}
 	}
@@ -253,22 +264,26 @@ public class Main extends Activity implements OnTouchListener {
 		return horiz && vertic;
 	}
 
-	private void runUpdateManager(boolean initial) {
-		DBAdapter dbAdapter = new DBAdapter(this);
-		if (dbAdapter.bancoExiste() && initial) {
+	private void runUpdateManager() {
+		final DBAdapter dbAdapter = new DBAdapter(this);
+		if (dbAdapter.bancoExiste()) {
 			return;
 		}
 
-		mostraAlerta("Atualizando. Aguarde...");
+		mostraAlerta("Preparando programação dos Blocos para uso offline. Aguarde...");
 
-		Thread t = new Thread(new UpdateManager(dbAdapter) {
+		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					atualizarDados();
+					new UpdateManager(dbAdapter).atualizarDados();
 				} catch (RuntimeException re) {
+					Thread.getDefaultUncaughtExceptionHandler()
+							.uncaughtException(Thread.currentThread(), re);
 					erroAoCarregarXML();
 				} catch (Exception e) {
+					Thread.getDefaultUncaughtExceptionHandler()
+							.uncaughtException(Thread.currentThread(), e);
 					erroAoCarregarXML();
 				}
 				fechaAlerta();
@@ -279,11 +294,17 @@ public class Main extends Activity implements OnTouchListener {
 	}
 
 	private void fechaAlerta() {
-		handler.sendEmptyMessage(0);
+		handler.sendEmptyMessage(DIALOG_ALERTA);
 	}
 
 	private void mostraAlerta(String msg) {
-		pd = ProgressDialog.show(Main.this, "BlocoDroid", msg);
+		pd = new ProgressDialog(this);
+		pd.setTitle(R.string.app_name);
+		pd.setIcon(R.drawable.creep003);
+		pd.setIndeterminate(true);
+		pd.setCancelable(false);
+		pd.setMessage(msg);
+		pd.show();
 	}
 
 }

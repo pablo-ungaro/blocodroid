@@ -20,6 +20,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import br.com.jawsys.mobile.blocodroid.R;
@@ -32,6 +34,26 @@ public class Opcoes extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
 
+		findPreference("email_erro").setOnPreferenceClickListener(
+				new OnPreferenceClickListener() {
+					@Override
+					public boolean onPreferenceClick(Preference preference) {
+						Intent emailIntent = new Intent(Intent.ACTION_SEND);
+						String[] recipients = new String[] {
+								"brunoborges+blocodroid@gmail.com", "", };
+						emailIntent.putExtra(
+								android.content.Intent.EXTRA_EMAIL, recipients);
+						emailIntent.putExtra(
+								android.content.Intent.EXTRA_SUBJECT,
+								"[BlocoDroid] Ajuste na Programação");
+						emailIntent.setType("text/plain");
+						startActivity(Intent.createChooser(emailIntent,
+								"Enviar email..."));
+						finish();
+						return true;
+					}
+				});
+
 		PreferenceManager.getDefaultSharedPreferences(this)
 				.registerOnSharedPreferenceChangeListener(
 						new OnSharedPreferenceChangeListener() {
@@ -42,7 +64,7 @@ public class Opcoes extends PreferenceActivity {
 									String key) {
 
 								salvarOpcoes(sharedPreferences.getBoolean(
-										"notificar", Boolean.FALSE));
+										"notificar", Main.PADRAO_NOTIFICACAO));
 							}
 						});
 	}

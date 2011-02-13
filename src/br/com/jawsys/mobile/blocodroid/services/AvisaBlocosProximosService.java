@@ -35,7 +35,9 @@ public class AvisaBlocosProximosService extends Service {
 
 	private NotificationManager nm;
 	private Timer timer = new Timer();
+	private DBAdapter dbAdapter;
 	private static final int TEMPO_EXECUCAO = 10 * 60 * 1000;
+	private static final int TEMPO_INICIAL = 5 * 60 * 1000;
 	private static final int UNIKE_KEY = R.id.botaoBairro;
 
 	@Override
@@ -48,15 +50,16 @@ public class AvisaBlocosProximosService extends Service {
 		super.onCreate();
 		nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
+		dbAdapter = new DBAdapter(getApplicationContext());
+
 		timer.scheduleAtFixedRate(new TimerTask() {
 			public void run() {
-				List<Bloco> blocos = new DBAdapter(getApplicationContext())
-						.listarProximosBlocos();
+				List<Bloco> blocos = dbAdapter.listarProximosBlocos();
 				for (Bloco b : blocos) {
 					showNotification(b);
 				}
 			}
-		}, 0, TEMPO_EXECUCAO);
+		}, TEMPO_INICIAL, TEMPO_EXECUCAO);
 
 	}
 

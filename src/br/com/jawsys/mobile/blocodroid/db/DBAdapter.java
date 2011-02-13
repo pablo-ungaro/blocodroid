@@ -48,7 +48,7 @@ public class DBAdapter {
 
 	private static final String DBTABLE = "blocos";
 
-	private static final int DBVERSION = 33;
+	private static final int DBVERSION = 40;
 
 	private static final String DATABASE_CREATE = "create table blocos (_id integer primary key autoincrement, "
 			+ "nome text not null, bairro text not null, favorito boolean not null, "
@@ -113,6 +113,11 @@ public class DBAdapter {
 		}
 	}
 
+	private DBAdapter openReadable() throws SQLException {
+		db = dbHelper.getReadableDatabase();
+		return this;
+	}
+
 	private DBAdapter open() throws SQLException {
 		db = dbHelper.getWritableDatabase();
 		return this;
@@ -123,21 +128,22 @@ public class DBAdapter {
 	}
 
 	public SortedMap<Object, List<Bloco>> listaAgrupadaPorData() {
-		open();
-
 		String from = "0";
 		if (hideOld()) {
 			from = storageFormatter.format(Calendar.getInstance().getTime());
 		}
 
+		openReadable();
 		Cursor cursor = db.query(true, DBTABLE, null, "data > ?",
 				new String[] { from }, null, null, "nome", null);
 		List<Bloco> allBlocos = montaListaBlocos(cursor);
+		close();
 
 		SortedMap<Object, List<Bloco>> agrupado = new TreeMap<Object, List<Bloco>>();
 
 		for (Bloco bloco : allBlocos) {
-			Date key = (Date) bloco.getData().clone();
+			Date data = bloco.getData();
+			Date key = (Date) data.clone();
 			key.setHours(0);
 			key.setMinutes(0);
 			key.setSeconds(0);
@@ -154,18 +160,16 @@ public class DBAdapter {
 	}
 
 	public List<Bloco> listaTodosBlocos() {
-		open();
-
 		String from = "0";
 		if (hideOld()) {
 			from = storageFormatter.format(Calendar.getInstance().getTime());
 		}
 
+		openReadable();
 		Cursor cursor = db.query(true, DBTABLE,
 				new String[] { "nome, favorito" }, "data > ?",
 				new String[] { from }, null, null, "nome", null);
 		List<Bloco> blocos = montaListaBlocos(cursor);
-
 		close();
 
 		return blocos;
@@ -196,22 +200,17 @@ public class DBAdapter {
 
 	public void updateFavorito(String string, Boolean favorito) {
 		open();
-
 		ContentValues cv = new ContentValues();
 		cv.put("favorito", favorito);
 		db.update(DBTABLE, cv, "nome = ?", new String[] { string.toString() });
-
 		close();
 	}
 
 	public List<Bloco> findByNome(String nome) {
-		open();
-
+		openReadable();
 		Cursor cursor = db.query(DBTABLE, null, "nome = ?",
 				new String[] { nome }, null, null, null, null);
-
 		List<Bloco> blocos = montaListaBlocos(cursor);
-
 		close();
 
 		return blocos;
@@ -231,13 +230,10 @@ public class DBAdapter {
 	}
 
 	public Bloco findById(Integer id) {
-		open();
-
+		openReadable();
 		Cursor cursor = db.query(DBTABLE, null, KEY_ROWID + " = ?",
 				new String[] { id.toString() }, null, null, null, null);
-
 		List<Bloco> blocos = montaListaBlocos(cursor);
-
 		close();
 
 		return blocos.get(0);
@@ -248,17 +244,17 @@ public class DBAdapter {
 	}
 
 	public SortedMap<Object, List<Bloco>> listaAgrupadaPorBairro() {
-		open();
-
 		String from = "0";
 		if (hideOld()) {
 			from = storageFormatter.format(Calendar.getInstance().getTime());
 		}
 
+		openReadable();
 		Cursor cursor = db.query(true, DBTABLE, new String[] { "nome",
 				"bairro", "endereco" }, "data > ?", new String[] { from },
 				null, null, "nome", null);
 		List<Bloco> allBlocos = montaListaBlocos(cursor);
+		close();
 
 		SortedMap<Object, List<Bloco>> agrupado = new TreeMap<Object, List<Bloco>>();
 
@@ -277,27 +273,25 @@ public class DBAdapter {
 	}
 
 	public List<Bloco> listarBlocosFavoritos() {
-		open();
-
 		String from = "0";
 		if (hideOld()) {
 			from = storageFormatter.format(Calendar.getInstance().getTime());
 		}
 
+		openReadable();
 		Cursor cursor = db.query(true, DBTABLE,
 				new String[] { "nome, favorito" }, "favorito = ? and data > ?",
 				new String[] { "1", from }, null, null, "nome", null);
 		List<Bloco> blocos = montaListaBlocos(cursor);
-
 		close();
 
 		return blocos;
 	}
 
 	private boolean hideOld() {
-		boolean hideOld = PreferenceManager
-				.getDefaultSharedPreferences(context).getBoolean("hide_old",
-						false);
+		SharedPreferences pref = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		boolean hideOld = pref.getBoolean("hide_old", true);
 		return hideOld;
 	}
 
@@ -310,7 +304,7 @@ public class DBAdapter {
 	}
 
 	public List<String> listarNomesFavoritos() {
-		open();
+		openReadable();
 		Cursor cursor = db.query(true, DBTABLE, new String[] { "nome" },
 				"favorito = ?", new String[] { "1" }, null, null, "nome", null);
 
@@ -322,24 +316,13 @@ public class DBAdapter {
 				favoritos.add(cursor.getString(0));
 			}
 		}
-
 		close();
 
 		return favoritos;
 	}
 
-	public void restaurarFavoritos(List<String> favoritos) {
-		open();
-		for (String nome : favoritos) {
-			db.execSQL(
-					"update " + DBTABLE + " set favorito = 1 where nome = ?",
-					new String[] { nome });
-		}
-		close();
-	}
-
 	public boolean bancoExiste() {
-		open();
+		openReadable();
 		SQLiteStatement stmt = db.compileStatement("select count(*) from "
 				+ DBTABLE);
 		long count = stmt.simpleQueryForLong();
@@ -369,7 +352,7 @@ public class DBAdapter {
 		String sHoje = formataDataStorage(hoje);
 		String sFuturo = formataDataStorage(futuro);
 
-		open();
+		openReadable();
 		Cursor c = db.query(DBTABLE,
 				new String[] { "nome, bairro, endereco, data" },
 				"favorito = 1 and data > ? and data < ?", new String[] { sHoje,
@@ -394,7 +377,7 @@ public class DBAdapter {
 		String sHoje = formataDataStorage(hoje);
 		String sFuturo = formataDataStorage(futuro);
 
-		open();
+		openReadable();
 		Cursor c = db.query(DBTABLE,
 				new String[] { "nome, bairro, endereco, data" },
 				"data > ? and data < ?", new String[] { sHoje, sFuturo }, null,
@@ -407,16 +390,13 @@ public class DBAdapter {
 
 	public void inserir(List<ContentValues> listaCVs) {
 		open();
-
 		for (ContentValues cv : listaCVs) {
-			if (!listaRecuperadaFavoritos.isEmpty()
-					&& listaRecuperadaFavoritos.contains(cv.get("nome"))) {
+			if (listaRecuperadaFavoritos.contains(cv.get("nome"))) {
 				cv.put("favorito", true);
 			}
 
 			db.insert(DBTABLE, null, cv);
 		}
-
 		close();
 
 		freshDatabase = false;

@@ -17,6 +17,7 @@
 package br.com.jawsys.mobile.blocodroid.activities;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.SortedMap;
 
@@ -30,7 +31,9 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import br.com.jawsys.mobile.blocodroid.R;
+import br.com.jawsys.mobile.blocodroid.activities.PorAgrupamento.TipoAgrupamento;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
+import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class BlocosAgrupadosExpandableListAdapter extends
 		BaseExpandableListAdapter {
@@ -38,12 +41,14 @@ public class BlocosAgrupadosExpandableListAdapter extends
 	private SortedMap<Object, List<Bloco>> listaAgrupada;
 	private List<Object> indices = new ArrayList<Object>();
 	private Context mContext;
+	private TipoAgrupamento tipo;
 
 	public BlocosAgrupadosExpandableListAdapter(Context context,
-			SortedMap<Object, List<Bloco>> listaAgrupada) {
+			SortedMap<Object, List<Bloco>> listaAgrupada, TipoAgrupamento tipo) {
 		this.mContext = context;
 		this.listaAgrupada = listaAgrupada;
 		this.indices.addAll(listaAgrupada.keySet());
+		this.tipo = tipo;
 	}
 
 	@Override
@@ -63,6 +68,8 @@ public class BlocosAgrupadosExpandableListAdapter extends
 		final Bloco bloco = listaAgrupada.get(indices.get(groupPosition)).get(
 				childPosition);
 
+		final String nomeBloco = bloco.getNome();
+
 		if (convertView == null) {
 			convertView = View.inflate(mContext, R.layout.filho, null);
 		}
@@ -71,21 +78,29 @@ public class BlocosAgrupadosExpandableListAdapter extends
 				.findViewById(R.id.checkFavorito);
 		checkFavorito.setBloco(bloco);
 
-		TextView nome = (TextView) convertView.findViewById(R.id.nome);
-		nome.setOnClickListener(new OnClickListener() {
+		OnClickListener onClickListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent mostraBloco = new Intent(v.getContext(),
 						MostraBloco.class);
-				String nome = (String) ((TextView) v).getText();
-				mostraBloco.putExtra("nome", nome);
+				mostraBloco.putExtra("nome", nomeBloco);
 				v.getContext().startActivity(mostraBloco);
 			}
-		});
+		};
+
+		TextView nome = (TextView) convertView.findViewById(R.id.nome);
+		nome.setOnClickListener(onClickListener);
 		nome.setText(bloco.getNome());
 
 		TextView endereco = (TextView) convertView.findViewById(R.id.endereco);
+		endereco.setOnClickListener(onClickListener);
 		String endereco2 = bloco.getEndereco();
+
+		if (tipo == TipoAgrupamento.data) {
+			endereco2 = endereco2 + ", " + bloco.getBairro() + ", "
+					+ bloco.getData().getHours() + "hs";
+		}
+
 		endereco.setText(endereco2);
 
 		Button button = (Button) convertView.findViewById(R.id.mostrarMapa);
@@ -146,6 +161,10 @@ public class BlocosAgrupadosExpandableListAdapter extends
 	}
 
 	protected CharSequence formataChaveGrupo(Object key) {
+		if (tipo == TipoAgrupamento.data) {
+			return DBAdapter.formataDataSemHora((Date) key);
+		}
+
 		return key.toString();
 	}
 

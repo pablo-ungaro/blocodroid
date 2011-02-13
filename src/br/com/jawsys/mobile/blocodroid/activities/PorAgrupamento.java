@@ -16,7 +16,6 @@
  */
 package br.com.jawsys.mobile.blocodroid.activities;
 
-import java.util.Date;
 import java.util.List;
 import java.util.SortedMap;
 
@@ -31,6 +30,12 @@ import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class PorAgrupamento extends Activity {
 
+	private TipoAgrupamento tipo;
+
+	static enum TipoAgrupamento {
+		data, bairro;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,22 +45,13 @@ public class PorAgrupamento extends Activity {
 		ExpandableListView epView = (ExpandableListView) findViewById(R.id.listViewAgrupada);
 
 		Intent i = getIntent();
-		final String tipo = i.getStringExtra("tipo");
+		tipo = TipoAgrupamento.valueOf(i.getStringExtra("tipo"));
 
 		DBAdapter db = new DBAdapter(this);
-		SortedMap<Object, List<Bloco>> listaAgrupada = tipo.equals("bairro") ? db
+		SortedMap<Object, List<Bloco>> listaAgrupada = tipo == TipoAgrupamento.bairro ? db
 				.listaAgrupadaPorBairro() : db.listaAgrupadaPorData();
 		ExpandableListAdapter mAdapter = new BlocosAgrupadosExpandableListAdapter(
-				this, listaAgrupada) {
-			@Override
-			protected CharSequence formataChaveGrupo(Object key) {
-				if (tipo.equals("data")) {
-					return DBAdapter.formataDataSemHora((Date) key);
-				}
-
-				return super.formataChaveGrupo(key);
-			}
-		};
+				this, listaAgrupada, tipo);
 
 		epView.setAdapter(mAdapter);
 	}

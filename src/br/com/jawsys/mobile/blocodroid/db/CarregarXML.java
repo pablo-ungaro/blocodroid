@@ -17,13 +17,11 @@
 package br.com.jawsys.mobile.blocodroid.db;
 
 import java.io.InputStream;
-import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.zip.ZipInputStream;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -57,17 +55,20 @@ public class CarregarXML extends DefaultHandler {
 		spf = SAXParserFactory.newInstance();
 		sp = spf.newSAXParser();
 		xr = sp.getXMLReader();
-
-		URL blocos2011Url = new URL(
-				"http://dl.dropbox.com/u/8159675/blocodroid/blocos.zip");
 		xr.setContentHandler(this);
-		InputStream openStream = blocos2011Url.openStream();
-		ZipInputStream zis = new ZipInputStream(openStream);
-		zis.getNextEntry();
-		InputSource inputSource = new InputSource(zis);
+
+		/*
+		 * URL blocos2011Url = new URL(
+		 * "http://dl.dropbox.com/u/8159675/blocodroid/blocos.zip");
+		 */
+		InputStream openStream = getClass().getClassLoader()
+				.getResourceAsStream("blocos.xml");
+		// ZipInputStream zis = new ZipInputStream(openStream);
+		// zis.getNextEntry();
+		InputSource inputSource = new InputSource(openStream);
 		inputSource.setEncoding("UTF-8");
 		xr.parse(inputSource);
-		zis.close();
+		// zis.close();
 		openStream.close();
 	}
 
@@ -134,7 +135,6 @@ public class CarregarXML extends DefaultHandler {
 				int parseInt = Integer.parseInt(horaAtual);
 				cal.set(Calendar.HOUR_OF_DAY, parseInt);
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
 			}
 		}
 		blocoAtual.setData(cal.getTime());
