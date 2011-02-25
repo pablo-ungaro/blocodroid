@@ -26,16 +26,11 @@ import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class UpdateManager {
 
-	private DBAdapter db;
-
-	public UpdateManager(DBAdapter db) {
-		this.db = db;
-	}
-
-	public void atualizarDados() throws Exception {
+	public static void atualizarDados(DBAdapter db) throws Exception {
 		CarregarXML xml = new CarregarXML();
 		List<Bloco> blocos = xml.listarBlocos();
-		List<ContentValues> listaCVs = new ArrayList<ContentValues>(blocos.size());
+		int size = blocos.size();
+		List<ContentValues> listaCVs = new ArrayList<ContentValues>(size);
 		for (Bloco b : blocos) {
 			listaCVs.add(b.buildContentValues());
 		}

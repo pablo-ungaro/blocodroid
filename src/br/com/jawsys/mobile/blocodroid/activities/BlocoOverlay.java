@@ -16,7 +16,6 @@
  */
 package br.com.jawsys.mobile.blocodroid.activities;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -24,10 +23,9 @@ import java.util.Locale;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.location.Address;
 import android.location.Geocoder;
-import android.widget.Toast;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
+import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
@@ -46,33 +44,34 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 
 	private int centerLongitude;
 	private int centerLatitude;
+	private DBAdapter db;
+	private Geocoder geoCoder;
+	private GeoPoint centerPoint;
 
-	public BlocoOverlay(Context context, Drawable marker) {
+	public BlocoOverlay(Context context, DBAdapter dbAdapter, Drawable marker) {
 		super(boundCenterBottom(marker));
 		this.context = context;
+		db = dbAdapter;
+		geoCoder = new Geocoder(context, pt_BR);
 	}
 
 	public void add(Bloco bloco) {
-		Geocoder geoCoder = new Geocoder(context, pt_BR);
+		int[] geopoint = db.localizacao(geoCoder, bloco);
 
-		try {
-			String endereco = bloco.getEndereco() + ", " + bloco.getBairro()
-					+ ", Rio de Janeiro, Rio de Janeiro, Brazil";
-
-			List<Address> addresses = geoCoder.getFromLocationName(endereco, 5);
-			if (addresses.size() > 0) {
-				int latitude = (int) (addresses.get(0).getLatitude() * 1E6);
-				int longitude = (int) (addresses.get(0).getLongitude() * 1E6);
-
-				computeCenterPosition(latitude, longitude);
-
-				GeoPoint p = new GeoPoint(latitude, longitude);
-				BlocoItem bi = new BlocoItem(bloco, p);
-				mOverlays.add(bi);
-				populate();
-			}
-		} catch (IOException e) {
+		if (geopoint == null) {
+			// TODO avisar de bloco sem posicao
+			return;
 		}
+
+		int latitude = geopoint[0];
+		int longitude = geopoint[1];
+
+		computeCenterPosition(latitude, longitude);
+
+		GeoPoint p = new GeoPoint(latitude, longitude);
+		BlocoItem bi = new BlocoItem(bloco, p);
+		mOverlays.add(bi);
+		populate();
 	}
 
 	private void computeCenterPosition(int latitude, int longitude) {
@@ -88,7 +87,11 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 
 	@Override
 	public GeoPoint getCenter() {
-		return new GeoPoint(centerLatitude, centerLongitude);
+		if (centerPoint == null) {
+			centerPoint = new GeoPoint(centerLatitude, centerLongitude);
+		}
+
+		return centerPoint;
 	}
 
 	@Override
@@ -110,12 +113,9 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 			mostraBloco.putExtra("nome", blocoItem.getTitle());
 			mostraBloco.putExtra("hidemap", true);
 			context.startActivity(mostraBloco);
-		} else {
-			Toast.makeText(context, "Você está aqui!", Toast.LENGTH_LONG)
-					.show();
 		}
 
-		return super.onTap(index);
+		return true;
 	}
 
 	public static class BlocoItem extends OverlayItem {

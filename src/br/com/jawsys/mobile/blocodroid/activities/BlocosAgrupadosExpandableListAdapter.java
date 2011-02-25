@@ -36,7 +36,7 @@ import br.com.jawsys.mobile.blocodroid.db.Bloco;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 
 public class BlocosAgrupadosExpandableListAdapter extends
-		BaseExpandableListAdapter {
+		BaseExpandableListAdapter  {
 
 	private SortedMap<Object, List<Bloco>> listaAgrupada;
 	private List<Object> indices = new ArrayList<Object>();

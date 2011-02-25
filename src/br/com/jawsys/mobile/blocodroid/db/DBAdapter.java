@@ -16,6 +16,7 @@
  */
 package br.com.jawsys.mobile.blocodroid.db;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.location.Address;
+import android.location.Geocoder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -48,11 +51,11 @@ public class DBAdapter {
 
 	private static final String DBTABLE = "blocos";
 
-	private static final int DBVERSION = 40;
+	private static final int DBVERSION = 145;
 
 	private static final String DATABASE_CREATE = "create table blocos (_id integer primary key autoincrement, "
 			+ "nome text not null, bairro text not null, favorito boolean not null, "
-			+ "data integer not null, endereco text not null);";
+			+ "data integer not null, endereco text not null, latitude integer null, longitude integer null);";
 
 	public static final String TAG = "blocodroid";
 
@@ -401,4 +404,55 @@ public class DBAdapter {
 
 		freshDatabase = false;
 	}
+
+	public int[] localizacao(Geocoder geocoder, Bloco bloco) {
+		int[] geopoint = new int[2];
+
+		String endereco = bloco.getEndereco();
+
+		open();
+		Cursor c = db.query(true, DBTABLE,
+				new String[] { "endereco, latitude, longitude" },
+				"endereco = ? and latitude <> 0 and longitude <> 0", new String[] { endereco }, null, null, null,
+				null);
+
+		if (c.getCount() > 0) {
+			while (c.moveToNext()) {
+				int latitude = c.getInt(0);
+				int longitude = c.getInt(1);
+
+				geopoint[0] = latitude;
+				geopoint[1] = longitude;
+			}
+		} else {
+			try {
+				String enderecoCompleto = endereco + ", " + bloco.getBairro()
+						+ ", Rio de Janeiro, Rio de Janeiro, Brazil";
+				List<Address> addresses = geocoder.getFromLocationName(
+						enderecoCompleto, 1);
+				if (addresses.size() > 0) {
+					Address address = addresses.get(0);
+					int latitude = (int) (address.getLatitude() * 1E6);
+					int longitude = (int) (address.getLongitude() * 1E6);
+
+					geopoint[0] = latitude;
+					geopoint[1] = longitude;
+
+					ContentValues cv = new ContentValues();
+					cv.put("latitude", latitude);
+					cv.put("longitude", longitude);
+
+					db.update(DBTABLE, cv, "endereco = ?",
+							new String[] { endereco });
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		close();
+
+		return geopoint;
+	}
+
 }

@@ -140,8 +140,6 @@ public class Main extends Activity implements OnTouchListener {
 		boolean result = super.onCreateOptionsMenu(menu);
 		menu.add(0, MENU_CONFIG, 0, R.string.botaoOpcoes).setIcon(
 				R.drawable.equalizer);
-		// menu.add(0, MENU_ATUALIZA, 1, R.string.botaoAtualizar).setIcon(
-		// R.drawable.sun);
 		menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa)
 				.setIcon(R.drawable.flag);
 
@@ -182,7 +180,10 @@ public class Main extends Activity implements OnTouchListener {
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (pd != null && pd.isShowing()) {
-				pd.dismiss();
+				try {
+					pd.dismiss();
+				} catch(Exception e) {
+				}
 			}
 		}
 	};
@@ -276,7 +277,7 @@ public class Main extends Activity implements OnTouchListener {
 			@Override
 			public void run() {
 				try {
-					new UpdateManager(dbAdapter).atualizarDados();
+					UpdateManager.atualizarDados(dbAdapter);
 				} catch (RuntimeException re) {
 					Thread.getDefaultUncaughtExceptionHandler()
 							.uncaughtException(Thread.currentThread(), re);
