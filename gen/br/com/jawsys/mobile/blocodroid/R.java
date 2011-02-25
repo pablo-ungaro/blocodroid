@@ -44,9 +44,10 @@ public final class R {
         public static final int endereco=0x7f090003;
         public static final int filtro=0x7f090015;
         public static final int listViewAgrupada=0x7f090013;
+        public static final int listaBairros=0x7f090017;
         public static final int listaBlocos=0x7f090016;
         public static final int listaDatasHorarios=0x7f090011;
-        public static final int mapa=0x7f090017;
+        public static final int mapa=0x7f090018;
         public static final int mostraTwitter=0x7f09000e;
         public static final int mostrarMapa=0x7f090002;
         public static final int nenhumFavorito=0x7f090014;
@@ -63,8 +64,9 @@ public final class R {
         public static final int mostrabloco=0x7f030004;
         public static final int mostrablocoitem=0x7f030005;
         public static final int poragrupamento=0x7f030006;
-        public static final int porblocos=0x7f030007;
-        public static final int porproximidade=0x7f030008;
+        public static final int porbairros=0x7f030007;
+        public static final int porblocos=0x7f030008;
+        public static final int porproximidade=0x7f030009;
     }
     public static final class string {
         public static final int app_name=0x7f070002;

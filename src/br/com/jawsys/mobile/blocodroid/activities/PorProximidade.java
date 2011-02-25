@@ -22,6 +22,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -48,6 +49,7 @@ public class PorProximidade extends MapActivity {
 	private List<Bloco> blocosHoje;
 	protected ProgressDialog pd;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,11 +63,45 @@ public class PorProximidade extends MapActivity {
 		map.displayZoomControls(true);
 		map.setDrawingCacheEnabled(true);
 
+		List<Overlay> overlays = map.getOverlays();
+		myLocationOverlay = new MyLocationOverlay(this, map);
+		overlays.add(myLocationOverlay);
+
 		mc = map.getController();
-		mc.setZoom(12);
+		mc.setZoom(13);
 		mc.setCenter(GP_RIO);
 
-		radar();
+		@SuppressWarnings("rawtypes")
+		AsyncTask task = new AsyncTask() {
+			@Override
+			protected void onPreExecute() {
+				pd = new ProgressDialog(PorProximidade.this);
+				pd.setTitle(R.string.app_name);
+				pd.setIcon(R.drawable.creep003);
+				pd.setMessage("Procurando ...");
+
+				showDialog(1);
+				super.onPreExecute();
+			}
+
+			protected Object doInBackground(Object... params) {
+				listaPosicaoBlocos();
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(Object result) {
+				mostraRadar();
+				handler.sendEmptyMessage(0);
+			}
+		};
+		task.execute();
+	}
+
+	protected void mostraRadar() {
+		List<Overlay> overlays = map.getOverlays();
+		overlays.add(blocosOverlay);
+		mc.animateTo(blocosOverlay.getCenter());
 	}
 
 	@Override
@@ -88,8 +124,7 @@ public class PorProximidade extends MapActivity {
 		}
 	};
 
-	private void radar() {
-		List<Overlay> overlays = map.getOverlays();
+	private void listaPosicaoBlocos() {
 		DBAdapter dbAdapter = new DBAdapter(this);
 		blocosHoje = dbAdapter.listarBlocosHoje();
 
@@ -99,13 +134,7 @@ public class PorProximidade extends MapActivity {
 			for (Bloco bloco : blocosHoje) {
 				blocosOverlay.add(bloco);
 			}
-
-			overlays.add(blocosOverlay);
-			mc.animateTo(blocosOverlay.getCenter());
 		}
-
-		myLocationOverlay = new MyLocationOverlay(this, map);
-		overlays.add(myLocationOverlay);
 
 		if (blocosHoje.isEmpty()) {
 			myLocationOverlay.runOnFirstFix(new Runnable() {
@@ -114,8 +143,6 @@ public class PorProximidade extends MapActivity {
 				};
 			});
 		}
-
-		handler.sendEmptyMessage(0);
 	}
 
 	@Override

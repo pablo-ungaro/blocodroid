@@ -413,8 +413,8 @@ public class DBAdapter {
 		open();
 		Cursor c = db.query(true, DBTABLE,
 				new String[] { "latitude, longitude" },
-				"endereco = ? and latitude <> 0 and longitude <> 0", new String[] { endereco }, null, null, null,
-				null);
+				"endereco = ? and latitude <> 0 and longitude <> 0",
+				new String[] { endereco }, null, null, null, null);
 
 		if (c.getCount() > 0) {
 			while (c.moveToNext()) {
@@ -453,6 +453,22 @@ public class DBAdapter {
 		close();
 
 		return geopoint;
+	}
+
+	public List<String> listarBairros() {
+		openReadable();
+
+		List<String> bairros = new ArrayList<String>();
+
+		Cursor c = db.query(true, DBTABLE, new String[] { "bairro" }, null,
+				null, null, null, null, null);
+
+		while (c.moveToNext()) {
+			bairros.add(c.getString(0));
+		}
+
+		close();
+		return bairros;
 	}
 
 }

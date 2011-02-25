@@ -29,6 +29,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -182,19 +183,35 @@ public class Main extends Activity implements OnTouchListener {
 			if (pd != null && pd.isShowing()) {
 				try {
 					pd.dismiss();
-				} catch(Exception e) {
+				} catch (Exception e) {
 				}
 			}
 		}
 	};
 
-	public void abreAtividade(View v) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void abreAtividade(final View v) {
 		switch (v.getId()) {
 		case (R.id.botaoProximidade): {
-			mostraAlerta("Aguarde ...");
-			Intent intent = new Intent(v.getContext(), PorProximidade.class);
-			startActivity(intent);
-			fechaAlerta();
+			new AsyncTask() {
+				@Override
+				protected void onPreExecute() {
+					mostraAlerta("Aguarde ...");
+				}
+
+				@Override
+				protected Object doInBackground(Object... params) {
+					Intent intent = new Intent(v.getContext(),
+							PorProximidade.class);
+					startActivity(intent);
+					return null;
+				}
+
+				@Override
+				protected void onPostExecute(Object result) {
+					fechaAlerta();
+				}
+			}.execute();
 			break;
 		}
 		case (R.id.botaoBloco):
