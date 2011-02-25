@@ -412,7 +412,7 @@ public class DBAdapter {
 
 		open();
 		Cursor c = db.query(true, DBTABLE,
-				new String[] { "endereco, latitude, longitude" },
+				new String[] { "latitude, longitude" },
 				"endereco = ? and latitude <> 0 and longitude <> 0", new String[] { endereco }, null, null, null,
 				null);
 

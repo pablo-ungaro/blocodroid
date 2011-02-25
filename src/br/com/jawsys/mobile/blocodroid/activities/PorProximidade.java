@@ -38,6 +38,9 @@ import com.google.android.maps.Overlay;
 
 public class PorProximidade extends MapActivity {
 
+	private static GeoPoint GP_RIO = new GeoPoint((int) (-22.9021 * 1E6),
+			(int) (-43.2223 * 1E6));
+
 	private MapController mc;
 	private MapView map;
 	private MyLocationOverlay myLocationOverlay;
@@ -56,23 +59,12 @@ public class PorProximidade extends MapActivity {
 		map.setBuiltInZoomControls(true);
 		map.setClickable(true);
 		map.displayZoomControls(true);
+		map.setDrawingCacheEnabled(true);
 
 		mc = map.getController();
 		mc.setZoom(12);
-		//mc.setCenter(new GeoPoint((int) (-22.9021 * 1E6),
-			//	(int) (-43.2223 * 1E6)));
+		mc.setCenter(GP_RIO);
 
-		/*
-		 * Thread t = new Thread(new Runnable() { public void run() { radar(); }
-		 * }); t.start();
-		 */
-
-		/*
-		 * pd = ProgressDialog.show(PorProximidade.this,
-		 * getString(R.string.app_name), "Rastreando blocos de hoje...", true,
-		 * false); showDialog(0);
-		 */
-		
 		radar();
 	}
 
@@ -81,7 +73,7 @@ public class PorProximidade extends MapActivity {
 		if (id == 1) {
 			return pd;
 		}
-		
+
 		return null;
 	}
 
@@ -123,7 +115,7 @@ public class PorProximidade extends MapActivity {
 			});
 		}
 
-		// handler.sendEmptyMessage(0);
+		handler.sendEmptyMessage(0);
 	}
 
 	@Override
