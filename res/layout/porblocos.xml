@@ -19,12 +19,18 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<TextView android:id="@+id/nenhumFavorito"
+		android:layout_height="wrap_content" android:textSize="20dip"
+		android:layout_margin="10dip" android:text="Nenhum bloco marcado como favorito"
+		android:textStyle="normal|bold" android:gravity="center_vertical|center_horizontal"
+		android:layout_width="fill_parent" />
+
 	<EditText android:id="@+id/filtro" android:layout_height="wrap_content"
 		android:textSize="16dip" android:layout_margin="8dip"
 		android:textStyle="normal" android:gravity="top|left"
 		android:visibility="gone" android:layout_width="fill_parent" />
 
-	<ListView android:id="@+id/listaBairros" android:layout_width="fill_parent"
+	<ListView android:id="@+id/listaBlocos" android:layout_width="fill_parent"
 		android:layout_height="fill_parent" />
 
 
