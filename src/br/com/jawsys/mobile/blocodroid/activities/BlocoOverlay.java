@@ -58,7 +58,7 @@ public class BlocoOverlay extends ItemizedOverlay<OverlayItem> {
 	public void add(Bloco bloco) {
 		int[] geopoint = db.localizacao(geoCoder, bloco);
 
-		if (geopoint == null) {
+		if (geopoint[0] == 0 || geopoint[1] == 0) {
 			// TODO avisar de bloco sem posicao
 			return;
 		}

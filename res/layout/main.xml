@@ -17,12 +17,40 @@
 -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<RelativeLayout android:layout_width="fill_parent"
-		android:layout_height="fill_parent">
-		<ImageView android:scaleType="centerCrop" android:src="@drawable/fundo_amarelo"
-			android:layout_width="wrap_content" android:layout_alignParentTop="true"
-			android:layout_alignParentRight="true" android:layout_gravity="right"
-			android:layout_height="fill_parent" />
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent" >
+
+	    <ImageView
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_gravity="right"
+	        android:scaleType="centerCrop"
+	        android:src="@drawable/bgblocoderua" />
+
+	    <ImageButton
+	        android:id="@+id/btnFacebook"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginLeft="29dp"
+	        android:layout_marginTop="34dp"
+	        android:onClick="onClickFacebook"
+	        android:background="@drawable/facebook" />
+
+	    <ImageButton
+	        android:id="@+id/btnTwitter"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/btnFacebook"
+	        android:layout_below="@+id/btnFacebook"
+	        android:layout_marginTop="31dp"
+	        android:onClick="onClickTwitter"
+	        android:background="@drawable/twitter"/>
+
 	</RelativeLayout>
 
 	<TextView android:id="@+id/descricaoFuncao"
@@ -71,16 +99,4 @@
 		android:layout_marginBottom="20dip" android:layout_gravity="right|bottom"
 		android:layout_width="wrap_content" android:layout_height="wrap_content" />
 
-	<Button android:layout_height="wrap_content"
-		android:height="53dip"
-		android:id="@+id/mostraTwitter"
-		android:background="@drawable/roundedbox"
-		android:layout_width="wrap_content"
-		android:layout_gravity="left|top"
-		android:textColor="#ffffff"
-		android:textSize="18dip"
-		android:textStyle="bold"
-		android:layout_marginTop="20dip" 
-		android:layout_marginLeft="20dip"
-		android:text="@string/textoTwitter" />
 </merge>

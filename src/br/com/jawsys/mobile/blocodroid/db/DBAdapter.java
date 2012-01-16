@@ -51,7 +51,7 @@ public class DBAdapter {
 
 	private static final String DBTABLE = "blocos";
 
-	private static final int DBVERSION = 145;
+	private static final int DBVERSION = 151;
 
 	private static final String DATABASE_CREATE = "create table blocos (_id integer primary key autoincrement, "
 			+ "nome text not null, bairro text not null, favorito boolean not null, "
@@ -65,6 +65,14 @@ public class DBAdapter {
 
 	private static final SimpleDateFormat storageFormatter = new SimpleDateFormat(
 			"yyyyMMddHH");
+
+	private static final double upperRightLong = -43.185;
+
+	private static final double upperRightLat = -22.741;
+
+	private static final double lowerLeftLong = -44.004;
+
+	private static final double lowerLeftLat = -23.113;
 
 	private static SimpleDateFormat formatter = new SimpleDateFormat(
 			"dd/MM/yyyy HH'hs'", ptBR);
@@ -416,6 +424,10 @@ public class DBAdapter {
 				"endereco = ? and latitude <> 0 and longitude <> 0",
 				new String[] { endereco }, null, null, null, null);
 
+		if (endereco.contains("Afonso")) {
+			int x = 1;
+			x += 1;
+		}
 		if (c.getCount() > 0) {
 			while (c.moveToNext()) {
 				int latitude = c.getInt(0);
@@ -428,8 +440,12 @@ public class DBAdapter {
 			try {
 				String enderecoCompleto = endereco + ", " + bloco.getBairro()
 						+ ", Rio de Janeiro, Rio de Janeiro, Brazil";
+				if (endereco.contains("Afonso")) {
+					int x = 1;
+				}
 				List<Address> addresses = geocoder.getFromLocationName(
-						enderecoCompleto, 1);
+						enderecoCompleto, 1, lowerLeftLat, lowerLeftLong,
+						upperRightLat, upperRightLong);
 				if (addresses.size() > 0) {
 					Address address = addresses.get(0);
 					int latitude = (int) (address.getLatitude() * 1E6);

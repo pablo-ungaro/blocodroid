@@ -34,6 +34,16 @@ public class Opcoes extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
 
+		findPreference("cenv").setOnPreferenceClickListener(
+				new OnPreferenceClickListener() {
+					@Override public boolean onPreferenceClick(Preference p) {
+						Intent cenv = new Intent(Opcoes.this, Propaganda.class);
+						cenv.putExtra("forcado", true);
+						startActivity(cenv);
+						return true;
+					}
+				});
+		
 		findPreference("email_erro").setOnPreferenceClickListener(
 				new OnPreferenceClickListener() {
 					@Override

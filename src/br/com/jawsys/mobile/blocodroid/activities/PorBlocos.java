@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ListView;
 import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.Bloco;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
@@ -32,7 +33,7 @@ import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
 public class PorBlocos extends Activity {
 
 	private static final int MENU_CONFIG = 0;
-	private ListaBlocos listaBlocosView;
+	private ListView listaBlocosView;
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -49,7 +50,7 @@ public class PorBlocos extends Activity {
 			findViewById(R.id.nenhumFavorito).setVisibility(View.GONE);
 		}
 
-		listaBlocosView = (ListaBlocos) findViewById(R.id.listaBlocos);
+		listaBlocosView = (ListView) findViewById(R.id.listaBlocos);
 		listaBlocosView.setAdapter(new ListaBlocosAdapter(this, blocos));
 		listaBlocosView.setTextFilterEnabled(true);
 	}

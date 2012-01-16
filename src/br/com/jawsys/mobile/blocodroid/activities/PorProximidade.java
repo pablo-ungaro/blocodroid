@@ -101,7 +101,7 @@ public class PorProximidade extends MapActivity {
 	protected void mostraRadar() {
 		List<Overlay> overlays = map.getOverlays();
 		overlays.add(blocosOverlay);
-		mc.animateTo(blocosOverlay.getCenter());
+		//mc.animateTo(blocosOverlay.getCenter());
 	}
 
 	@Override

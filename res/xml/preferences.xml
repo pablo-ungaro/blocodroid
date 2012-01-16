@@ -36,6 +36,8 @@
 			<intent android:action="android.intent.action.VIEW"
 				android:data="http://www.brunoborges.com" />
 		</PreferenceScreen>
+		<PreferenceScreen android:key="cenv"
+			android:title="Comprei e Não Vou" android:summary="Revenda de ingressos" />
 		<PreferenceScreen android:key="email_erro"
 			android:title="Reportar Erros Programação" android:summary="Se viu alguma data/hora/local errado, por favor avise" />
 	</PreferenceCategory>

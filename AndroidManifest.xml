@@ -16,7 +16,7 @@
   along with BlocoDroid.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="br.com.jawsys.mobile.blocodroid" android:versionName="1.4.4" android:versionCode="10">
+	package="br.com.jawsys.mobile.blocodroid" android:versionName="1.5" android:versionCode="15">
 
 	<application android:icon="@drawable/icone_sugarloaf"
 		android:label="@string/app_name" android:persistent="true"
@@ -28,12 +28,15 @@
 
 		<activity android:name=".activities.Main" android:label="@string/app_name"
 			android:screenOrientation="portrait">
+		</activity>
+		<activity android:name=".activities.Propaganda" android:label="@string/app_name"
+			android:screenOrientation="portrait" android:noHistory="true">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-
+		
 		<activity android:name=".activities.PorBlocos" android:label="@string/botaoBloco"
 			android:screenOrientation="portrait" />
 		<activity android:name=".activities.Opcoes" android:label="@string/botaoOpcoes"

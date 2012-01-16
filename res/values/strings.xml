@@ -38,4 +38,8 @@
 		
 	<string name="botaoMostraOpcoes">Opções</string>
 	<string name="textoTwitter">Twitter\n@blocodroid</string>
+	<string name="textoSite">Entre no site!</string>
+	<string name="textoCenv">Esgotou o ingresso do show do seu bloco favorito? Tenta procurar no nosso parceiro!</string>
+	<string name="subtextoCenv">Agora se quiser vender, aperta o botão!</string>
+	<string name="botaoEscondeCenv">Não mostrar mais</string>
 </resources>

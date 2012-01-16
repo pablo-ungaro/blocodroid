@@ -26,6 +26,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -41,6 +42,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import br.com.jawsys.mobile.blocodroid.R;
 import br.com.jawsys.mobile.blocodroid.db.DBAdapter;
@@ -48,10 +50,12 @@ import br.com.jawsys.mobile.blocodroid.services.AvisaBlocosProximosService;
 
 public class Main extends Activity implements OnTouchListener {
 
-	private static final String TWITTER_URL = "http://m.twitter.com/blocodroid";
+	private static final String SITE_TWITTER = "http://m.twitter.com/blocoderuarj";
 
 	private static final String MAPA_BLOCOS_DIARIORIO = "http://goo.gl/maps/dJmE";
-
+	
+	private static final String SITE_FACEBOOK = "http://www.facebook.com/blocoderuarj";
+	
 	private ProgressDialog pd;
 
 	private AlertDialog confirmaAtualizacao;
@@ -127,26 +131,27 @@ public class Main extends Activity implements OnTouchListener {
 		configBotao(R.id.botaoBairro, R.string.descricaoBairro);
 		configBotao(R.id.botaoProximidade, R.string.descricaoRadar);
 		configBotao(R.id.botaoMostraOpcoes, null);
-		configBotao(R.id.mostraTwitter, null);
 	}
 
 	private void configBotao(int id, Integer idDescricao) {
 		View v = findViewById(id);
-		descricaoBotoes.put(v.getId(), idDescricao);
 		v.setOnTouchListener(this);
+		if (idDescricao != null) {
+			descricaoBotoes.put(v.getId(), idDescricao);
+		}
 	}
-
+/*
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean result = super.onCreateOptionsMenu(menu);
 		menu.add(0, MENU_CONFIG, 0, R.string.botaoOpcoes).setIcon(
 				R.drawable.equalizer);
-		menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa)
-				.setIcon(R.drawable.flag);
+		//menu.add(0, MENU_VER_MAPA, 2, R.string.verMapa)
+			//	.setIcon(R.drawable.flag);
 
 		return result;
 	}
-
+*/
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -234,15 +239,24 @@ public class Main extends Activity implements OnTouchListener {
 			break;
 		}
 		case (R.id.botaoMostraOpcoes): {
-			openOptionsMenu();
+			//openOptionsMenu();
+			Intent intent = new Intent(this, Opcoes.class);
+			startActivityForResult(intent, ACTIVITY_OPCOES);
 			break;
 		}
-		case (R.id.mostraTwitter): {
-			Uri uri = Uri.parse(TWITTER_URL);
-			Intent viewWholeMap = new Intent(Intent.ACTION_VIEW, uri);
-			startActivity(viewWholeMap);
 		}
-		}
+	}
+
+	public void onClickTwitter(View v) {
+		Uri uri = Uri.parse(SITE_TWITTER);
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(intent);
+	}
+
+	public void onClickFacebook(View v) {
+		Uri uri = Uri.parse(SITE_FACEBOOK);
+		Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+		startActivity(intent);
 	}
 
 	@Override
@@ -251,8 +265,8 @@ public class Main extends Activity implements OnTouchListener {
 			vib.vibrate(35);
 			((Button) v).setBackgroundDrawable(clickedbox);
 
-			Integer idDescricao = descricaoBotoes.get(v.getId());
-			if (idDescricao != null) {
+			if (descricaoBotoes.containsKey(v.getId())) {
+				Integer idDescricao = descricaoBotoes.get(v.getId());
 				TextView textView = (TextView) findViewById(R.id.descricaoFuncao);
 				textView.setVisibility(View.VISIBLE);
 				textView.setText(idDescricao);
@@ -282,17 +296,20 @@ public class Main extends Activity implements OnTouchListener {
 		return horiz && vertic;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void runUpdateManager() {
 		final DBAdapter dbAdapter = new DBAdapter(this);
 		if (dbAdapter.bancoExiste()) {
 			return;
 		}
 
-		mostraAlerta("Preparando programação dos Blocos para uso offline. Aguarde...");
+		new AsyncTask() {
+			protected void onPreExecute() {
+				mostraAlerta("Preparando programação dos Blocos para uso offline. Aguarde...");
+			};
 
-		Thread t = new Thread(new Runnable() {
 			@Override
-			public void run() {
+			protected Object doInBackground(Object... params) {
 				try {
 					UpdateManager.atualizarDados(dbAdapter);
 				} catch (RuntimeException re) {
@@ -304,11 +321,13 @@ public class Main extends Activity implements OnTouchListener {
 							.uncaughtException(Thread.currentThread(), e);
 					erroAoCarregarXML();
 				}
-				fechaAlerta();
+				return null;
 			}
 
-		});
-		t.start();
+			protected void onPostExecute(Object result) {
+				fechaAlerta();
+			};
+		}.execute();
 	}
 
 	private void fechaAlerta() {
