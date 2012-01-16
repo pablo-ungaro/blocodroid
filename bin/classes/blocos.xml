@@ -1,0 +1,2693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <d>02/02/2012</d>
+  <b>Centro</b>
+  <n>Espera, espera mas não sai</n>
+  <e>Rua Teófilo Otoni, esquina com Rua da Candelária</e>
+  <h>19</h>
+  <d>04/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Imprensa que eu Gamo</n>
+  <e>Rua Gago Coutinho, ao lado do Mecadinho São José</e>
+  <h>15</h>
+  <d>04/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Chocolate com pimenta</n>
+  <e>Rua Gastão Taveira</e>
+  <h>18</h>
+  <d>04/02/2012</d>
+  <b>Tijuca</b>
+  <n>Saferj - Vou treinar e volto já</n>
+  <e>Praça Afonso Pena</e>
+  <h>17</h>
+  <d>04/02/2012</d>
+  <b>Irajá</b>
+  <n>Quilombo de Irajá</n>
+  <e>Praça Metrovick</e>
+  <h>19</h>
+  <d>04/02/2012</d>
+  <b>Riachuelo</b>
+  <n>Banda da Flack</n>
+  <e>Rua Magalhães de Castro</e>
+  <h>2</h>
+  <d>04/02/2012</d>
+  <b>Curicica</b>
+  <n>Panela Preta de Curicica</n>
+  <e>Rua João Bruno Lobo, em frente ao nº 38</e>
+  <h>17</h>
+  <d>04/02/2012</d>
+  <b>Gávea</b>
+  <n>Desliga da Justiça</n>
+  <e>Praça Santos Dummont</e>
+  <h>11</h>
+  <d>04/02/2012</d>
+  <b>Ipanema</b>
+  <n>Banda de Ipanema</n>
+  <e>Rua Gomes Carneiro, entre Prudente de Morais e Vieira Souto</e>
+  <h>18</h>
+  <d>04/02/2012</d>
+  <b>Lagoa</b>
+  <n>Spanta Neném</n>
+  <e>Parque do Cantagalo - Ciclovia</e>
+  <h>1</h>
+  <d>04/02/2012</d>
+  <b>Lapa</b>
+  <n>Sem Noção</n>
+  <e>Rua do Lavradio, esquina com Mem de Sá</e>
+  <h>14</h>
+  <d>04/02/2012</d>
+  <b>Curicica</b>
+  <n>Eu vou mas eu volto</n>
+  <e>R. Igarapé-açu, em frente ao condomínio Espigão</e>
+  <h>14</h>
+  <d>04/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>GB Bloco</n>
+  <e>Rua General Glicério, esquina com Stelita Lins</e>
+  <h>15</h>
+  <d>04/02/2012</d>
+  <b>Tijuca</b>
+  <n>Nem muda nem sai de cima</n>
+  <e>Avenida Maracanã, esquina com Garibaldi</e>
+  <h>19</h>
+  <d>05/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Bom Sujeito</n>
+  <e>Avenida do Pepê, esquina com Olegário Maciel</e>
+  <h>17</h>
+  <d>05/02/2012</d>
+  <b>Recreio</b>
+  <n>Oba Oba do Recreio</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>18</h>
+  <d>05/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Tá na frente eu empurro</n>
+  <e>Rua Liberata Santos</e>
+  <h>16</h>
+  <d>05/02/2012</d>
+  <b>Leblon</b>
+  <n>Me esquece</n>
+  <e>Avenida Delfim Moreira, em frente ao Posto 12</e>
+  <h>11</h>
+  <d>05/02/2012</d>
+  <b>Copacabana</b>
+  <n>Sangue Bom</n>
+  <e>Avenida Atlântica, Posto 6</e>
+  <h>11</h>
+  <d>05/02/2012</d>
+  <b>Aterro do Flamengo</b>
+  <n>Verde Amarelo e DJ Brasil</n>
+  <e>Av. Infante Dom Henrique, em frente ao Coreto Modernista</e>
+  <h>15</h>
+  <d>05/02/2012</d>
+  <b>Botafogo</b>
+  <n>Calma, calma sua piranha!</n>
+  <e>Rua Visconde de Caravelas, esquina com Real Grandeza</e>
+  <h>12</h>
+  <d>06/02/2012</d>
+  <b>Lapa</b>
+  <n>Estratégia</n>
+  <e>Rua do Lavradio, entre Rua do Senado e Visconde de Rio Branco</e>
+  <h>2</h>
+  <d>09/02/2012</d>
+  <b>Flamengo</b>
+  <n>Inova que eu gosto</n>
+  <e>Rua Paissandu</e>
+  <h>2</h>
+  <d>10/02/2012</d>
+  <b>Botafogo</b>
+  <n>Perereka sem dono</n>
+  <e>Rua Henrique de Novaes</e>
+  <h>2</h>
+  <d>10/02/2012</d>
+  <b>Centro</b>
+  <n>Cordão da Bola Preta</n>
+  <e>Avenida Rio Branco, esquina com Presidente Vargas</e>
+  <h>2</h>
+  <d>10/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Eu sou eu, jacaré é bicho d'água</n>
+  <e>Bar do Costa - Rua Torres Homem, 150</e>
+  <h>18</h>
+  <d>10/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Badalo de Santa Teresa</n>
+  <e>Largo das Neves</e>
+  <h>2</h>
+  <d>11/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Imóveis</n>
+  <e>Rua Souza Lima, em frente ao nº 121</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Banda de Vila Isabel</n>
+  <e>Av. 28 de setembro, esquina com Visconde de Abaéte</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Abolição</b>
+  <n>Eu não venho mais aqui</n>
+  <e>Rua Ferreira Leite</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>11/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Amigos da Esquina</n>
+  <e>Rua Pernambuco, esquina com 2 de fevereiro</e>
+  <h>19</h>
+  <d>11/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>O negócio tá feio e teu nome tá no meio</n>
+  <e>Rua São Braz</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Urca</b>
+  <n>Só o Cume Interessa</n>
+  <e>Praca General Tiburcio</e>
+  <h>14</h>
+  <d>11/02/2012</d>
+  <b>Urca</b>
+  <n>Ih, é Carnaval!</n>
+  <e>Av. Pasteur, 250</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>São Conrado</b>
+  <n>Velozos e Furiosas</n>
+  <e>Av. Prefeito Mendes de Moraes, em frente a Rua Herbert Moses</e>
+  <h>15</h>
+  <d>11/02/2012</d>
+  <b>Leme</b>
+  <n>Cutucano atrás</n>
+  <e>Calçadão do Leme - Quiosque Antonio's</e>
+  <h>19</h>
+  <d>11/02/2012</d>
+  <b>Leblon</b>
+  <n>Imaginô? Agora Amassa!</n>
+  <e>Rua José Linhares, esquina com Conde de Bernadote (ao lado da Sendas do Leblon)</e>
+  <h>1</h>
+  <d>11/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Xupa mas não baba</n>
+  <e>Praça Cardoso Junior, 420</e>
+  <h>12</h>
+  <d>11/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Rio Pandeiro</n>
+  <e>Praça São Salvador</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Tristeza é só Alegria</n>
+  <e>Rua Dona Romana</e>
+  <h>11</h>
+  <d>11/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Ansiedade</n>
+  <e>Rua Gago Coutinho, ao lado do Mecadinho São José</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Ipanema</b>
+  <n>Simpatia é quase amor</n>
+  <e>Rua Teixeira de Mello, ao lado da Praça General Osório</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Arruaça do Bem</n>
+  <e>Avenida Lucio Costa, em frente ao nº 4.700</e>
+  <h>14</h>
+  <d>11/02/2012</d>
+  <b>Copacabana</b>
+  <n>Bloco dos Mendigos</n>
+  <e>Rua Bulhões de Carvalho, esquina com Gomes Carneiro</e>
+  <h>1</h>
+  <d>11/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Bandida</n>
+  <e>Rua Rodolfo Dantas</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Catete</b>
+  <n>Bloco ASPA</n>
+  <e>Rua Pedro Américo, 363</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Botafogo</b>
+  <n>Sá Pereira - Bloco Infantil</n>
+  <e>Rua Capistrano de Abreu. 29</e>
+  <h>11</h>
+  <d>11/02/2012</d>
+  <b>Botafogo</b>
+  <n>Bloco da Mamadeira</n>
+  <e>Praça General Leandro</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Urubuzada</n>
+  <e>Praca Varnhagen</e>
+  <h>14</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Se não guenta por que veio</n>
+  <e>Rua Uruguai, esquina com  Tavares Neves</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Já comi pior pagando</n>
+  <e>Rua Leite de Abreu</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Bloco do Ipê</n>
+  <e>Rua Almirante Cochrane, 36</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Bloco do Baixo Tijuca</n>
+  <e>Praça Varnhagen</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda Haddock</n>
+  <e>Praça Afonso Pena</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Marechal Hermes</b>
+  <n>Pinto na Perereca</n>
+  <e>Praça XV de Novembro</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Penha</b>
+  <n>Banda Devassa</n>
+  <e>Rua Patagônia</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Lavou tá limpo</n>
+  <e>Rua Candido Benício, esquina com florianópolis</e>
+  <h>19</h>
+  <d>11/02/2012</d>
+  <b>Pechincha</b>
+  <n>Banda do Pechincha</n>
+  <e>Largo do Pechincha</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda do Tijuca</n>
+  <e>Sede do Tijuca Tenis Clube</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Maracanã</b>
+  <n>Butano na Bureta</n>
+  <e>Rua Senador Furtado, nº 48</e>
+  <h>14</h>
+  <d>11/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Espumas e Paetês</n>
+  <e>Praça da General Glicério</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Centro</b>
+  <n>Embaixada das Caricatas</n>
+  <e>Praça da República</e>
+  <h>16</h>
+  <d>11/02/2012</d>
+  <b>Lapa</b>
+  <n>Da Ca Tia</n>
+  <e>Rua do Rezende</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Santo Cristo</b>
+  <n>Pinto Sarado</n>
+  <e>Travessa Sara, em frente ao nº 53</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>São Cristóvão</b>
+  <n>Imperadores de São Cristóvão</n>
+  <e>Rua General Bruce, 967</e>
+  <h>18</h>
+  <d>11/02/2012</d>
+  <b>Riachuelo</b>
+  <n>Banda da Flack</n>
+  <e>Rua Magalhães de Castro</e>
+  <h>2</h>
+  <d>11/02/2012</d>
+  <b>Vista Alegre</b>
+  <n>Encosta que ele cresce</n>
+  <e>Rua Aveiro</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>E daí?</n>
+  <e>Avenida Lucio Costa, após a ponte Lúcio Costa</e>
+  <h>12</h>
+  <d>11/02/2012</d>
+  <b>Jardim Maravilha</b>
+  <n>Tu é meu</n>
+  <e>Av. Pilar do Sul, esquina com Porto Camargo</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Entorta, mas não cai!</n>
+  <e>Av. Lucio Costa, em frente ao nº 4000</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Vem cá me dá</n>
+  <e>Parque das Rosas</e>
+  <h>17</h>
+  <d>11/02/2012</d>
+  <b>Curicica</b>
+  <n>Parei de beber, não de mentir</n>
+  <e>Praça do bandolim</e>
+  <h>18</h>
+  <d>12/02/2012</d>
+  <b>Curicica</b>
+  <n>Pra cá sambá</n>
+  <e>Rua João Bruno, nº 56</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Rio Comprido</b>
+  <n>Eu choro curto mas rio comprido</n>
+  <e>Rua Aristides Lobo, 220</e>
+  <h>14</h>
+  <d>12/02/2012</d>
+  <b>Gamboa</b>
+  <n>Pipoca no Mel</n>
+  <e>Praça da Harmonia</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Gamboa</b>
+  <n>Escravos da Mauá</n>
+  <e>Largo São Francisco da Prainha</e>
+  <h>12</h>
+  <d>12/02/2012</d>
+  <b>Urca</b>
+  <n>Tá pirando, pirado, pirou!</n>
+  <e>Avenida Pasteur, em frente ao Benjamim Constant</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Padre Miguel</b>
+  <n>Tamo Junto in Folia</n>
+  <e>Rua Figueiredo Camargo esq. rua Irerê</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Centro</b>
+  <n>Fogo e Paixão</n>
+  <e>Largo de São Francisco</e>
+  <h>11</h>
+  <d>12/02/2012</d>
+  <b>Riachuelo</b>
+  <n>No rabo do Pavão</n>
+  <e>Rua Victor Meirelles, esquina com Rua 24 de Maio</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Pilares</b>
+  <n>Balaco Bloco</n>
+  <e>Rua Alfredo de Souza Mendes</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Piedade</b>
+  <n>Ou vai ou mama</n>
+  <e>Rua Paraná</e>
+  <h>19</h>
+  <d>12/02/2012</d>
+  <b>Olaria</b>
+  <n>Filhos de Jorge</n>
+  <e>Praça Ramos Figueira</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Madureira</b>
+  <n>Timoneiros de Viola</n>
+  <e>Rua Clara Nunes</e>
+  <h>1</h>
+  <d>12/02/2012</d>
+  <b>Irajá</b>
+  <n>Garganta Seca de Irajá</n>
+  <e>Rua Hanibal Porto</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Irajá</b>
+  <n>É mole mas é meu do Irajá</n>
+  <e>Hanibal Porto 501</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Cavalcante</b>
+  <n>Banda de cavalcante</n>
+  <e>Rua Graça Melo, 640</e>
+  <h>12</h>
+  <d>12/02/2012</d>
+  <b>Centro</b>
+  <n>Bloco dos Arengueiros</n>
+  <e>Avenida rio Branco, esquina com Presidente Vargas</e>
+  <h>15</h>
+  <d>12/02/2012</d>
+  <b>Centro</b>
+  <n>Bloco da Preta</n>
+  <e>Avenida Rio Branco, esquina com Presidente Vargas</e>
+  <h>14</h>
+  <d>12/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Banda da Amizade</n>
+  <e>Rua Tadeu Kosciusko</e>
+  <h>19</h>
+  <d>12/02/2012</d>
+  <b>Anil</b>
+  <n>Incha Rola</n>
+  <e>Rua Araticum, nº 603</e>
+  <h>15</h>
+  <d>12/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Banda da Barra</n>
+  <e>Av. Sernambetiba, em frente ao 3.646 (Bondinho da Banda da Barra)</e>
+  <h>14</h>
+  <d>12/02/2012</d>
+  <b>São Cristóvão</b>
+  <n>Perereca Imperial</n>
+  <e>Rua São Cristóvão</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Aterro do Flamengo</b>
+  <n>Chora, me liga</n>
+  <e>Av. Infante Dom Henrique, em frente ao Coreto Modernista</e>
+  <h>1</h>
+  <d>12/02/2012</d>
+  <b>Botafogo</b>
+  <n>Boka de Espuma</n>
+  <e>Rua Marques de Olinda</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Catete</b>
+  <n>Bambas do Catete</n>
+  <e>Rua do Catete, em frente ao Museu da República</e>
+  <h>18</h>
+  <d>12/02/2012</d>
+  <b>Copacabana</b>
+  <n>Alegria sem ressaca</n>
+  <e>Av. Atlântica, esquina com República do Peru</e>
+  <h>11</h>
+  <d>12/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Braguinha</n>
+  <e>Avenida Atlântica, em frente ao Copacabana Palace</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda do Arroxo</n>
+  <e>Rua Belfort Roxo</e>
+  <h>12</h>
+  <d>12/02/2012</d>
+  <b>Copacabana</b>
+  <n>Blocão</n>
+  <e>Avenida Atlântica, Posto 6</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Kizomba</n>
+  <e>Praça Barão de Drummond</e>
+  <h>18</h>
+  <d>12/02/2012</d>
+  <b>Tijuca</b>
+  <n>Deixa a língua no varal</n>
+  <e>Rua Barão de Mesquita, 136</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda da Praça Afonso Pena</n>
+  <e>Praça Afonso Pena</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Grajaú</b>
+  <n>Vai tomar no Grajaú</n>
+  <e>Rua Engenheiro Richard, esquina com Mearim</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Grajaú</b>
+  <n>Foliões do Verdun</n>
+  <e>Largo do Verdun</e>
+  <h>18</h>
+  <d>12/02/2012</d>
+  <b>Ipanema</b>
+  <n>Empolga às 9</n>
+  <e>Praia de Ipanema, em frente a Rua Joana Angélica</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Jardim Botânico</b>
+  <n>Suvaco de Cristo</n>
+  <e>Rua Jardim Botânico, esquina com Rua Faro</e>
+  <h>9</h>
+  <d>12/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Gigantes da Lira</n>
+  <e>Praça Aliança, Rua General Glicério</e>
+  <h>9</h>
+  <d>12/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Larga a onça, Alfredo!</n>
+  <e>Rua Ipiranga nº 49</e>
+  <h>18</h>
+  <d>12/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Quem num guenta bebe água</n>
+  <e>Rua Gago Coutinho, 37</e>
+  <h>14</h>
+  <d>12/02/2012</d>
+  <b>Leblon</b>
+  <n>Vira-Lata</n>
+  <e>Avenida Delfim Moreira, em frente ao Posto 12</e>
+  <h>1</h>
+  <d>12/02/2012</d>
+  <b>Vila Valqueire</b>
+  <n>Acorda e vem brincar</n>
+  <e>Rua das Dálias</e>
+  <h>12</h>
+  <d>12/02/2012</d>
+  <b>Taquara</b>
+  <n>Suvaco do Velho</n>
+  <e>Rua Lucaia, esquina com Mananciais</e>
+  <h>15</h>
+  <d>12/02/2012</d>
+  <b>Taquara</b>
+  <n>Deita mas não dorme</n>
+  <e>Largo da Taquara</e>
+  <h>19</h>
+  <d>12/02/2012</d>
+  <b>Recreio</b>
+  <n>Princesinha do Recreio</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>17</h>
+  <d>12/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Pode vir que tá legal</n>
+  <e>Praça do Ipase</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Tá na frente eu empurro</n>
+  <e>Rua Liberata Santos</e>
+  <h>16</h>
+  <d>12/02/2012</d>
+  <b>Rocinha</b>
+  <n>Ta ruim, mas ta bom</n>
+  <e>Via Ápia</e>
+  <h>12</h>
+  <d>13/02/2012</d>
+  <b>Lapa</b>
+  <n>Devotos de Madá</n>
+  <e>Rua do Lavradio, entre Rua do Senado e Visconde de Rio Branco</e>
+  <h>2</h>
+  <d>15/02/2012</d>
+  <b>Manguinhos</b>
+  <n>Discípulos de Oswaldo</n>
+  <e>Largo do Amorim</e>
+  <h>19</h>
+  <d>15/02/2012</d>
+  <b>Centro</b>
+  <n>Regula mas libera</n>
+  <e>Rua Teófilo Otoni, esquina com Rua da Quitanda</e>
+  <h>2</h>
+  <d>16/02/2012</d>
+  <b>Centro</b>
+  <n>Espera, espera mas não sai</n>
+  <e>Rua Teófilo Otoni, esquina com Rua da Candelária</e>
+  <h>17</h>
+  <d>16/02/2012</d>
+  <b>Centro</b>
+  <n>É pequeno, mas vai crescer</n>
+  <e>Alexandre Mackenzie, esquina com Senador Pompeu</e>
+  <h>2</h>
+  <d>16/02/2012</d>
+  <b>Botafogo</b>
+  <n>Mamelúdicos Eufóricos e outros Interofóbicos Frenéticos</n>
+  <e>Rua Real Grandeza, esquina com Rua Ipu</e>
+  <h>19</h>
+  <d>16/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Cobra Sarada</n>
+  <e>Rua Gago Coutinho, em frente ao Parque Guinle</e>
+  <h>18</h>
+  <d>16/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Pombal do Engenho Novo</n>
+  <e>Praça Nossa Senhora da Conceição</e>
+  <h>19</h>
+  <d>16/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Loucura Suburbana</n>
+  <e>Instituto Municipal Nise da Silveira - Rua Ramiro Magalhães, 521</e>
+  <h>17</h>
+  <d>16/02/2012</d>
+  <b>Centro</b>
+  <n>Blocos dus impussivi</n>
+  <e>Av. Chile, esquina com Lélio Gama</e>
+  <h>2</h>
+  <d>16/02/2012</d>
+  <b>Centro</b>
+  <n>Libertos do Arquivo</n>
+  <e>Arquivo Nacional (Praça da República)</e>
+  <h>19</h>
+  <d>16/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Badalo de Santa Teresa</n>
+  <e>Largo das Neves</e>
+  <h>2</h>
+  <d>16/02/2012</d>
+  <b>Centro</b>
+  <n>Banda da Rua do Mercado</n>
+  <e>Praça X, Rua do Mercado</e>
+  <h>19</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Embaixadores da Folia</n>
+  <e>Avenida Rio Branco, esquina com Presidente Vargas</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Boca que Fala</n>
+  <e>Pátio do Palácio Gustavo Capanema</e>
+  <h>19</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Escorrega na baba do quiabo</n>
+  <e>Praça Melvin Jones (Buraco do Lume)</e>
+  <h>17</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Molha o pé das 8</n>
+  <e>Rua Rodrigo Silva</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Vestiu uma camisinha listrada e saiu por aí</n>
+  <e>Candelária</e>
+  <h>19</h>
+  <d>17/02/2012</d>
+  <b>Lapa</b>
+  <n>Boêmios da Lapa</n>
+  <e>Travessa Mosquera</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Banda do Castelo</n>
+  <e>Av. Churchill, nº 60</e>
+  <h>16</h>
+  <d>17/02/2012</d>
+  <b>Centro</b>
+  <n>Bloco dos Aposentados</n>
+  <e>Candelária</e>
+  <h>17</h>
+  <d>17/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Bloco da vaca de Braz de Pina</n>
+  <e>Praça Arapogi</e>
+  <h>19</h>
+  <d>17/02/2012</d>
+  <b>Realengo</b>
+  <n>União de Realengo</n>
+  <e>Rua Capitão Teixeira</e>
+  <h>22</h>
+  <d>17/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Bloco das Piranhas do Jeffinho</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Geriatria e Pediatria</n>
+  <e>Rua Professor Gonçalves, esquina com rua Jiçara</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Irajá</b>
+  <n>Monarcas do Irajá</n>
+  <e>Estrada da Água Grande, em frente ao Cimento Irajazinho</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Madureira</b>
+  <n>Amigos do Tatuzão</n>
+  <e>Rua Carvalho de Souza, entre a Rua Maraia Freitas e a Ministro Edgard Romero</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Carmelitas</n>
+  <e>Rua Dias de Barros, esquina com a Ladeira de Santa Teresa</e>
+  <h>15</h>
+  <d>17/02/2012</d>
+  <b>Ramos</b>
+  <n>Unidos do Chapadão</n>
+  <e>Av. Campeões nº 01 (PARADO)</e>
+  <h>17</h>
+  <d>17/02/2012</d>
+  <b>Botafogo</b>
+  <n>Perereka sem dono</n>
+  <e>Rua Henrique de Novaes</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Catete</b>
+  <n>Senta que eu empurro</n>
+  <e>Rua Artur Bernardes, 26</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda do Lido</n>
+  <e>Ronald de Carvalho, entre Viveiros de Castro e Nossa Senhora de Copacabana</e>
+  <h>19</h>
+  <d>17/02/2012</d>
+  <b>Pechincha</b>
+  <n>Banda da Diretoria</n>
+  <e>Estrada do Capenha</e>
+  <h>21</h>
+  <d>17/02/2012</d>
+  <b>São Conrado</b>
+  <n>Ai, que Cimento!</n>
+  <e>Estrada da Gávea, 250</e>
+  <h>2</h>
+  <d>17/02/2012</d>
+  <b>Leme</b>
+  <n>Bloco Virtual</n>
+  <e>Praca Almirante Julio de Noronha</e>
+  <h>18</h>
+  <d>17/02/2012</d>
+  <b>Ipanema</b>
+  <n>Vem ni mim que sou facinha</n>
+  <e>Praça General Osório</e>
+  <h>18</h>
+  <d>17/02/2012</d>
+  <b>Ipanema</b>
+  <n>Rola Preguiçosa tarda mas não falha</n>
+  <e>Av. Epitácio Pessoa, esquina com Maria Quitéria</e>
+  <h>21</h>
+  <d>17/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda Cultural do Jiló</n>
+  <e>Rua Pinto de Figueiredo, 26</e>
+  <h>22</h>
+  <d>17/02/2012</d>
+  <b>Grajaú</b>
+  <n>Turma dos 300 - Chega mais Grajaú</n>
+  <e>Praça Edmundo Rego</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Botafogo</b>
+  <n>Barbas</n>
+  <e>Rua Arnaldo Quintela, esquina com Assis Bueno</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Galo da Santa Clara</n>
+  <e>Rua Santa Clara, em frente ao nº 415</e>
+  <h>14</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Harmonia de Copacabana</n>
+  <e>Av. Atliantica, esquina com Siqueira Campos</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>O Remédio é o samba</n>
+  <e>Av. Atlântica, esquina com Xavier da Silveira</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Céu na Terra</n>
+  <e>Praça Odilo Costa Neto</e>
+  <h>9</h>
+  <d>18/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Aconteceu</n>
+  <e>Largo das Neves</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Empolga às 9</n>
+  <e>Avenida Atlântica, em frente a Rua Rainha Elizabeth</e>
+  <h>11</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Cabeça de Chave</n>
+  <e>Rua Duvivier, entre Atlantica e Nossa Senhora de Copacabana</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Grajaú</b>
+  <n>Seu Kuka</n>
+  <e>Largo Maria Marta Ward</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Tijuca</b>
+  <n>Amigos do Sabiá</n>
+  <e>Rua Barão de Mesquita, 136</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda do Largo da 2ª Feira</n>
+  <e>Rua Conde de Bonfim, nº 25 - Bar baby Moon</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Tijuca</b>
+  <n>Chora 10</n>
+  <e>Rua São Miguel, 430</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Tijuca</b>
+  <n>Cordão Alegria da Tijuca</n>
+  <e>Rua Afonso Pena, esquina com Haddock Lobo</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Bloco da AAVI (Associação Atlética Vila Isabel)</n>
+  <e>Av. 28 de setembro, 160 (em frente a AAVI)</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Pombo Correio</n>
+  <e>Rua Visconde de Abaeté, entre os nºs 29 e 63</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Seu lagarto mama</n>
+  <e>Av. 28 de setembro, esquina com Visconde de Abaéte</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Imóveis</n>
+  <e>Rua Souza Lima, em frente ao nº 121</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Móveis</n>
+  <e>Avenida Atlântica esquina com Souza Lima no calçadão</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Ulalá Balancê</n>
+  <e>Avenida Atlântica, Posto 6</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Flamengo</b>
+  <n>Estica do Flamengo</n>
+  <e>Praça Sandro Moreira</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Sá Ferreira</n>
+  <e>Rua Sá Ferreira, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda do Bairro Peixoto</n>
+  <e>Avenida Atlântica, entre a Santa Clara e a Figueiredo Magalhães</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Santa Clara</n>
+  <e>Rua Santa Clara, esquina com Av. Atlântica</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Bolívar</n>
+  <e>Rua Bolívar, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Gávea</b>
+  <n>Escangalha!</n>
+  <e>Rua Orsina da Fonseca</e>
+  <h>11</h>
+  <d>18/02/2012</d>
+  <b>Glória</b>
+  <n>Sassaricando</n>
+  <e>Praca Luís de Camões / Rua do Russel</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Ipanema</b>
+  <n>Banda de Ipanema</n>
+  <e>Rua Gomes Carneiro, entre Prudente de Morais e Vieira Souto</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>De Palhaço e louco todo mundo tem um pouco</n>
+  <e>Praça da General Glicério</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Leblon</b>
+  <n>Azeitona sem caroço</n>
+  <e>Rua Dias Ferreira, nº 647</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Catete</b>
+  <n>Vem sambar comigo</n>
+  <e>Rua do Catete, em frente ao Museu da República</e>
+  <h>14</h>
+  <d>18/02/2012</d>
+  <b>Catete</b>
+  <n>Amigos do Catete</n>
+  <e>Rua do Catete, esquina com 2 de dezembro</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Botafogo</b>
+  <n>Toco-Xona</n>
+  <e>Praça Jóia Valansi</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Botafogo</b>
+  <n>Rebarbas</n>
+  <e>Praça Mauro Duarte</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Lapa</b>
+  <n>Pega pra sambar</n>
+  <e>Rua do Senado</e>
+  <h>11</h>
+  <d>18/02/2012</d>
+  <b>Lapa</b>
+  <n>O Berro da Viúva</n>
+  <e>Av. Gomes Freire, nº 27</e>
+  <h>14</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Clube Nobre do Bairro Peixoto</n>
+  <e>Rua Siqueira Campos, esquina com Av. Atlântica</e>
+  <h>15</h>
+  <d>18/02/2012</d>
+  <b>Lapa</b>
+  <n>Carioca da Gema</n>
+  <e>Rua do Lavradio, 168</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Lapa</b>
+  <n>Acadêmicos dos Arcos</n>
+  <e>Rua Mem de Sá, esquina com Ladeira de Santa Teresa</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Glória</b>
+  <n>Bloco Show do Antonio Carlos</n>
+  <e>Rua do Russel 434</e>
+  <h>1</h>
+  <d>18/02/2012</d>
+  <b>Gamboa</b>
+  <n>Cordão do Prata Preta</n>
+  <e>Rua Sacadura Cabral, 373 (em frente ao 5º BPM)</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Centro</b>
+  <n>Cordão da Bola Preta</n>
+  <e>Cinelândia</e>
+  <h>9</h>
+  <d>18/02/2012</d>
+  <b>Centro</b>
+  <n>Alvorada dos Embaixadores da Folia</n>
+  <e>Avenida Rio Branco, esquina com Rua São Bento</e>
+  <h>8</h>
+  <d>18/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Bloco do Bairro de Fátima</n>
+  <e>Praça Aguirre Cerda</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Atlântica</n>
+  <e>Av. Atlântica, esquina com Constante Ramos</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Bangu</b>
+  <n>Fúria de Bangu</n>
+  <e>Rua Bangu</e>
+  <h>21</h>
+  <d>18/02/2012</d>
+  <b>Bangu</b>
+  <n>Perna de Cobra</n>
+  <e>Rua Paulo da Silva, esquina com Armistício</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Bangu</b>
+  <n>Queima de Bangu</n>
+  <e>Rua Agrícola</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Bangu</b>
+  <n>Virilha de Minhoca</n>
+  <e>Rua Fonseca</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Copacabana</b>
+  <n>Fogo na cueca</n>
+  <e>Rua Maestro Francisco Braga</e>
+  <h>14</h>
+  <d>18/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Alta Pressão</n>
+  <e>Av. Cesário de Melo, esquina com Coronel Agostinho</e>
+  <h>12</h>
+  <d>18/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Bantos</n>
+  <e>Rua Baicuru</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Geriatria e Pediatria</n>
+  <e>Rua Professor Gonçalves, esquina com rua Jiçara</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Pisa no Boi</n>
+  <e>Coronel Agostinho, Calçadão de Campo Grande</e>
+  <h>1</h>
+  <d>18/02/2012</d>
+  <b>Paciência</b>
+  <n>Alegria de Palmares</n>
+  <e>Rua Soldado Elias de Sousa, 451</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Santa Cruz</b>
+  <n>Banda de Santa Cruz</n>
+  <e>Av. Felipe Cardoso, esquina com Av. Isabel</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Santíssimo</b>
+  <n>Caldeirão do Coqueiro</n>
+  <e>Praça do Coqueiro</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Taquara</b>
+  <n>Jacaré Folia</n>
+  <e>Praça Orleans</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Recreio</b>
+  <n>Giro do Arar</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Vem como pode</n>
+  <e>Largo da Cedae</e>
+  <h>1</h>
+  <d>18/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Arrastão da Praça Seca</n>
+  <e>Rua Baronesa</e>
+  <h>21</h>
+  <d>18/02/2012</d>
+  <b>Pechincha</b>
+  <n>Banda da Diretoria</n>
+  <e>Estrada do Capenha</e>
+  <h>21</h>
+  <d>18/02/2012</d>
+  <b>Freguesia</b>
+  <n>Banda da Freguesia</n>
+  <e>Largo da Freguesia</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Peru Crescido</n>
+  <e>Rua Carolina Machado, entre a Liberata Santos e Emília Ribeiro</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Bloco da vaca de Braz de Pina</n>
+  <e>Praça Arapogi</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Amigos da Esquina</n>
+  <e>Rua Pernambuco, esquina com 2 de fevereiro</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Cueca Maneira</n>
+  <e>Rua D. Francisca</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Madureira</b>
+  <n>Banda de Madureira</n>
+  <e>Rua Carvalho de Souza, entre a Rua Maria Freitas e a Ministro Edgard Romero</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Madureira</b>
+  <n>Fome Zero</n>
+  <e>Rua Dagmar da Fonseca</e>
+  <h>16</h>
+  <d>18/02/2012</d>
+  <b>Manguinhos</b>
+  <n>Enverga mas não quebra</n>
+  <e>Rua Rosa da Fonseca, em frente ao nº 310</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Méier</b>
+  <n>Banda do Mackenzie</n>
+  <e>Rua Dias da Cruz, 561 - em frente ao Clube Mackenzie</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Méier</b>
+  <n>Banda do Méier</n>
+  <e>Rua Magalhães Couto, esquina com Dias da Cruz</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Méier</b>
+  <n>Boêmios do Méier</n>
+  <e>Rua Dias da Cruz, 128</e>
+  <h>2</h>
+  <d>18/02/2012</d>
+  <b>Méier</b>
+  <n>Quem mora no méia não bobéia</n>
+  <e>Rua Magalhães Couto, 118</e>
+  <h>19</h>
+  <d>18/02/2012</d>
+  <b>Pavuna</b>
+  <n>Bloco da Copa</n>
+  <e>Rua Amaral Ornellas</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Pilares</b>
+  <n>Turma do Gato</n>
+  <e>Rua Djalma Dutra</e>
+  <h>18</h>
+  <d>18/02/2012</d>
+  <b>Botafogo</b>
+  <n>Pinta mas não borra</n>
+  <e>Rua Voluntários da Pátria, em frente ao nº 34</e>
+  <h>17</h>
+  <d>18/02/2012</d>
+  <b>Botafogo</b>
+  <n>Dois pra lá, dois pra cá</n>
+  <e>Rua Alvaro Ramos, em frente ao número 11</e>
+  <h>1</h>
+  <d>18/02/2012</d>
+  <b>Lapa</b>
+  <n>Multibloco</n>
+  <e>Av. Mem de Sá, nº 126</e>
+  <h>12</h>
+  <d>19/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Peru Crescido</n>
+  <e>Rua Carolina Machado, entre a Liberata Santos e Emília Ribeiro</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Tá na frente eu empurro</n>
+  <e>Rua Liberata Santos</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Bloco da vaca de Braz de Pina</n>
+  <e>Praça Arapogi</e>
+  <h>19</h>
+  <d>19/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Sorriso de Criança</n>
+  <e>Rua Carbonita</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Tchetcheca</n>
+  <e>Rua Pernambuco</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Bloco 2 de Maio</n>
+  <e>Rua 2 de Maio, 246</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Cueca Maneira</n>
+  <e>Rua D. Francisca</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Pode Vir que tem</n>
+  <e>Rua Juiz Jorge Salomão, 347</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Jardim América</b>
+  <n>Bloco do Limão</n>
+  <e>Praça da Rua 7</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Pavuna</b>
+  <n>Bloco da Copa</n>
+  <e>Rua Amaral Ornellas</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Piedade</b>
+  <n>Ou vai ou mama</n>
+  <e>Rua Paraná</e>
+  <h>19</h>
+  <d>19/02/2012</d>
+  <b>Piedade</b>
+  <n>Pressão Alta</n>
+  <e>Rua Ferreira Sampaio</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Piedade</b>
+  <n>Terremoto</n>
+  <e>Rua Pe Manuel da Nóbrega</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Piedade</b>
+  <n>Xodó da Piedade</n>
+  <e>Rua Mario Carpenter</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Riachuelo</b>
+  <n>Furukuteu</n>
+  <e>Rua Magalhães Castro, esquina com Francisco Bernardino</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Ricardo de Albuquerque</b>
+  <n>Alegria de Ricardo de Albuquerque</n>
+  <e>Praça Claudio de Souza</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Vaz Lobo</b>
+  <n>Rola Cansada de Vaz Lobo</n>
+  <e>Rua Anajás nº 116 B</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Vila Kosmos</b>
+  <n>Vem Comigo da Vila Kosmos</n>
+  <e>Rua Itacambira</e>
+  <h>15</h>
+  <d>19/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Anchieta</b>
+  <n>Suvaco de Cobra</n>
+  <e>Rua General Augusto Sisson, esquina com Capitão Paulo</e>
+  <h>14</h>
+  <d>19/02/2012</d>
+  <b>Anchieta</b>
+  <n>Boi de Anchieta</n>
+  <e>Praça Nossa Senhora de Nazaré</e>
+  <h>12</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Choppinho da Paula Freitas</n>
+  <e>Rua Paula Freitasm esquina com Av. Atlântica</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Folia do Galo</n>
+  <e>Rua Julio de Castilhos, esquina com Raul Pompéia</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>jardim Maravilha</b>
+  <n>Tu é meu</n>
+  <e>Av. Pilar do Sul, esquina com Porto Camargo</e>
+  <h>11</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Imóveis</n>
+  <e>Rua Souza Lima, em frente ao nº 121</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Santíssimo</b>
+  <n>Caldeirão do Coqueiro</n>
+  <e>Praça do Coqueiro</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Santa Cruz</b>
+  <n>Boca Miúda</n>
+  <e>Av. Felipe Cardoso, em frente as Casas Bahia</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Unidos da Venda Grande</n>
+  <e>Praça Dr. Raul Capello Barroso</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Boêmios do Catruz</n>
+  <e>Rua Barros de Alarcão</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Bloco do Boi, só falta você</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Baleia da Venda Grande</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>21</h>
+  <d>19/02/2012</d>
+  <b>Padre Miguel</b>
+  <n>Bafo do Peru</n>
+  <e>Largo da Tapiranga</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Magalhães de Bastos</b>
+  <n>Mocidade Unida de Magalhães de Bastos</n>
+  <e>Rua Carumbé (Viação Bangu)</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Cabeça de Chave</n>
+  <e>Rua Duvivier, entre Atlantica e Nossa Senhora de Copacabana</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Sá Ferreira</n>
+  <e>Rua Sá Ferreira, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Santa Clara</n>
+  <e>Rua Santa Clara, esquina com Av. Atlântica</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Bolívar</n>
+  <e>Rua Bolívar, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Atlântica</n>
+  <e>Av. Atlântica, esquina com Constante Ramos</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Catete</b>
+  <n>Império da Folia</n>
+  <e>Bento Lisboa, esquina com Tavares Bastos</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Botafogo</b>
+  <n>Foliões de Botafogo</n>
+  <e>Praça Mauro Duarte</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Botafogo</b>
+  <n>Fanfarani</n>
+  <e>Praça Chaim Waisman</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Aterro do Flamengo</b>
+  <n>Bangalafumenga</n>
+  <e>Av. Infante Dom Henrique, em frente ao Coreto Modernista</e>
+  <h>1</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Móveis</n>
+  <e>Avenida Atlântica esquina com Souza Lima no calçadão</e>
+  <h>15</h>
+  <d>19/02/2012</d>
+  <b>Flamengo</b>
+  <n>Cachorro Cansado</n>
+  <e>Praça José de Alencar</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Ipanema</b>
+  <n>Que Merda é Essa?!</n>
+  <e>Rua Garcia D'ávila, esquina com Nascimento Silva</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Ipanema</b>
+  <n>Simpatia é quase amor</n>
+  <e>Rua Teixeira de Mello, ao lado da Praça General Osório</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>É do Pandeiro</n>
+  <e>Praça São Salvador</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Piranhas da Senador Nabuco</n>
+  <e>Praça Barão de Drummond</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Gargalhada</n>
+  <e>Av. 28 de setembro, 160 (em frente a AAVI)</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Tijuca</b>
+  <n>Balanço do Pinto</n>
+  <e>Rua Pinto de Figueiredo</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Grajaú</b>
+  <n>Perereca do Grajaú</n>
+  <e>Praça Edmundo Rego</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Banda da Amizade</n>
+  <e>Rua Tadeu Kosciusko</e>
+  <h>19</h>
+  <d>19/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Banda do Bairro de Fátima</n>
+  <e>Praça Aguirre Cerda</e>
+  <h>1</h>
+  <d>19/02/2012</d>
+  <b>Centro</b>
+  <n>A nega endoidou</n>
+  <e>Largo de Santa Rita</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Centro</b>
+  <n>Banda da Inválidos</n>
+  <e>Rua dos Inválidos, 138</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Centro</b>
+  <n>Blocos dus impussivi</n>
+  <e>Av. Chile, esquina com Lélio Gama</e>
+  <h>15</h>
+  <d>19/02/2012</d>
+  <b>Centro</b>
+  <n>Cordão do Boitatá</n>
+  <e>Rua do Mercado, esquina com Rua do Ouvidor</e>
+  <h>9</h>
+  <d>19/02/2012</d>
+  <b>Centro</b>
+  <n>Toca Rauuulll!</n>
+  <e>Praça Tiradentes</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Ilha de Paquetá</b>
+  <n>Toma Uma</n>
+  <e>Praia dos tamoios</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Lapa</b>
+  <n>Dragões da Riachuelo</n>
+  <e>Rua Conselheiro Josino</e>
+  <h>15</h>
+  <d>19/02/2012</d>
+  <b>São Cristóvão</b>
+  <n>Bambas do Curuzu</n>
+  <e>Rua Curuzu</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Saúde</b>
+  <n>Escorrega mas não cai</n>
+  <e>Ladeira do Escorrega, esquina com Sacadura Cabral</e>
+  <h>14</h>
+  <d>19/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Laranjada Samba Clube</n>
+  <e>Praça da General Glicério</e>
+  <h>12</h>
+  <d>19/02/2012</d>
+  <b>Leblon</b>
+  <n>Acadêmicos do Vidigal</n>
+  <e>Av. Delfim Moreira, em frente ao Posto 12</e>
+  <h>15</h>
+  <d>19/02/2012</d>
+  <b>Leblon</b>
+  <n>Areia</n>
+  <e>Rua Dias Ferreira, esquina com General Urquiza</e>
+  <h>11</h>
+  <d>19/02/2012</d>
+  <b>Leme</b>
+  <n>Boca Seca</n>
+  <e>Av. Atlântica esquina com Rua Anchieta</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Rocinha</b>
+  <n>Pragradar da Rocinha</n>
+  <e>Estrada da Gávea, 250</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Urca</b>
+  <n>Beijamim no escuro</n>
+  <e>Instituto Benjamim Constant (avenida Pasteur)</e>
+  <h>15</h>
+  <d>19/02/2012</d>
+  <b>Taquara</b>
+  <n>Jacaré Folia</n>
+  <e>Praça Orleans</e>
+  <h>19</h>
+  <d>19/02/2012</d>
+  <b>Taquara</b>
+  <n>Deita mas não dorme</n>
+  <e>Largo da Taquara</e>
+  <h>19</h>
+  <d>19/02/2012</d>
+  <b>Recreio</b>
+  <n>Princesinha do Recreio</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Recreio</b>
+  <n>Buraco do Pau</n>
+  <e>Avenida Lucio Costa, em frente ao Quiosque marathon</e>
+  <h>14</h>
+  <d>19/02/2012</d>
+  <b>Recreio</b>
+  <n>Batucada Radical</n>
+  <e>Avenida Lucio Costa, em frente ao Posto 9</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Recreio</b>
+  <n>Alegria do Recreio</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>16</h>
+  <d>19/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Porre Certo</n>
+  <e>Rua Carimã nº4</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Freguesia</b>
+  <n>Bloco da Tirol</n>
+  <e>Rua Tirol</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Segura no Semblante</n>
+  <e>Avenida do Pepê, esquina com Olegário Maciel</e>
+  <h>11</h>
+  <d>19/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Buda da Barra</n>
+  <e>Av. Lucio Costa  retorno em frente nº 3,636 (sentido Barra-Recreio)</e>
+  <h>12</h>
+  <d>19/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Bloco do Arranca</n>
+  <e>Avenida do Pepê, esquina com Olegário Maciel</e>
+  <h>12</h>
+  <d>19/02/2012</d>
+  <b>Bangu</b>
+  <n>Passa Régua de Bangu</n>
+  <e>Rua Boiobi, esquina com rua dos Banguenses</e>
+  <h>21</h>
+  <d>19/02/2012</d>
+  <b>Bangu</b>
+  <n>Queima de Bangu</n>
+  <e>Rua Agrícola</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Bangu</b>
+  <n>Virilha de Minhoca</n>
+  <e>Rua Fonseca</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Bloco do Máfia</n>
+  <e>Rua Sacramento Blacke</e>
+  <h>19</h>
+  <d>19/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Geriatria e Pediatria</n>
+  <e>Rua Professor Gonçalves, esquina com rua Jiçara</e>
+  <h>2</h>
+  <d>19/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Pisa no Boi</n>
+  <e>Estrada do Pré 546</e>
+  <h>18</h>
+  <d>19/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Se tu fô eu vô</n>
+  <e>Rua Professor Gonçalves, esquina com Augusto Vasconcelos</e>
+  <h>17</h>
+  <d>19/02/2012</d>
+  <b>Copacabana</b>
+  <n>Gladiaddores de Copacabana</n>
+  <e>Av. Atlântica, esquina com Barão de Ipanema</e>
+  <h>17</h>
+  <d>20/01/2012</d>
+  <b>Copacabana</b>
+  <n>Boca Maldita</n>
+  <e>Praça Demétrio Ribeiro</e>
+  <h>19</h>
+  <d>20/01/2012</d>
+  <b>Lapa</b>
+  <n>Bloco do Tião dos Embaixadores da Folia</n>
+  <e>Rua Gomes Freire, 533</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Banda do Riviera</n>
+  <e>Rua Rosalina Brand</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Pavuna</b>
+  <n>Bloco da Copa</n>
+  <e>Rua Amaral Ornellas</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Méier</b>
+  <n>Papo de Cachaça</n>
+  <e>Rua Dias da Cruz, 269</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Méier</b>
+  <n>Amigos da Joaquim Méier</n>
+  <e>Joaquim Méier, 213</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Madureira</b>
+  <n>Soul Carioca</n>
+  <e>Rua Carvalho de Souza, entre Francisco Batista e Edgard Romero</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Madureira</b>
+  <n>Banda de Madureira</n>
+  <e>Rua Carvalho de Souza, entre a Rua Maria Freitas e a Ministro Edgard Romero</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Bangu</b>
+  <n>Fúria de Bangu</n>
+  <e>Rua Bangu</e>
+  <h>21</h>
+  <d>20/02/2012</d>
+  <b>Bangu</b>
+  <n>Perna de Cobra</n>
+  <e>Rua Paulo da Silva, esquina com Armistício</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Bangu</b>
+  <n>Virilha de Minhoca</n>
+  <e>Rua Fonseca</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Geriatria e Pediatria</n>
+  <e>Rua Professor Gonçalves, esquina com rua Jiçara</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Perereca Vadia</n>
+  <e>Praca Nossa Senhora Aparecida - Sta. Margarida</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Pisa no Boi</n>
+  <e>Estrada do Pré 546</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Seu Lagarto mama na vila</n>
+  <e>Rua Itapolis, 386</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Magalhães de Bastos</b>
+  <n>Mocidade Unida de Magalhães de Bastos</n>
+  <e>Rua Pirapuã</e>
+  <h>21</h>
+  <d>20/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Banda do camarão</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Bloco do Boi, só falta você</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Unidos da Venda Grande</n>
+  <e>Praça Dr. Raul Capello Barroso</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Santíssimo</b>
+  <n>Caldeirão do Coqueiro</n>
+  <e>Praça do Coqueiro</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Irajá</b>
+  <n>Bohêmios de Irajá</n>
+  <e>Av. Automóvel Club esquina com Monsenhor Félix</e>
+  <h>19</h>
+  <d>20/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Cueca Maneira</n>
+  <e>Rua D. Francisca</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Cavalcante</b>
+  <n>Hora Certa de Cavalcante</n>
+  <e>Campo do Mangueirão</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Bloco da vaca de Braz de Pina</n>
+  <e>Praça Arapogi</e>
+  <h>19</h>
+  <d>20/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Peru Crescido</n>
+  <e>Rua Carolina Machado, entre a Liberata Santos e Emília Ribeiro</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Anchieta</b>
+  <n>Boi de Anchieta</n>
+  <e>Praça Nossa Senhora de Nazaré</e>
+  <h>12</h>
+  <d>20/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Varandão de Vila Isabel</n>
+  <e>Rua Rocha Fragoso, esquina com 28 de setembro</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Planeta dos Macacaos</n>
+  <e>Rua Conselheiro Otaviano</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Tijuca</b>
+  <n>Chopp Duplo</n>
+  <e>Praça Afonso Pena</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Andaraí</b>
+  <n>Balanço do Jamelão</n>
+  <e>Final da Rua Botucatu</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Banda da Amizade</n>
+  <e>Rua Tadeu Kosciusko</e>
+  <h>19</h>
+  <d>20/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Bloco do Bairro de Fátima</n>
+  <e>Praça Aguirre Cerda</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Centro</b>
+  <n>Associação carnavalesca infiéis</n>
+  <e>Praca Alexandre Herculano</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Centro</b>
+  <n>Banda da Inválidos</n>
+  <e>Rua dos Inválidos, 138</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Vaz Lobo</b>
+  <n>Rola Cansada de Vaz Lobo</n>
+  <e>Rua Anajás nº 116 B</e>
+  <h>2</h>
+  <d>20/02/2012</d>
+  <b>Aterro do Flamengo</b>
+  <n>Sargento Pimenta e o Clube dos Corações Solitários</n>
+  <e>Av. Infante Dom Henrique, em frente a Marina da Glória</e>
+  <h>14</h>
+  <d>20/02/2012</d>
+  <b>Botafogo</b>
+  <n>Bloco de Segunda</n>
+  <e>Rua Marques, atrás da Cobal Humaitá</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Botafogo</b>
+  <n>Carvalho em Pé!</n>
+  <e>Visconde de Caravelas, 22 (em frente ao Boteco du Carvalho)</e>
+  <h>12</h>
+  <d>20/02/2012</d>
+  <b>Catete</b>
+  <n>Balança meu Catete</n>
+  <e>Rua do Catete, esquina com Buarque de Macedo</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Móveis</n>
+  <e>Avenida Atlântica esquina com Souza Lima no calçadão</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Flamengo</b>
+  <n>Estica do Flamengo</n>
+  <e>Praça Sandro Moreira</e>
+  <h>19</h>
+  <d>20/02/2012</d>
+  <b>Piedade</b>
+  <n>Terremoto</n>
+  <e>Rua Pe Manuel da Nóbrega</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Gávea</b>
+  <n>Pede Passagem</n>
+  <e>Entrada do Jóckey Club, em frente a Praça Santos Dummont</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Glória</b>
+  <n>Arteiros da Glória</n>
+  <e>Rua da Glória, 190</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Ipanema</b>
+  <n>Afroreggae</n>
+  <e>Avenida Vieira Souto, em frente ao Posto 10</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Ipanema</b>
+  <n>Pega Rex Social Clube</n>
+  <e>Rua Joana Angélica, esquina com Redentor</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Ipanema</b>
+  <n>Se não quiser me dar, me empresta</n>
+  <e>Avenida Vieira Souto, em frente a Vinícius de Moraes</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Volta, Alice</n>
+  <e>Rua Alice</e>
+  <h>9</h>
+  <d>20/02/2012</d>
+  <b>Leblon</b>
+  <n>Corre Atrás</n>
+  <e>Rua Dias Ferreira, esquina com General Urquiza</e>
+  <h>9</h>
+  <d>20/02/2012</d>
+  <b>Leblon</b>
+  <n>Império da Cruzada</n>
+  <e>Rua Humberto de Campos</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Leblon</b>
+  <n>Sobrinhos do Tio Bio</n>
+  <e>Rainha Gulhermina, esquina com Ataulfo de Paiva</e>
+  <h>1</h>
+  <d>20/02/2012</d>
+  <b>Leme</b>
+  <n>Cordão da Confraria do Peru Sadio</n>
+  <e>Av. Atlântica, em frente ao Sindicato do Chopp</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Taquara</b>
+  <n>Suvaco do Velho</n>
+  <e>Rua Lucaia, esquina com Mananciais</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Taquara</b>
+  <n>Piranhas do Panela</n>
+  <e>Rua Caituba</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Taquara</b>
+  <n>Jacaré Folia</n>
+  <e>Praça Orleans</e>
+  <h>19</h>
+  <d>20/02/2012</d>
+  <b>Praça Seca</b>
+  <n>Arrastão da Praça Seca</n>
+  <e>Rua Baronesa</e>
+  <h>21</h>
+  <d>20/02/2012</d>
+  <b>Freguesia</b>
+  <n>Afro Rio, custou mas saiu</n>
+  <e>Largo da Freguesia</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Piedade</b>
+  <n>Falar de mim é fácil, dificil é ser eu</n>
+  <e>Rua Coronel Almeida, nº 28</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Catete</b>
+  <n>Largo do machadinho, mas não largo do suquinho</n>
+  <e>Largo do Machado</e>
+  <h>1</h>
+  <d>20/02/2012</d>
+  <b>Centro</b>
+  <n>Bloco Cru</n>
+  <e>Praça XV</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Atlântica</n>
+  <e>Av. Atlântica, esquina com Constante Ramos</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Clube Nobre do Bairro Peixoto</n>
+  <e>Rua Siqueira Campos, esquina com Av. Atlântica</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Bolívar</n>
+  <e>Rua Bolívar, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Santa Clara</n>
+  <e>Rua Santa Clara, esquina com Av. Atlântica</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Sá Ferreira</n>
+  <e>Rua Sá Ferreira, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Cabeça de Chave</n>
+  <e>Rua Duvivier, entre Atlantica e Nossa Senhora de Copacabana</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Choppinho da Paula Freitas</n>
+  <e>Rua Paula Freitasm esquina com Av. Atlântica</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Imóveis</n>
+  <e>Rua Souza Lima, em frente ao nº 121</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>São Cristóvão</b>
+  <n>Piranhas do São Roque</n>
+  <e>Rua Frolick, 159</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Aconteceu</n>
+  <e>Largo dos Guimarães</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Lapa</b>
+  <n>Sem Noção</n>
+  <e>Rua do Lavradio, esquina com Mem de Sá</e>
+  <h>14</h>
+  <d>20/02/2012</d>
+  <b>Lapa</b>
+  <n>Mão de Lata</n>
+  <e>Rua do Lavradio, em frente ao CIEP Pedro Varella</e>
+  <h>18</h>
+  <d>20/02/2012</d>
+  <b>Lapa</b>
+  <n>Dragões da Riachuelo</n>
+  <e>Rua Conselheiro Josino</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Gamboa</b>
+  <n>Vai que dá</n>
+  <e>Praça dos Estivadores</e>
+  <h>14</h>
+  <d>20/02/2012</d>
+  <b>Gamboa</b>
+  <n>Orquestra de Tamboras Robertinho Silva e Carlos Negreiros</n>
+  <e>Praça dos Estivadores</e>
+  <h>17</h>
+  <d>20/02/2012</d>
+  <b>Centro</b>
+  <n>Embaixada das Caricatas</n>
+  <e>Praça da República</e>
+  <h>16</h>
+  <d>20/02/2012</d>
+  <b>Centro</b>
+  <n>Bloco Teatral Filhos do Martins</n>
+  <e>Rua Vinte de Abril, nº 14</e>
+  <h>15</h>
+  <d>20/02/2012</d>
+  <b>Copacabana</b>
+  <n>Afoxé Raizes Africanas</n>
+  <e>Avenida Atlântica, Posto 6</e>
+  <h>16</h>
+  <d>21/01/2012</d>
+  <b>Centro</b>
+  <n>Embaixada das Caricatas</n>
+  <e>Praça da República</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Santa Clara</n>
+  <e>Rua Santa Clara, esquina com Av. Atlântica</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Santíssimo</b>
+  <n>Caldeirão do Coqueiro</n>
+  <e>Praça do Coqueiro</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Santa Cruz</b>
+  <n>Unidos do Beco da Macumba</n>
+  <e>Av. Felipe Cardoso, esquina com Av. Isabel</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Santa Cruz</b>
+  <n>Cara de Galo</n>
+  <e>Rua Nestor, em frente ao Oriente Atlético Clube</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Boêmios do Catruz</n>
+  <e>Rua Barros de Alarcão</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Bloco do Boi, só falta você</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Pedra de Guaratiba</b>
+  <n>Baleia da Venda Grande</n>
+  <e>Rua Barros de Alarcão, nº 111</e>
+  <h>21</h>
+  <d>21/02/2012</d>
+  <b>Padre Miguel</b>
+  <n>Bafo do Peru</n>
+  <e>Largo da Tapiranga</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Paciência</b>
+  <n>Alegria de Palmares</n>
+  <e>Rua Soldado Elias de Sousa, 451</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Pisa no Boi</n>
+  <e>Estrada do Pré 546</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Campo Grande</b>
+  <n>Geriatria e Pediatria</n>
+  <e>Rua Professor Gonçalves, esquina com rua Jiçara</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Bangu</b>
+  <n>Virilha de Minhoca</n>
+  <e>Rua Fonseca</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Bangu</b>
+  <n>Passa Régua de Bangu</n>
+  <e>Rua Bangu</e>
+  <h>21</h>
+  <d>21/02/2012</d>
+  <b>Bangu</b>
+  <n>Bloco da Pichação</n>
+  <e>Rua Fonseca, em frente ao 1.201</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Bangu</b>
+  <n>Banguçando o Coreto</n>
+  <e>Rua Abaeté, 435</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Leblon</b>
+  <n>Empurra que pega</n>
+  <e>Avenida Delfim Moreira, em frente ao Posto 12</e>
+  <h>15</h>
+  <d>21/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Cardosão de Laranjeiras</n>
+  <e>Rua Cardoso Junior, esquina com Rua das Laranjeiras</e>
+  <h>12</h>
+  <d>21/02/2012</d>
+  <b>Laranjeiras</b>
+  <n>Bagunça meu coreto</n>
+  <e>Praça São Salvador</e>
+  <h>11</h>
+  <d>21/02/2012</d>
+  <b>Jardim Botânico</b>
+  <n>Vagalume o verde</n>
+  <e>Rua Jardim Botânico, esquina com Pacheco Leão</e>
+  <h>1</h>
+  <d>21/02/2012</d>
+  <b>Ipanema</b>
+  <n>Rio Maracatu</n>
+  <e>Avenida Vieira Souto, em frente ao Posto 8</e>
+  <h>1</h>
+  <d>21/02/2012</d>
+  <b>Ipanema</b>
+  <n>Banda de Ipanema</n>
+  <e>Rua Gomes Carneiro, entre Prudente de Morais e Vieira Souto</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Glória</b>
+  <n>Banda da Glória</n>
+  <e>Rua da Gloria esquina com Candido Mendes</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Gávea</b>
+  <n>A Rocha</n>
+  <e>Praça Santos Dummont</e>
+  <h>9</h>
+  <d>21/02/2012</d>
+  <b>Vila Kosmos</b>
+  <n>Vem Comigo da Vila Kosmos</n>
+  <e>Rua Itacambira</e>
+  <h>15</h>
+  <d>21/02/2012</d>
+  <b>Riachuelo</b>
+  <n>Furukuteu</n>
+  <e>Rua Magalhães Castro, esquina com Francisco Bernardino</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Piedade</b>
+  <n>Pressão Alta</n>
+  <e>Rua Ferreira Sampaio</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Méier</b>
+  <n>Boêmios do Méier</n>
+  <e>Rua Dias da Cruz, 400</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Méier</b>
+  <n>Banda do Méier</n>
+  <e>Rua Magalhães Couto, esquina com Dias da Cruz</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Marechal Hermes</b>
+  <n>Pinto na Perereca</n>
+  <e>Praça XV de Novembro</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Madureira</b>
+  <n>Xixi no balde</n>
+  <e>Rua Clara Nunes, entre a Estrada do Portela e Carolina Machado</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Madureira</b>
+  <n>Nega Tereza</n>
+  <e>Avenida Ministro Edgard Romero, em frente a quadra da Império Serrano</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Aterro do Flamengo</b>
+  <n>Orquestra Voadora</n>
+  <e>Av. Infante Dom Henrique, em frente ao Coreto Modernista</e>
+  <h>14</h>
+  <d>21/02/2012</d>
+  <b>Flamengo</b>
+  <n>Mocidade Dependente de Deus</n>
+  <e>Praia do Flamengo, 72</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Jardim América</b>
+  <n>Bloco do Limão</n>
+  <e>Praça da Rua 7</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Pode Vir que tem</n>
+  <e>Rua Juiz Jorge Salomão, 347</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Cueca Maneira</n>
+  <e>Rua D. Francisca</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Engenho Novo</b>
+  <n>Bloco 2 de Maio</n>
+  <e>Rua 2 de Maio, 246</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Acadêmicos do Engenho de Dentro</n>
+  <e>Rua Venâncio Ribeiro</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Cascadura</b>
+  <n>Rebola Preta de Cascadura</n>
+  <e>Rua Barbosa</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Sorriso de Criança</n>
+  <e>Rua Carbonita</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Bloco da vaca de Braz de Pina</n>
+  <e>Praça Arapogi</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Peru Crescido</n>
+  <e>Rua Carolina Machado, entre a Liberata Santos e Emília Ribeiro</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Anchieta</b>
+  <n>Suvaco de Cobra</n>
+  <e>Rua General Augusto Sisson, esquina com Capitão Paulo</e>
+  <h>14</h>
+  <d>21/02/2012</d>
+  <b>Anchieta</b>
+  <n>Boi de Anchieta</n>
+  <e>Praça Nossa Senhora de Nazaré</e>
+  <h>12</h>
+  <d>21/02/2012</d>
+  <b>Flamengo</b>
+  <n>Cachorro Cansado</n>
+  <e>Praça José de Alencar</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Sorri pra mim</n>
+  <e>Av. 28 de setembro, esquina com Visconde de Abaéte</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Pipa Avoada</n>
+  <e>Av. 28 de setembro, esquina com Visconde de Abaéte</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Mulheres da Vila</n>
+  <e>Rua Gonzaga Bastos, esquina com 28 de setembro</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Tijuca</b>
+  <n>Se me der, eu como!</n>
+  <e>Praça Medalha Milagrosa</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda Haddock</n>
+  <e>Praça Afonso Pena</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda do Largo da 2ª Feira</n>
+  <e>Rua Conde de Bonfim, nº 25 - Bar baby Moon</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Tijuca</b>
+  <n>Banda da Saens Pena</n>
+  <e>Praça Saens Pena / General Roca</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Grajaú</b>
+  <n>Foliões do Verdun</n>
+  <e>Largo do Verdun</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Móveis</n>
+  <e>Avenida Atlântica esquina com Souza Lima no calçadão</e>
+  <h>15</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Os Imóveis</n>
+  <e>Rua Souza Lima, em frente ao nº 121</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Katuca que ela pula</n>
+  <e>Rua Euclides da Rocha, 421</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Harmonia de Copacabana</n>
+  <e>Av. Atliantica, esquina com Siqueira Campos</e>
+  <h>15</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Galinha do Meio-Dia</n>
+  <e>Avenida Atlântica, esquina com Princesa Isabel</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Clube do Samba</n>
+  <e>Av. Atlântica, em frente a Santa Clara</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Cabeça de Chave</n>
+  <e>Rua Duvivier, entre Atlantica e Nossa Senhora de Copacabana</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Sá Ferreira</n>
+  <e>Rua Sá Ferreira, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda do Peru Pelado</n>
+  <e>Avenida Atlântica, esquina com República do Peru</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Leme</b>
+  <n>Meu bem, volto já!</n>
+  <e>Avenida Princesa Isabel, Praça Demétrio Ribeiro</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda da Bolívar</n>
+  <e>Rua Bolívar, esquina com Avenida Atlântica</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Braguinha</n>
+  <e>Avenida Atlântica, em frente ao Copacabana Palace</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Copacabana</b>
+  <n>Banda Atlântica</n>
+  <e>Av. Atlântica, esquina com Constante Ramos</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Carmelitas</n>
+  <e>Rua Almirante Alexandrino</e>
+  <h>1</h>
+  <d>21/02/2012</d>
+  <b>Lapa</b>
+  <n>Acadêmicos dos Arcos</n>
+  <e>Rua Mem de Sá, esquina com Ladeira de Santa Teresa</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Centro</b>
+  <n>Banda do Jorge</n>
+  <e>Largo da carioca</e>
+  <h>11</h>
+  <d>21/02/2012</d>
+  <b>Centro</b>
+  <n>Banda das Quengas</n>
+  <e>Rua Washigton Luiz s/nº</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Centro</b>
+  <n>Banda da Inválidos</n>
+  <e>Rua dos Inválidos, 138</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Banda do Bairro de Fátima</n>
+  <e>Praça Aguirre Cerda</e>
+  <h>1</h>
+  <d>21/02/2012</d>
+  <b>Bairro de Fátima</b>
+  <n>Banda da Amizade</n>
+  <e>Rua Tadeu Kosciusko</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Catete</b>
+  <n>Largo do machado, mas não largo do copo</n>
+  <e>Largo do Machado</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Madureira</b>
+  <n>Amigos do Tatuzão</n>
+  <e>Rua Carvalho de Souza, entre a Rua Maria Freitas e a Ministro Edgard Romero</e>
+  <h>2</h>
+  <d>21/02/2012</d>
+  <b>Catete</b>
+  <n>Bloco ASPA</n>
+  <e>Rua Pedro Américo, 363</e>
+  <h>18</h>
+  <d>21/02/2012</d>
+  <b>Botafogo</b>
+  <n>Só pra ver no que vai dar</n>
+  <e>Arnaldo Quintela esquina com Oliveira Fausto</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Botafogo</b>
+  <n>É tudo ou nada?!</n>
+  <e>Rua Humaitá, 80</e>
+  <h>15</h>
+  <d>21/02/2012</d>
+  <b>Botafogo</b>
+  <n>Desculpa para beber</n>
+  <e>Estacionamento da Cobal do Humaitá</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Taquara</b>
+  <n>Jacaré Folia</n>
+  <e>Praça Orleans</e>
+  <h>19</h>
+  <d>21/02/2012</d>
+  <b>Recreio</b>
+  <n>Alegria do Recreio</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Praça Seca</b>
+  <n>União das Raças</n>
+  <e>Rua Candido Benício, em frente ao Bosque da Praça</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Freguesia</b>
+  <n>Empurra que entra</n>
+  <e>Estrada 3 Rios, entre a Rua Xingu e o Largo da Freguesia (PARADO)</e>
+  <h>16</h>
+  <d>21/02/2012</d>
+  <b>Freguesia</b>
+  <n>Banda da Freguesia</n>
+  <e>Largo da Freguesia</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Barra da Tijuca</b>
+  <n>Entorta, mas não cai!</n>
+  <e>Av. Lucio Costa, em frente ao nº 4000</e>
+  <h>17</h>
+  <d>21/02/2012</d>
+  <b>Madureira</b>
+  <n>Fome Zero</n>
+  <e>Rua Dagmar da Fonseca</e>
+  <h>16</h>
+  <d>22/02/2012</d>
+  <b>Recreio</b>
+  <n>Oba Oba do Recreio</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>18</h>
+  <d>22/02/2012</d>
+  <b>Largo do Machado</b>
+  <n>Batuque das Meninas</n>
+  <e>Largo do Machado</e>
+  <h>17</h>
+  <d>22/02/2012</d>
+  <b>Gávea</b>
+  <n>Me Beija Que Sou Cineasta</n>
+  <e>Praça Santos Dummont</e>
+  <h>12</h>
+  <d>22/02/2012</d>
+  <b>Santa Teresa</b>
+  <n>Me enterra na quarta</n>
+  <e>Ladeira do Castro</e>
+  <h>17</h>
+  <d>22/02/2012</d>
+  <b>Lapa</b>
+  <n>Planta na Mente</n>
+  <e>Rua Joaquim Silva, em frente a Escadaria Selarón</e>
+  <h>17</h>
+  <d>22/02/2012</d>
+  <b>Centro</b>
+  <n>Apuração dos Embaixadores da Folia</n>
+  <e>Av. Gomes Freire, nº 533</e>
+  <h>18</h>
+  <d>22/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Chave de Ouro</n>
+  <e>Rua Adolfo Bergamini</e>
+  <h>14</h>
+  <d>23/02/2012</d>
+  <b>Cinelândia</b>
+  <n>Voltar pra quê?</n>
+  <e>Rua Álvaro Alvim</e>
+  <h>21</h>
+  <d>24/02/2012</d>
+  <b>Lapa</b>
+  <n>Só Tamborins</n>
+  <e>Travessa Mosquera</e>
+  <h>2</h>
+  <d>24/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>25/02/2012</d>
+  <b>Centro</b>
+  <n>Vaca atolada dos Embaixadores da Folia</n>
+  <e>Av. Gomes Freire, nº 533</e>
+  <h>18</h>
+  <d>25/02/2012</d>
+  <b>Gamboa</b>
+  <n>OBA - Organização Bons Amigos</n>
+  <e>Largo João da Bahiana</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Lapa</b>
+  <n>Berço do Samba</n>
+  <e>Travessa Mosquera</e>
+  <h>2</h>
+  <d>25/02/2012</d>
+  <b>Lapa</b>
+  <n>Boêmios da Senado</n>
+  <e>Rua do Senado, em frente ao 206</e>
+  <h>17</h>
+  <d>25/02/2012</d>
+  <b>Lapa</b>
+  <n>Quizomba</n>
+  <e>Praça Cardeal Câmara (Circo Voador)</e>
+  <h>11</h>
+  <d>25/02/2012</d>
+  <b>Rio Comprido</b>
+  <n>Papudinho do Rio Comprido</n>
+  <e>Praça Condessa Paulo de Frontin</e>
+  <h>12</h>
+  <d>25/02/2012</d>
+  <b>São Conrado</b>
+  <n>Ai, que Vergonha!</n>
+  <e>Prefeito Mendes de Moraes, proximo ao Hotel Nacional</e>
+  <h>18</h>
+  <d>25/02/2012</d>
+  <b>Leblon</b>
+  <n>Mulheres de Chico</n>
+  <e>Final da Praia do Leblon, na areia</e>
+  <h>17</h>
+  <d>25/02/2012</d>
+  <b>Ipanema</b>
+  <n>Bafafá</n>
+  <e>Praia de Ipanema, em frente ao Posto 9</e>
+  <h>15</h>
+  <d>25/02/2012</d>
+  <b>Flamengo</b>
+  <n>Caldo Beleza</n>
+  <e>Praça Marinha do Brasil</e>
+  <h>17</h>
+  <d>25/02/2012</d>
+  <b>Copacabana</b>
+  <n>Tá cheio de maluco aí</n>
+  <e>Rua Euclides da Rocha</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Copacabana</b>
+  <n>Sufridos de Copacabana</n>
+  <e>Praça Manoel Campos da Paz</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Bento Ribeiro</b>
+  <n>Largo da Mulher, mas não largo da cerveja</n>
+  <e>Largo do Respeito</e>
+  <h>2</h>
+  <d>25/02/2012</d>
+  <b>Engenho de Dentro</b>
+  <n>Sepulta Carnaval</n>
+  <e>Ana Leonídia esquina com Dr. Bulhões</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Penha</b>
+  <n>Banda Devassa</n>
+  <e>Rua Patagônia</e>
+  <h>17</h>
+  <d>25/02/2012</d>
+  <b>Botafogo</b>
+  <n>Sem saída</n>
+  <e>Praça Ozanan</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Botafogo</b>
+  <n>Pela Saco</n>
+  <e>Praça Corumbá</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Recreio</b>
+  <n>Ninguém é dono de ninguém</n>
+  <e>Av. Lucio Costa, em frente ao Posto 10</e>
+  <h>16</h>
+  <d>25/02/2012</d>
+  <b>Santíssimo</b>
+  <n>Caldeirão do Coqueiro</n>
+  <e>Praça do Coqueiro</e>
+  <h>18</h>
+  <d>25/02/2012</d>
+  <b>Taquara</b>
+  <n>Jacaré Folia</n>
+  <e>Praça Orleans</e>
+  <h>19</h>
+  <d>26/02/2012</d>
+  <b>Pilares</b>
+  <n>Balaco Bloco</n>
+  <e>Rua Alfredo de Souza Mendes</e>
+  <h>17</h>
+  <d>26/02/2012</d>
+  <b>Riachuelo</b>
+  <n>Furukuteu</n>
+  <e>Rua Magalhães Castro, esquina com Francisco Bernardino</e>
+  <h>17</h>
+  <d>26/02/2012</d>
+  <b>Braz de Pina</b>
+  <n>Bloco da vaca de Braz de Pina</n>
+  <e>Praça Arapogi</e>
+  <h>19</h>
+  <d>26/02/2012</d>
+  <b>Recreio</b>
+  <n>Tô no Recreio</n>
+  <e>Avenida Lucio Costa, em frente ao Posto 10</e>
+  <h>16</h>
+  <d>26/02/2012</d>
+  <b>Ipanema</b>
+  <n>Galinha do Meio-Dia</n>
+  <e>Pedra do Arpoador</e>
+  <h>1</h>
+  <d>26/02/2012</d>
+  <b>Ipanema</b>
+  <n>Conjunto Habitacional Barangal</n>
+  <e>Avenida Vieira Souto, em frente ao Posto 9</e>
+  <h>12</h>
+  <d>26/02/2012</d>
+  <b>Vila Isabel</b>
+  <n>Bloco Cultural 7 de Paus</n>
+  <e>Rua Visconde de Abaeté, esquina com 28 de Setembro</e>
+  <h>19</h>
+  <d>26/02/2012</d>
+  <b>Jardim Botânico</b>
+  <n>Fofoqueiros de Plantão</n>
+  <e>Rua Jardim Botânico, esquina com Pacheco Leão</e>
+  <h>11</h>
+  <d>26/02/2012</d>
+  <b>Centro</b>
+  <n>Monobloco</n>
+  <e>Avenida Rio Branco, esquina com Presidente Vargas</e>
+  <h>9</h>
+  <d>26/02/2012</d>
+  <b>Botafogo</b>
+  <n>Boka de Espuma</n>
+  <e>Rua Marques de Olinda</e>
+  <h>16</h>
+  <d>26/02/2012</d>
+  <b>Botafogo</b>
+  <n>Fanfarani</n>
+  <e>Praça Chaim Waisman</e>
+  <h>16</h>
+  <d>26/02/2012</d>
+  <b>Copacabana</b>
+  <n>Broxadão a hora é essa</n>
+  <e>Av. Atliantica, esquina com Figueiredo Magalhães</e>
+  <h>14</h>
+  <d>26/02/2012</d>
+  <b>Leblon</b>
+  <n>Galinha do Meio-Dia</n>
+  <e>Av. Delfim Moreira, em frente ao Hotel Marina Palace</e>
+  <h>16</h>
+  <d>28/01/2012</d>
+  <b>Centro</b>
+  <n>Embaixada das Caricatas</n>
+  <e>Praça da República</e>
+  <h>16</h>
+  <d>28/01/2012</d>
+  <b>Tijuca</b>
+  <n>Raízes da Tijuca</n>
+  <e>Rua General Rocca</e>
+  <h>17</h>
+  <d>29/01/2012</d>
+  <b>Botafogo</b>
+  <n>Só Caminha</n>
+  <e>Largo dos Leões</e>
+  <h>14</h>
+</root>
